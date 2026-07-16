@@ -1,0 +1,209 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx} % Indispensable pour insérer des images
+\usepackage{geometry}
+
+% Définition des marges
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering 
+    
+
+    \includegraphics[height=2.5cm]{images/Logoum.png}
+    \vspace{1cm} 
+    \hspace{0.5cm} 
+    \includegraphics[height=2.5cm]{images/ssdlogo.png}
+    
+    \vspace{1.5cm}
+    
+    {\Large \textsc{MASTER II STATISTIQUES ET SCIENCES DES DONNÉES}}\\[0.5cm]
+    {\large \textbf{Parcours Biostatistique}}
+    
+    \vspace{0.8cm}
+    
+    \rule{\linewidth}{0.5pt}
+    \vspace{0.25cm}
+    
+    {\LARGE \textbf{ Identification des déterminants génétiques de la pathogénicité de la dengue\\[0.2cm]}}
+    
+    \vspace{0.25cm}
+    \rule{\linewidth}{0.5pt}
+    
+    \vspace{1.2cm}
+    
+    \textbf{Présenté par :}\\
+    Damien MARIAC\\[0.8cm]
+    
+    \textbf{Encadré par :}\\
+    Vincent PEDERGNANA\\[0.8cm]
+
+    \textbf{Tuteur FdS :}\\
+    Ludovic Menneteau\\[0.8cm]
+
+    \textbf{Jury :}\\
+    Élodie BRUNEL-PICCININI\\
+    Xavier BRY\\
+    Benoite DE SAPORTA\\[1cm]
+    
+    \textbf{Année universitaire 2025-2026}
+    
+    \vfill
+    
+
+    \includegraphics[height=3cm]{images/irdlogo.png} \hfill
+    \includegraphics[height=3cm]{images/mivegeclogo.png} \hfill
+    
+\end{titlepage}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Environnement}
+Bla bla sur la laboratoire et sur l'UMR MIVEGEC.
+
+% 1 page NE PAS OUBLIER DE SUPPRIMER LE FICHIER AIDE
+% Demander au tuteur de stage si je peux mettre ma participation au financement d'une ED.
+
+% Re aligner avec le virus H77 NCBI
+
+% 5.4 application sur le jeu de la DENV
+
+% Perspective thèSE = nouveau codage (profondeur)
+
+% Gamma lien  ;
+
+\newpage
+\section{Context}
+\subsection{Context du sujet}
+D'un individus à un autre, les symptômes d'une infection virale peuvent varier allant d'une absence de symptômes à des formes sévères.
+Cette variabilité est en partie due à la diversité génétique de l'hôte et du virus.
+L'objectif de cette étude est de proposer de nouveaux modèle permettant de faciliter l'étude d'associations entre les variants génétiques de l'hôte et les mutations virales, afin de mieux comprendre les mécanismes des réponses immunitaires.
+\\
+\\
+Historiquement, les études d'association sont menées sur les symptomes eux mêmes. Mais ceux-ci sont souvent largement influencés par des facteurs tel que l'environnement, l'alimentation ou les habitudes physique. 
+\\
+\\
+Il existe depuis quelques années une variante de cette approche qui consiste à considerer le code génétique du virus comme symptome. L'idée est que les mutations virales sont le reflet de la pression de sélection exercée par le système immunitaire de l'hôte. Ainsi, en identifiant les variants génétiques de l'hôte associés à certaines mutations virales, on peut obtenir des informations sur les mécanismes immunitaires impliqués dans la réponse à l'infection.
+\\
+\\
+Ce qui fait toute la difficulté de cette approche est la haute dimensionnalité des données. En effet, on a du côté des hôtes des centaines de milliers de variants génétiques et du côté des virus des centaines de mutations après avoir filtré les sites dépassant un certain taux de variabilité.
+\\
+De plus, les individus issus de régions géographiques et d'ethnies différentes présentent des différences génétiques ce qui biaisent les résultats d'association. Il est donc nécessaire de prendre en compte la structure de population des hôtes.
+Mais il est également nécessaire de prendre en compte la structure de population des virus. En effet, les virus issus d'une même région géographique ou d'une même lignée évolutive partagent des mutations communes. Il est donc nécessaire de prendre en compte la structure de population des virus.
+
+\subsection{Context biologique}
+
+Le virus est une entité biologique qui ne peut pas se reproduire par elle-même. Il a besoin d'un hôte pour se multiplier et se propager. Il est constitué d'une coque qui protège son matériel génétique, qui peut etre de l'ADN ou de l'ARN.
+La nature du support de l'information ADN ou ARN dicte la réplication, ce qui a un impact majeur sur sa diversité génétique. De ce fait, les virus à ARN ont un taux de mutation beaucoup plus élevé que les virus à ADN.
+Cela est dû au fait que l'ARN polymérase, l'enzyme responsable de la réplication de l'ARN, n'a pas de mécanisme de correction d'erreurs contrairement à l'ADN polymérase. Cette haute variance est fondamentale : elle permet au virus de s'adapter très rapidement pour trouver des solutions face aux défenses de l'hôte.
+\\
+\\
+Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C dont on a déjà identifié des liaisons afin de pouvoir l'étendre sur le virus de la dengue. Ce sont tous deux des virus à ARN qui présentent une grande diversité génétique.
+
+\subsection{Extraction des données}
+
+
+\newpage
+\section{Préparation des données}
+
+\subsection{Alignement}
+
+\subsection{Traitement des valeurs manquantes}
+
+
+\newpage
+\section{Modélisation statistique}
+\subsection{Modèle "classique"}
+
+Le modèle d'association de (article)[1], on cherche à modéliser la probabilité d'une mutation virale en fonction d'un SNP de l'hôte et de covariables telles que l'âge et le sexe.
+Pour cela, ils effectuent une régression logistique pour chaque paire SNP-mutation virale.
+Afin de pouvoir corriger la structure de la population des hôtes, ils ont rajouté les composantes principales de l'hôte et du virus en tant que covariables dans le modèle.
+\\
+\\
+En effet, les premières composantes principales de l'hôte capture l'éthnie des individus (article)[2] et les premières composantes principales du virus capture le lieu géographique d'où provient le virus (article)[3]
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/ACPvirusall.png}
+        \caption{PC1 et PC2 du virus par pays}
+        \label{ACP VIRUS}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/ACPhoteall.png}
+        \caption{PC1 et PC2 de l'hôte par ethnie}
+        \label{ACP HOTE}
+    \end{subfigure}
+\end{figure}
+
+Leur choix a été de prendre les 10 premières composantes principales de l'hôte et les 5 première du virus en tant que effet fixe.
+Mais il est possible que ce choix ne soit pas optimal car ceux ci ne capture que respectivement $a\%$ et $12 \%$ de variance cumulé.
+\\
+\\
+Finalement, le modèle est le suivant :
+\[
+logit(P(Y_i = 1 )) = \alpha_i + \beta_{ij} SNP_j + PChôte_1 + \dots + PChôte_{10} + PCvirus_1 + \dots + PCvirus_5
+\]
+
+On extrait ensuite les p-values associées à chaque SNP de l'hôte. Mais comme on effectue les regressions de façon indépendante pour chaque SNP, il est nécessaire de corriger les p-values pour le nombre de tests effectués pour limiter le risque de faux positifs.
+Pour cela, on utilise la correction de Bonferroni qui est d'un niveau de significativité de $\alpha = 10^{-8}$.
+\\
+\\
+L'inconvenient de ce modèle est qu'il ne prend pas en compte plus d'information sur la structure de la population des hôtes et des virus en ne prennant que quelques composantes principales.
+De plus, la correction de bonferroni est très conservatrice et peut ignorer du signal. Il est donc nécessaire de trouver un modèle plus adapté à ce type de données.
+
+\subsubsection{Limites du modèle "classique"}
+
+
+\subsection{Modèle avec dépendances Graph Fused Lasso}
+\subsubsection{Optimisation du modèle - Algorithme FISTA}
+
+
+\subsection{Modèle avec effets aléatoires}
+
+\subsubsection{Estimation - Test du score de Rao}
+
+
+
+\newpage
+\section{Résultats et discussion}
+\subsection{Choix du codage}
+\subsection{Comparaison des modèles}
+\subsection{Performances du modèle retenu}
+
+
+\newpage
+\section{Conclusion et perspectives}
+
+
+\newpage
+\section{Annexes}
+\subsection{Annexe 1}
+
+\newpage
+\section{Bibliographie}
+
+
+
+\end{document}
