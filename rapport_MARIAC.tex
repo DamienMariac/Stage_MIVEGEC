@@ -132,6 +132,7 @@ Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C d
 \newpage
 \section{Modélisation statistique}
 
+% expliquer pourquoi un modèle supervisé est nécessaire pour ce type de données
 
 \subsubsection{Modèle d'association ``classique''}
 
@@ -265,12 +266,14 @@ seuil fixé. La Figure~\ref{fig:heatmap}
 représente cette matrice sous forme de heatmap, où les valeurs proches de 1
 sont en rouge et celles proches de 0 en jaune.
 
-% \begin{figure}[htbp]
-%     \centering
-%     \includegraphics[width=0.7\textwidth]{images/heatmap_correlation.png}
-%     \caption{Matrice de corrélation entre sites viraux.}
-%     \label{fig:heatmap}
-% \end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{images/heatmapcorr.png}
+    \caption{Matrice de corrélation entre sites viraux sous forme de heatmap.}
+    \label{fig:heatmap}
+\end{figure}
+
 
 \subsubsection{Choix des paramètres de régularisation}
 
@@ -283,26 +286,172 @@ ainsi $\lambda_1 = XX$ et $\lambda_2 = XX$.
 
 \subsubsection{Optimisation du modèle : algorithme FISTA}
 
-Le problème d'optimisation est résolu par l'algorithme FISTA (Fast Iterative
-Shrinkage-Thresholding Algorithm) \cite{ref4}, une méthode itérative adaptée
-aux problèmes convexes dont la fonction de coût comporte une partie
-différentiable (ici la log-vraisemblance logistique) et une partie non
-différentiable (ici les pénalités $\ell_1$ et de fusion sur graphe).
+L'estimation des coefficients du modèle revient à minimiser la fonction
+objectif présentée précédemment, qui se décompose en une partie lisse et une
+partie non lisse :
+\[
+F(\boldsymbol{\beta}) = \underbrace{f(\boldsymbol{\beta})}_{\text{log-vraisemblance logistique}}
++ \underbrace{g(\boldsymbol{\beta})}_{\text{pénalités}}, \qquad
+g(\boldsymbol{\beta}) = \lambda_1 \sum_{i=1}^{p} |\beta_{ij}|
++ \lambda_2 \sum_{(i,i') \in E} w_{ii'} \, |\beta_{ij} - \beta_{i'j}|
+\]
 
-En effet, à chaque itération, FISTA effectue un pas de descente de gradient
-sur la partie différentiable de la fonction de coût, puis applique un
-opérateur proximal à la partie non différentiable pour imposer la sparsité
-et l'homogénéité des coefficients sur le graphe. Un terme d'accélération de
-type Nesterov est ensuite ajouté, ce qui permet à FISTA de converger plus
-rapidement que l'algorithme ISTA classique, tout en conservant sa simplicité
-d'implémentation.
+où $f$ est convexe et différentiable, mais où $g$ est convexe et non
+différentiable en raison des valeurs absolues. Cette fonction ne possède pas
+de solution analytique et doit donc être minimisée numériquement.
+
+Pour cela, nous utilisons l'algorithme FISTA (Fast Iterative
+Shrinkage-Thresholding Algorithm) \cite{ref4}, particulièrement adapté aux
+problèmes de la forme $\min_{\boldsymbol\beta} f(\boldsymbol\beta) +
+g(\boldsymbol\beta)$ lorsque $f$ est différentiable à gradient
+$L$-Lipschitzien et $g$ admet un opérateur proximal calculable. C'est la
+méthode principalement utilisée dans les packages R qui implémentent les
+modèles de type Lasso.
+
+\vspace{1cm}
+
+\paragraph{Étape de descente de gradient.}
+À chaque itération $k$, l'algorithme réalise d'abord un pas de gradient sur
+la partie lisse $f$, évalué non pas en $\boldsymbol\beta_k$ mais en un point
+extrapolé $\mathbf{y}_k$ :
+\[
+\mathbf{z}_k = \mathbf{y}_k - \frac{1}{L} \nabla f(\mathbf{y}_k)
+\]
+où $\nabla f(\mathbf{y}_k)$ est le gradient de la log-vraisemblance
+logistique, de la forme $\mathbf{X}^\top (\mathbf{p}(\mathbf{y}_k) -
+\mathbf{Y})$, avec $\mathbf{p}(\mathbf{y}_k)$ le vecteur des probabilités
+prédites $\text{logit}^{-1}(\mathbf{X}\mathbf{y}_k)$, et $L$ une constante de
+Lipschitz du gradient (majorée ici par la plus grande valeur propre de
+$\mathbf{X}^\top \mathbf{X}/4$), qui fixe la taille du pas.
+
+\paragraph{Étape de seuillage (opérateur proximal).}
+Le point $\mathbf{z}_k$ est ensuite projeté via l'opérateur proximal de $g$,
+défini par :
+\[
+\text{prox}_{g/L}(\mathbf{z}_k) = \operatorname*{argmin}_{\boldsymbol\beta}
+\left\{ \frac{L}{2} \lVert \boldsymbol\beta - \mathbf{z}_k \rVert_2^2 +
+g(\boldsymbol\beta) \right\}
+\]
+Pour la seule pénalité $\ell_1$, cet opérateur a une solution explicite, le
+seuillage doux (\textit{soft-thresholding}) :
+\[
+\big[\text{prox}_{\lambda_1/L \, \lVert \cdot \rVert_1}(z)\big]_i
+= \text{sign}(z_i) \, \max\big(|z_i| - \lambda_1/L,\; 0\big)
+\]
+qui annule progressivement les coefficients de faible amplitude, ce qui
+permet de sélectionner uniquement les mutations virales les plus associées
+au SNP étudié. En présence de la pénalité de fusion sur graphe, l'opérateur
+proximal combiné $\text{prox}_{g/L}$ n'a plus de forme close et est résolu
+par %\textcolor{red}{[préciser : solveur dédié / ADMM interne / dual path  algorithm, selon votre implémentation]}.
+
+\paragraph{Étape d'accélération.}
+Enfin, FISTA ajoute une étape d'extrapolation de type Nesterov, en combinant
+les deux dernières estimations $\boldsymbol\beta_k$ et
+$\boldsymbol\beta_{k-1}$ :
+\[
+\boldsymbol\beta_k = \text{prox}_{g/L}(\mathbf{z}_k), \qquad
+t_{k+1} = \frac{1 + \sqrt{1 + 4 t_k^2}}{2}, \qquad
+\mathbf{y}_{k+1} = \boldsymbol\beta_k + \frac{t_k - 1}{t_{k+1}}
+\left(\boldsymbol\beta_k - \boldsymbol\beta_{k-1}\right)
+\]
+avec $t_1 = 1$ et $\mathbf{y}_1 = \boldsymbol\beta_0$. Cette accélération
+permet d'obtenir une vitesse de convergence en $\mathcal{O}(1/k^2)$, contre
+$\mathcal{O}(1/k)$ pour l'algorithme ISTA classique (sans extrapolation),
+tout en conservant une implémentation relativement simple. Cette propriété
+est particulièrement intéressante dans notre contexte, où le modèle doit
+être estimé pour un très grand nombre de SNPs et de sites viraux.
+
+\vspace{1cm}
+
+Cepandant, dans le contexte de très haute dimensionnalité des données, l'algorithme FISTA
+met un temps de calcul très long pour converger.
+\\
+\\
+En effet, après avoir testé sur un sous-ensemble de données afin de pouvoir estimer 
+le temps d'implémentation sur l'ensemble des données, on a pu constater un temps de calcul
+de plusieurs mois pour l'ensemble du jeu de données.
+\\
+\\
+De plus, l'algorithme FISTA ne peut pas être parallélisé du à la dépendance entre les sites qui impose de calculer les coefficients simultanément.
+\\
+\\
+Il est donc nécessaire de trouver une alternative à cette approche afin de pouvoir estimer le modèle sur l'ensemble des données.
+
+\vspace{1cm}
 
 \subsection{Modèle avec effets aléatoires}
 
+Le modèle GFL présenté précédemment permet de prendre en compte la
+corrélation locale entre sites, mais uniquement via un graphe construit.
+Il ne modélise pas la structure globale de
+parenté génétique au sein des populations hôte et virale, pourtant décrite
+comme un facteur de confusion majeur dans les études d'interaction
+génome-à-génome \cite{fellay2020}. Une approche alternative, largement
+utilisée dans les études d'association (GWAS) classiques,
+consiste à modéliser cette structure via des \textbf{effets aléatoires},
+plutôt que par un nombre limité de composantes principales ou un graphe de
+corrélation. Cette stratégie a notamment été adaptée dans un contexte similaire par
+\cite{...} au travers de la méthode ATOMM (\textit{Adaptive Two-way Mixed Model}),
+qui introduit un effet aléatoire distinct pour l'hôte et pour le virus.
+
+
+
+En reprenant cette idée, le modèle logistique s'écrit alors comme un modèle
+mixte linéaire généralisé (GLMM) à deux effets aléatoires :
+\[
+\text{logit}\big(P(Y_i = 1)\big) = \beta_0 + W\alpha + X_j \beta_{ij}
++ \eta_v + \eta_h
+\]
+où $W\alpha$ regroupe les effets fixes (covariables telles que l'âge ou le
+sexe), $X_j \beta_{ij}$ représente l'effet du SNP $j$ sur le site viral $i$,
+et les deux effets aléatoires
+\[
+\eta_v \sim \mathcal{N}(0, \sigma^2_v K_v), \qquad
+\eta_h \sim \mathcal{N}(0, \sigma^2_h K_h)
+\]
+capturent respectivement la structure de parenté génomique du virus et de
+l'hôte, via les matrices de parenté génomique $K_v$ et $K_h$.
+\\
+Contrairement aux composantes principales, ces matrices résument l'intégralité de la
+similarité génétique entre individus (ou souches), sans perte d'information
+liée à un nombre de dimensions fixé a priori.
+
+Dans ce cadre, l'intérêt principal n'est plus seulement d'estimer les
+coefficients du modèle, mais de tester la significativité de
+l'association entre chaque SNP de l'hôte $j$ et chaque site viral $i$,
+c'est-à-dire tester "$H_0 : \beta_{ij} = 0$". Or, ce test doit être répété
+pour un très grand nombre de paires SNP--site viral, et une estimation
+classique du modèle par maximum de vraisemblance nécessiterait de réinverser
+la matrice de covariance globale à chaque test, ce qui est numériquement
+impossible à l'échelle de nos données. Il est donc nécessaire d'utiliser une
+méthode d'estimation factorisée, qui sépare l'estimation des paramètres de
+nuisance (communs à tous les tests) de celle du test d'association
+lui-même : le test du score de Rao.
+
+\vspace{1cm}
+
 \subsubsection{Estimation - Test du score de Rao}
 
+L'évaluation de chaque paires de variants (hôte, virus) implique d'ajuster le modèle mixte des millions de fois. Or, l'estimation des composantes de la variance ($\sigma^2_v$, $\sigma^2_h$) par maximum de vraisemblance nécessite l'inversion répétée de matrices de grande dimension, ce qui représente un coût computationnel important.
+\\
+\\
+Concrètement, la procédure se déroule en deux étapes :
+\begin{enumerate}
+    \item \textbf{Ajustement sous $H_0$} : On force le coefficient d'intérêt $\beta_{ij}$ à $0$. Le modèle nul ne contenant que l'intercept, les covariables et les effets aléatoires est ajusté une seule fois par phénotype viral pour estimer les paramètres de nuisance et les composantes de la variance.
+    \item \textbf{Calcul du score} : Pour chaque variant de l'hôte $j$, on évalue le gradient de la log-vraisemblance au point $\beta_{ij} = 0$. Si ce gradient est significativement éloigné de zéro, l'hypothèse nulle est rejetée, indiquant une association entre $X_j$ et $Y_i$.
+\end{enumerate}
 
+Cette méthode permet d'éviter le réajustement des effets aléatoires pour chaque SNP testé, réduisant ainsi drastiquement la complexité algorithmique tout en conservant une grande robustesse statistique.
+\\
+\\
+La contre partie de ce test est qu'il ne fournit pas d'estimation directe de l'effet $\beta_{ij}$, mais uniquement une statistique de test et une p value associée. Cependant, dans le contexte d'une étude exploratoire visant à identifier des associations potentielles, cette limitation est acceptable.
+\\
+Néanmoins, pour les associations les plus prometteuses, il est possible de réajuster le modèle complet afin d'obtenir des estimations précises des effets et de leurs intervalles de confiance.
+\\
+\\
+Il existe quand même des façons d'obtenir une estimation de l'effet $\beta_{ij}$ à l'aide des p-values. % à completer car je ne m'en souviens plus
 
+\vspace{1cm}
 \newpage
 \section{Résultats et discussion}
 \subsection{Choix du codage}
