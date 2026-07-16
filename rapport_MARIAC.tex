@@ -131,54 +131,171 @@ Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C d
 
 \newpage
 \section{Modélisation statistique}
-\subsection{Modèle "classique"}
 
-Le modèle d'association de (article)[1], on cherche à modéliser la probabilité d'une mutation virale en fonction d'un SNP de l'hôte et de covariables telles que l'âge et le sexe.
-Pour cela, ils effectuent une régression logistique pour chaque paire SNP-mutation virale.
-Afin de pouvoir corriger la structure de la population des hôtes, ils ont rajouté les composantes principales de l'hôte et du virus en tant que covariables dans le modèle.
-\\
-\\
-En effet, les premières composantes principales de l'hôte capture l'éthnie des individus (article)[2] et les premières composantes principales du virus capture le lieu géographique d'où provient le virus (article)[3]
 
+\subsubsection{Modèle d'association ``classique''}
+
+Le modèle proposé par \cite{ref1} vise à modéliser la probabilité d'une mutation
+virale en fonction d'un SNP de l'hôte et de covariables telles que l'âge et le
+sexe. Pour un site viral et un SNP donnés, une régression logistique est ajustée
+indépendamment, et ce pour l'ensemble des paires SNP--site viral.
+
+Afin de corriger la structure de population, les auteurs incluent les composantes
+principales (CP) de l'hôte et du virus comme effets fixes. En effet, les
+premières CP de l'hôte capturent l'origine ethnique des individus \cite{ref2},
+et les premières CP du virus capturent l'origine géographique des souches
+\cite{ref3} (Figure~\ref{fig:acp}).
+
+
+% REFAIRE GRAPH
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/ACPvirusall.png}
-        \caption{PC1 et PC2 du virus par pays}
-        \label{ACP VIRUS}
+        \caption{PC1 et PC2 du virus, par pays}
+        \label{fig:acp-virus}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.5\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/ACPhoteall.png}
-        \caption{PC1 et PC2 de l'hôte par ethnie}
-        \label{ACP HOTE}
+        \caption{PC1 et PC2 de l'hôte, par ethnie}
+        \label{fig:acp-hote}
     \end{subfigure}
+    \caption{Structure de population capturée par l'ACP.}
+    \label{fig:acp}
 \end{figure}
 
-Leur choix a été de prendre les 10 premières composantes principales de l'hôte et les 5 première du virus en tant que effet fixe.
-Mais il est possible que ce choix ne soit pas optimal car ceux ci ne capture que respectivement $a\%$ et $12 \%$ de variance cumulé.
-\\
-\\
-Finalement, le modèle est le suivant :
+Les auteurs retiennent les 10 premières CP de l'hôte et les 5 premières du
+virus. Ce choix reste discutable : ces composantes ne capturent respectivement
+que XX\,\% et 12\,\% de la variance cumulée, ce qui suggère qu'une part
+importante de la structure de population n'est pas corrigée.
+
+Le modèle s'écrit finalement, pour un SNP $j$ et un site viral $i$ fixés :
 \[
-logit(P(Y_i = 1 )) = \alpha_i + \beta_{ij} SNP_j + PChôte_1 + \dots + PChôte_{10} + PCvirus_1 + \dots + PCvirus_5
+\text{logit}\big(P(Y_i = 1)\big) = \beta_0 + \beta_{ij}\, SNP_j
++ \sum_{k=1}^{10} \gamma_k\, PC^{h\^ote}_k + \sum_{l=1}^{5} \delta_l\, PC^{virus}_l
 \]
 
-On extrait ensuite les p-values associées à chaque SNP de l'hôte. Mais comme on effectue les regressions de façon indépendante pour chaque SNP, il est nécessaire de corriger les p-values pour le nombre de tests effectués pour limiter le risque de faux positifs.
-Pour cela, on utilise la correction de Bonferroni qui est d'un niveau de significativité de $\alpha = 10^{-8}$.
-\\
-\\
-L'inconvenient de ce modèle est qu'il ne prend pas en compte plus d'information sur la structure de la population des hôtes et des virus en ne prennant que quelques composantes principales.
-De plus, la correction de bonferroni est très conservatrice et peut ignorer du signal. Il est donc nécessaire de trouver un modèle plus adapté à ce type de données.
-
-\subsubsection{Limites du modèle "classique"}
+Une p-value est extraite pour chaque test SNP--site viral. Les tests étant
+menés indépendamment sur un très grand nombre de paires, une correction pour
+tests multiples est nécessaire afin de limiter les faux positifs : les
+auteurs utilisent une correction de Bonferroni, avec un seuil de
+significativité $\alpha = 10^{-8}$.
 
 
-\subsection{Modèle avec dépendances Graph Fused Lasso}
-\subsubsection{Optimisation du modèle - Algorithme FISTA}
+Afin de pouvoir représenter les résultats, on peut construire un \textit{Manhattan plot}.
+Celui-ci est un graphique qui représente les p-values de chaque SNPpour un site viral donné.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{images/manhattanplot.png}
+    \caption{Manhattan plot pour un site viral donné.}
+    \label{fig:manhattan}
+\end{figure}
+
+\newpage
+\subsubsection{Limites du modèle ``classique''}
+
+Ce modèle présente plusieurs limites ce qui motivent le développement d'une
+approche plus adaptée à ce type de données.
+
+D'abord, il ne capture qu'une fraction de la structure de population : se
+limiter à quelques composantes principales, en plus d'ignorer une part
+importante de la variance, ne permet pas de représenter plus précisément la
+dépendance génétique entre individus (côté hôte) ou entre souches (côté
+virus).
+
+Ensuite, il ignore la corrélation entre sites : les mutations virales peuvent
+être corrélées entre elles du fait de leur proximité structurale
+(conformation 3D de la protéine), et les SNPs de l'hôte proches sur le génome
+sont corrélés par déséquilibre de liaison. Ne pas modéliser ces dépendances
+revient à traiter chaque test comme indépendant alors qu'il ne l'est pas,
+ce qui biaise l'estimation de la significativité.
+
+Puis, la correction de Bonferroni, en supposant l'indépendance des tests,
+est très conservatrice dans ce contexte de forte corrélation : elle risque
+d'écraser un signal réel, en particulier étant donné la très haute
+dimensionnalité des données (des millions de tests SNP--site viral).
+  
+\vspace{0.5cm}
+
+\subsection{Modèle avec dépendances : Graph Fused Lasso}
+
+Un modèle de type Graph Fused Lasso (GFL) permettrait de pouvoir palier au problème de la corrélation entre sites.
+Celui-ci reprend le modèle logistique
+précédent, mais ajoute deux pénalisations sur les coefficients
+$\beta_{ij}$~: une pénalité de type Lasso, qui contraint les coefficients à
+être nuls si le SNP $j$ n'est pas suffisamment associé au site viral $i$, et
+une pénalité de fusion sur graphe, qui contraint les coefficients à être
+similaires lorsque les sites viraux $i$ et $i'$ sont corrélés.
+
+Le modèle s'écrit alors, pour un SNP $j$ fixé :
+\[
+\hat{\boldsymbol{\beta}}_{\cdot j} = \operatorname*{argmin}_{\boldsymbol{\beta}_{\cdot j}}
+\left\{ -\sum_{i=1}^{p} \ell_i(\beta_{ij}) 
++ \lambda_1 \sum_{i=1}^{p} |\beta_{ij}|
++ \lambda_2 \sum_{(i,i') \in E} w_{ii'} \, |\beta_{ij} - \beta_{i'j}| \right\}
+\]
+
+où $\ell_i(\beta_{ij})$ est la log-vraisemblance logistique associée au site
+viral $i$, $E$ l'ensemble des arêtes du graphe de corrélation entre sites
+viraux, $w_{ii'}$ le poids de l'arête reliant les sites $i$ et $i'$, et
+$\lambda_1$, $\lambda_2$ les paramètres de régularisation contrôlant
+respectivement la sparsité et l'homogénéité locale des coefficients sur le
+graphe.
+
+\subsubsection{Construction du graphe de corrélation}
+
+Afin d'implémenter ce modèle, il est nécessaire de construire un graphe
+représentant les corrélations entre sites viraux. Les sites viraux étant
+binaires, ils sont supposés suivre une loi de Bernoulli, ce qui permet
+d'estimer leur corrélation de façon paramétrique. Pour deux sites viraux $i$
+et $i'$, de probabilités marginales $p_i$ et $p_{i'}$ et de probabilité
+jointe $p_{ii'} = P(Y_i = 1, Y_{i'} = 1)$, la corrélation s'écrit :
+\[
+w_{ii'} = \text{corr}(Y_i, Y_{i'}) = 
+\frac{p_{ii'} - p_i \, p_{i'}}{\sqrt{p_i (1-p_i)\, p_{i'} (1-p_{i'})}}
+\]
+
+La matrice de corrélation ainsi obtenue sert de support au graphe~: une
+arête est créée entre deux sites viraux lorsque leur corrélation dépasse un
+seuil fixé. La Figure~\ref{fig:heatmap}
+représente cette matrice sous forme de heatmap, où les valeurs proches de 1
+sont en rouge et celles proches de 0 en jaune.
+
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{images/heatmap_correlation.png}
+%     \caption{Matrice de corrélation entre sites viraux.}
+%     \label{fig:heatmap}
+% \end{figure}
+
+\subsubsection{Choix des paramètres de régularisation}
+
+Il reste à définir les paramètres de régularisation $\lambda_1$ et
+$\lambda_2$. Une validation croisée sur l'ensemble des données étant
+impossible à mettre en œuvre dans ce contexte de très haute dimensionnalité,
+elle a été réalisée sur plusieurs sous-ensembles de données, et les résultats
+ont ensuite été moyennés pour obtenir les paramètres optimaux. On obtient
+ainsi $\lambda_1 = XX$ et $\lambda_2 = XX$.
+
+\subsubsection{Optimisation du modèle : algorithme FISTA}
+
+Le problème d'optimisation est résolu par l'algorithme FISTA (Fast Iterative
+Shrinkage-Thresholding Algorithm) \cite{ref4}, une méthode itérative adaptée
+aux problèmes convexes dont la fonction de coût comporte une partie
+différentiable (ici la log-vraisemblance logistique) et une partie non
+différentiable (ici les pénalités $\ell_1$ et de fusion sur graphe).
+
+En effet, à chaque itération, FISTA effectue un pas de descente de gradient
+sur la partie différentiable de la fonction de coût, puis applique un
+opérateur proximal à la partie non différentiable pour imposer la sparsité
+et l'homogénéité des coefficients sur le graphe. Un terme d'accélération de
+type Nesterov est ensuite ajouté, ce qui permet à FISTA de converger plus
+rapidement que l'algorithme ISTA classique, tout en conservant sa simplicité
+d'implémentation.
 
 \subsection{Modèle avec effets aléatoires}
 

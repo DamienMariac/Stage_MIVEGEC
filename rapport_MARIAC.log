@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.1)  16 JUL 2026 10:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.1)  16 JUL 2026 11:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -448,22 +448,22 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<images/Logoum.png, id=95, 194.6472pt x 71.0655pt>
+<images/Logoum.png, id=103, 194.6472pt x 71.0655pt>
 File: images/Logoum.png Graphic file (type png)
 <use images/Logoum.png>
 Package pdftex.def Info: images/Logoum.png  used on input line 29.
 (pdftex.def)             Requested size: 194.83382pt x 71.13188pt.
-<images/ssdlogo.png, id=97, 301.125pt x 103.38625pt>
+<images/ssdlogo.png, id=105, 301.125pt x 103.38625pt>
 File: images/ssdlogo.png Graphic file (type png)
 <use images/ssdlogo.png>
 Package pdftex.def Info: images/ssdlogo.png  used on input line 32.
 (pdftex.def)             Requested size: 207.18373pt x 71.13188pt.
-<images/irdlogo.png, id=98, 602.25pt x 495.8525pt>
+<images/irdlogo.png, id=106, 602.25pt x 495.8525pt>
 File: images/irdlogo.png Graphic file (type png)
 <use images/irdlogo.png>
 Package pdftex.def Info: images/irdlogo.png  used on input line 70.
 (pdftex.def)             Requested size: 103.66768pt x 85.35826pt.
-<images/mivegeclogo.png, id=99, 309.155pt x 203.25937pt>
+<images/mivegeclogo.png, id=107, 309.155pt x 203.25937pt>
 File: images/mivegeclogo.png Graphic file (type png)
 <use images/mivegeclogo.png>
 Package pdftex.def Info: images/mivegeclogo.png  used on input line 71.
@@ -530,56 +530,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--120
  []
 
 [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 136--142
 
- []
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 136.
 
-<images/ACPvirusall.png, id=152, 526.96875pt x 325.215pt>
+
+LaTeX Warning: Citation `ref1' on page 5 undefined on input line 138.
+
+
+LaTeX Warning: Citation `ref2' on page 5 undefined on input line 145.
+
+
+LaTeX Warning: Citation `ref3' on page 5 undefined on input line 147.
+
+<images/ACPvirusall.png, id=163, 526.96875pt x 325.215pt>
 File: images/ACPvirusall.png Graphic file (type png)
 <use images/ACPvirusall.png>
-Package pdftex.def Info: images/ACPvirusall.png  used on input line 147.
+Package pdftex.def Info: images/ACPvirusall.png  used on input line 155.
 (pdftex.def)             Requested size: 223.07211pt x 137.6662pt.
-<images/ACPhoteall.png, id=153, 526.96875pt x 325.215pt>
+<images/ACPhoteall.png, id=164, 526.96875pt x 325.215pt>
 File: images/ACPhoteall.png Graphic file (type png)
 <use images/ACPhoteall.png>
-Package pdftex.def Info: images/ACPhoteall.png  used on input line 154.
+Package pdftex.def Info: images/ACPhoteall.png  used on input line 162.
 (pdftex.def)             Requested size: 227.62206pt x 140.4749pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--165
+LaTeX Warning: Command \^ invalid in math mode on input line 178.
 
- []
+<images/manhattanplot.png, id=165, 1734.48pt x 963.6pt>
+File: images/manhattanplot.png Graphic file (type png)
+<use images/manhattanplot.png>
+Package pdftex.def Info: images/manhattanplot.png  used on input line 193.
+(pdftex.def)             Requested size: 455.24411pt x 252.91203pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./images/ACPvirusall.png> <./images/ACPhoteall.png>] [6 <./images/manhattanplot.png>]
+
+LaTeX Warning: Reference `fig:heatmap' on page 7 undefined on input line 264.
 
 
-LaTeX Warning: Command \^ invalid in math mode on input line 166.
+LaTeX Warning: Citation `ref4' on page 7 undefined on input line 287.
 
-
-LaTeX Warning: Command \^ invalid in math mode on input line 166.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 169--175
-
- []
-
-[5{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./images/ACPvirusall.png> <./images/ACPhoteall.png>] [6] [7] [8] [9] (rapport_MARIAC.aux)
+[7] [8] [9] [10] [11] (rapport_MARIAC.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `rapport_MARIAC.out' has not changed.
-(rerunfilecheck)             Checksum: A168A71F79338E975F592739EC7494C3;3928.
+(rerunfilecheck)             Checksum: 5254B8B462A746D8D79E80BD720F8A73;4588.
  ) 
 Here is how much of TeX's memory you used:
- 13944 strings out of 467683
- 228996 string characters out of 5414722
- 645691 words of memory out of 5000000
- 42791 multiletter control sequences out of 15000+600000
- 670823 words of font info for 68 fonts, out of 8000000 for 9000
+ 13991 strings out of 467683
+ 229756 string characters out of 5414722
+ 645838 words of memory out of 5000000
+ 42822 multiletter control sequences out of 15000+600000
+ 694663 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,555b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
-Output written on rapport_MARIAC.pdf (10 pages, 301129 bytes).
+<C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
+Output written on rapport_MARIAC.pdf (12 pages, 448416 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
- 35 named destinations out of 1000 (max. 500000)
- 215 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 288 PDF objects out of 1000 (max. 8388607)
+ 40 named destinations out of 1000 (max. 500000)
+ 236 words of extra memory for PDF output out of 10000 (max. 10000000)
 
