@@ -3,27 +3,30 @@
 \contentsline {section}{\numberline {2}Context}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Context du sujet}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Context biologique}{3}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Extraction des données}{3}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Préparation des données}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Alignement}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Traitement des valeurs manquantes}{4}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Modélisation statistique}{5}{section.4}%
-\contentsline {subsubsection}{\numberline {4.0.1}Modèle d'association ``classique''}{5}{subsubsection.4.0.1}%
-\contentsline {subsubsection}{\numberline {4.0.2}Limites du modèle ``classique''}{6}{subsubsection.4.0.2}%
-\contentsline {subsection}{\numberline {4.1}Modèle avec dépendances : Graph Fused Lasso}{6}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Construction du graphe de corrélation}{7}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Choix des paramètres de régularisation}{7}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Optimisation du modèle : algorithme FISTA}{8}{subsubsection.4.1.3}%
-\contentsline {paragraph}{Étape de descente de gradient.}{8}{section*.5}%
-\contentsline {paragraph}{Étape de seuillage (opérateur proximal).}{8}{section*.6}%
-\contentsline {paragraph}{Étape d'accélération.}{8}{section*.7}%
-\contentsline {subsection}{\numberline {4.2}Modèle avec effets aléatoires}{9}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Estimation - Test du score de Rao}{10}{subsubsection.4.2.1}%
-\contentsline {section}{\numberline {5}Résultats et discussion}{11}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Choix du codage}{11}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Comparaison des modèles}{11}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Performances du modèle retenu}{11}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Conclusion et perspectives}{12}{section.6}%
-\contentsline {section}{\numberline {7}Annexes}{13}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Annexe 1}{13}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Bibliographie}{14}{section.8}%
+\contentsline {subsection}{\numberline {3.1}Le séquençage viral}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Alignements multiples de séquences}{5}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Alignement progressif par rapport à une séquence de référence}{5}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Matrices de substitution}{5}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Pénalités de gap}{6}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Traitement des valeurs manquantes}{6}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Modélisation statistique}{7}{section.4}%
+\contentsline {subsubsection}{\numberline {4.0.1}Modèle d'association ``classique''}{7}{subsubsection.4.0.1}%
+\contentsline {subsubsection}{\numberline {4.0.2}Limites du modèle ``classique''}{8}{subsubsection.4.0.2}%
+\contentsline {subsection}{\numberline {4.1}Modèle avec dépendances : Graph Fused Lasso}{8}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Construction du graphe de corrélation}{9}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Choix des paramètres de régularisation}{9}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Optimisation du modèle : algorithme FISTA}{10}{subsubsection.4.1.3}%
+\contentsline {paragraph}{Étape de descente de gradient.}{10}{section*.6}%
+\contentsline {paragraph}{Étape de seuillage (opérateur proximal).}{10}{section*.7}%
+\contentsline {paragraph}{Étape d'accélération.}{10}{section*.8}%
+\contentsline {subsection}{\numberline {4.2}Modèle avec effets aléatoires}{11}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Estimation - Test du score de Rao}{12}{subsubsection.4.2.1}%
+\contentsline {section}{\numberline {5}Résultats et discussion}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Choix du codage}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Comparaison des modèles}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Performances du modèle retenu}{13}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Conclusion et perspectives}{14}{section.6}%
+\contentsline {section}{\numberline {7}Annexes}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Annexe 1}{15}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Bibliographie}{16}{section.8}%

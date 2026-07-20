@@ -16,9 +16,14 @@
 \usepackage[french]{babel}
 \usepackage{graphicx} % Indispensable pour insérer des images
 \usepackage{geometry}
+\usepackage[most]{tcolorbox}
 
 % Définition des marges
 \geometry{margin=2.5cm}
+
+
+
+
 
 \begin{document}
 
@@ -79,6 +84,9 @@
 \section{Environnement}
 Bla bla sur la laboratoire et sur l'UMR MIVEGEC.
 
+
+
+
 % 1 page NE PAS OUBLIER DE SUPPRIMER LE FICHIER AIDE
 % Demander au tuteur de stage si je peux mettre ma participation au financement d'une ED.
 
@@ -92,6 +100,7 @@ Bla bla sur la laboratoire et sur l'UMR MIVEGEC.
 
 \newpage
 \section{Context}
+\vspace{1.5cm}
 \subsection{Context du sujet}
 D'un individus à un autre, les symptômes d'une infection virale peuvent varier allant d'une absence de symptômes à des formes sévères.
 Cette variabilité est en partie due à la diversité génétique de l'hôte et du virus.
@@ -118,21 +127,109 @@ Cela est dû au fait que l'ARN polymérase, l'enzyme responsable de la réplicat
 \\
 Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C dont on a déjà identifié des liaisons afin de pouvoir l'étendre sur le virus de la dengue. Ce sont tous deux des virus à ARN qui présentent une grande diversité génétique.
 
-\subsection{Extraction des données}
-
 
 \newpage
 \section{Préparation des données}
+\vspace{1.5cm}
 
-\subsection{Alignement}
+Cette partie détaille les étapes de collecte, d'alignement des séquences virales et de gestion des données manquantes faites avant toute modélisation statistique.
+
+\vspace{1cm}
+Les données utilisées dans ce type d'étude nécessitent l'acquisition simultanée d'informations génétiques sur le pathogène et sur son hôte.
+Les échantillons biologiques consistent généralement en des prélèvements sanguins effectués chez les patients infectés.
+Pour le génome viral, l'ARN de l'HCV est extrait à partir du plasma sanguin des patients. Ce matériel est ensuite amplifié et séquencé à l'aide de technologies de séquençage, ce qui permet de capturer l'ensemble des variants présents chez un individu et d'en dégager une séquence consensus par patient.
+
+\subsection{Le séquençage viral}
+Pour analyser le génome du virus présent chez un patient, il est important de comprendre comment les données génétiques sont techniquement lues par les machines (les séquenceurs).
+
+Contrairement à ce que l'on pourrait penser, un séquenceur ne lit pas le génome du virus d'une seule traite, de la première à la dernière « lettre » (nucléotide). Les technologies modernes de séquençage à haut débit procèdent différemment : elles découpent l'ARN viral en des millions de minuscules fragments, appelés des \textit{reads}.
+La machine va ensuite lire ces petits fragments de manière individuelle et désordonnée.
+Pour se représenter ce processus, on peut imaginer un livre (le génome viral) qui serait passé dans une déchiqueteuse à papier. On se retrouve avec des milliers de petites bandes de papier contenant chacune quelques mots. Pour reconstituer l'histoire, un algorithme informatique va comparer ces bandes, chercher les mots qui se chevauchent, et les aligner les unes par rapport aux autres, souvent en s'aidant d'un « texte de référence » connu (comme la séquence externe H77 pour le HCV).
+\\
+\\
+Puisque nous avons généré des millions de petits fragments à partir de milliers de copies du virus présentes dans le sang du patient, un « mot » spécifique du livre ne sera pas lu une seule fois, mais des dizaines, voire des centaines de fois.
+
+\begin{figure}[hbp!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/sequencage.png}
+    \caption{Représentation schématique de l'alignement des lectures (\textit{reads}) sur une séquence de référence.}
+    \label{fig:profondeur_sequencage}
+\end{figure}
+
+Lorsqu'on observe un site précis du génome (par exemple, la position 1450), on constate que de nombreux petits fragments se superposent à cet endroit. Le nombre total de fragments qui couvrent une position donnée définit sa profondeur.
+\\
+\\
+La profondeur est une information cruciale puisqu'elle permet la correction des erreurs.
+Les séquenceurs font parfois des erreurs de lecture. Si un seul fragment indique une mutation à une position, il peut s'agir d'un artefact technique. En revanche, si la profondeur est de 100 et que 99 fragments indiquent cette même mutation, nous avons la certitude statistique qu'elle est réelle.
+
+Ainsi, l'alignement de cette multitude de petits fragments n'est pas un défaut technique, mais une nécessité qui donne tout son relief et sa fiabilité à l'analyse génétique du virus.
+
+
+
+
+\subsection{Alignements multiples de séquences}
+  
+L'alignement multiple de séquences (MSA) consiste à disposer simultanément plusieurs séquences biologiques (nucléotidiques ou protéiques) de manière à faire correspondre les positions homologues, c'est-à-dire dérivées d'un ancêtre commun au cours de l'évolution. Contrairement à l'alignement par paires (deux séquences), l'alignement multiple permet d'identifier des régions conservées, des motifs fonctionnels ou structuraux communs à un ensemble de séquences, et sert de base à des analyses phylogénétiques.
+ 
+Il sagit d'un problème de haute compléxité algorithmique : trouver l'alignement optimal de $N$ séquences exacte a une complexité qui croît exponentiellement avec le nombre de séquences, de l'ordre de $O(L^N)$ pour $N$ séquences de longueur $L$. Pour cette raison, des méthodes heuristiques sont généralement utilisées en pratique.
+ 
+\subsubsection{Alignement progressif par rapport à une séquence de référence}
+ 
+Dans notre cas, nous avons réalisé un alignement progressif basé sur une séquence de référence. 
+\\
+\\
+Cette approche consiste dans un premier temps à choisir une séquence de référence (souvent la plus longue, la plus représentative, ou une séquence d'intérêt particulier ou consensus).
+\\
+\\
+Puis aligner successivement chaque autre séquence du jeu de données contre cette référence, par alignement deux à deux.
+\\
+\\
+Enfin, fusionner progressivement ces alignements par paires en un alignement multiple global, en insérant des gaps (\texttt{-}) aux positions nécessaires pour maintenir la cohérence des colonnes entre toutes les séquences.
+
+\vspace{1cm}
+Cette stratégie est une simplification efficace par rapport aux méthodes progressives classiques (type ClustalW) qui construisent d'abord un arbre guide (\emph{guide tree}) à partir des similarités deux à deux, puis alignent les séquences en suivant cet arbre. L'approche par référence unique est plus rapide, mais suppose que la séquence de référence est suffisamment représentative pour bien guider l'alignement de l'ensemble des autres séquences.
+ 
+\subsubsection{Matrices de substitution}
+ 
+Pour évaluer la qualité d'un alignement, et guider les alignements par paires sous-jacents, nous avons utilisé une matrice de substitution, qui attribue un score à chaque paire de caractères alignés~:
+ 
+\begin{itemize}
+    \item \underline{\textbf{Séquences protéiques}} : matrices de type BLOSUM (\emph{BLOcks SUbstitution Matrix}, ex. BLOSUM62) ou PAM (\emph{Point Accepted Mutation}). Ces matrices sont dérivées empiriquement des fréquences observées de substitutions d'acides aminés au sein de familles de protéines apparentées. Un score positif élevé indique une substitution fréquente et conservative (acides aminés aux propriétés physico-chimiques proches), tandis qu'un score négatif indique une substitution rare ou défavorable.
+\end{itemize}
+ 
+\vspace{0.5cm}
+ 
+Dans notre cas, la matrice BLOSUM62 a été utilisée pour scorer chaque paire de résidus alignés. Chaque case $(i,j)$ de la matrice donne le score de substitution de l'acide aminé $i$ par l'acide aminé $j$, calculé à partir du logarithme du rapport entre la fréquence observée de la paire dans des blocs de séquences protéiques alignées et la fréquence attendue sous hypothèse d'indépendance~:
+ 
+\[
+S(i,j) = \frac{1}{\lambda} \ln \left( \frac{q_{ij}}{p_i \, p_j} \right)
+\]
+ 
+où $q_{ij}$ est la fréquence observée de la paire $(i,j)$ dans les blocs conservés, $p_i$ et $p_j$ les fréquences individuelles des acides aminés $i$ et $j$, et $\lambda$ un facteur d'échelle. Un score positif traduit ainsi une substitution plus fréquente qu'attendue par hasard (souvent entre résidus aux propriétés physico-chimiques proches, par exemple entre deux acides aminés hydrophobes), tandis qu'un score négatif traduit une substitution défavorable ou rare au regard de l'évolution des familles de protéines.
+ 
+\subsubsection{Pénalités de gap}
+ 
+Enfin, l'algorithme d'alignement utilisé (de type Needleman-Wunsch, pour un alignement global) intègre une pénalité d'ouverture de gap (un trou dans le sequence) ainsi qu'une éventuelle pénalité d'extension de gap (une suite de trou), afin d'éviter la multiplication de petites insertions/délétions dispersées et de favoriser des gaps regroupés, biologiquement plus plausibles (une seule insertion/délétion plutôt que plusieurs événements ponctuels indépendants).
+ 
+\vspace{1cm}
 
 \subsection{Traitement des valeurs manquantes}
 
+La présence de valeurs manquantes est inhérente aux limites techniques du séquençage et du génotypage, notamment aux erreurs de lecture. Dans le cadre des modèles mixtes (GLMM) utilisés pour les tests d'association (voir plus bas), ces données manquantes bloquent les calculs d'algèbre linéaire, comme l'inversion des matrices de parenté. Le traitement appliqué dépend donc du type de codage retenu pour le jeu de données.
+
+Afin de rester cohérent avec un codage initialement binaire, les valeurs manquantes ont été imputées par la modalité la plus fréquente. Ce choix évite d'obtenir des valeurs différentes de 0 ou 1, ce qui aurait pu compromettre les modèles logistiques, tout en conservant une puissance statistique suffisante lors du recodage par transition d'acide aminé (voir section suivante). Cette approche permet enfin de disposer d'un support commun pour comparer les différentes méthodes entre elles.
 
 \newpage
 \section{Modélisation statistique}
+\vspace{1.5cm}
 
-% expliquer pourquoi un modèle supervisé est nécessaire pour ce type de données
+Dans cette approche \textit{Genome-to-Genome} (GxG), le but est d'identifier des variants génétiques de l'hôte qui influencent l'évolution du génome viral.
+Cette problématique relève naturellement de modèle supervisé : les caractéristiques génétiques de l'hôte constituent les variables explicatives,
+tandis que les mutations observées chez le virus représentent les variables à expliquer.
+Contrairement à une approche non supervisée, qui se limite à décrire les structures présentes dans les données,
+un modèle supervisé permet de mettre en évidence des associations statistiques entre les deux génomes tout en tenant compte d'éventuels facteurs de confusion,
+tels que la stratification des populations hôtes et virus ou de caractère propre à l'individus.
+
 
 \subsubsection{Modèle d'association ``classique''}
 
@@ -262,7 +359,7 @@ w_{ii'} = \text{corr}(Y_i, Y_{i'}) =
 
 La matrice de corrélation ainsi obtenue sert de support au graphe~: une
 arête est créée entre deux sites viraux lorsque leur corrélation dépasse un
-seuil fixé. La Figure~\ref{fig:heatmap}
+seuil fixé choisit arbitrairement à $0.7$ (comme dans l'article \cite{?}). La Figure~\ref{fig:heatmap}
 représente cette matrice sous forme de heatmap, où les valeurs proches de 1
 sont en rouge et celles proches de 0 en jaune.
 
@@ -290,8 +387,8 @@ L'estimation des coefficients du modèle revient à minimiser la fonction
 objectif présentée précédemment, qui se décompose en une partie lisse et une
 partie non lisse :
 \[
-F(\boldsymbol{\beta}) = \underbrace{f(\boldsymbol{\beta})}_{\text{log-vraisemblance logistique}}
-+ \underbrace{g(\boldsymbol{\beta})}_{\text{pénalités}}, \qquad
+F(\boldsymbol{\beta}) = \underbrace{f(\boldsymbol{\beta})}_{\text{log-vraisemblance}}
++ \underbrace{g(\boldsymbol{\beta})}_{\text{pénalités}}, \qquad \text{où} \quad
 g(\boldsymbol{\beta}) = \lambda_1 \sum_{i=1}^{p} |\beta_{ij}|
 + \lambda_2 \sum_{(i,i') \in E} w_{ii'} \, |\beta_{ij} - \beta_{i'j}|
 \]
@@ -309,6 +406,7 @@ méthode principalement utilisée dans les packages R qui implémentent les
 modèles de type Lasso.
 
 \vspace{1cm}
+\begin{tcolorbox}[colback=gray!5, colframe=black!60, arc=1mm, breakable, title=]
 
 \paragraph{Étape de descente de gradient.}
 À chaque itération $k$, l'algorithme réalise d'abord un pas de gradient sur
@@ -360,7 +458,7 @@ $\mathcal{O}(1/k)$ pour l'algorithme ISTA classique (sans extrapolation),
 tout en conservant une implémentation relativement simple. Cette propriété
 est particulièrement intéressante dans notre contexte, où le modèle doit
 être estimé pour un très grand nombre de SNPs et de sites viraux.
-
+\end{tcolorbox}
 \vspace{1cm}
 
 Cepandant, dans le contexte de très haute dimensionnalité des données, l'algorithme FISTA
@@ -388,7 +486,7 @@ parenté génétique au sein des populations hôte et virale, pourtant décrite
 comme un facteur de confusion majeur dans les études d'interaction
 génome-à-génome \cite{fellay2020}. Une approche alternative, largement
 utilisée dans les études d'association (GWAS) classiques,
-consiste à modéliser cette structure via des \textbf{effets aléatoires},
+consiste à modéliser cette structure via des effets aléatoires,
 plutôt que par un nombre limité de composantes principales ou un graphe de
 corrélation. Cette stratégie a notamment été adaptée dans un contexte similaire par
 \cite{...} au travers de la méthode ATOMM (\textit{Adaptive Two-way Mixed Model}),
@@ -433,13 +531,23 @@ lui-même : le test du score de Rao.
 \subsubsection{Estimation - Test du score de Rao}
 
 L'évaluation de chaque paires de variants (hôte, virus) implique d'ajuster le modèle mixte des millions de fois. Or, l'estimation des composantes de la variance ($\sigma^2_v$, $\sigma^2_h$) par maximum de vraisemblance nécessite l'inversion répétée de matrices de grande dimension, ce qui représente un coût computationnel important.
+Les tests du score de Rao est implémenté dans le package \textit{GMMAT} de \textbf{R}.
 \\
 \\
 Concrètement, la procédure se déroule en deux étapes :
 \begin{enumerate}
-    \item \textbf{Ajustement sous $H_0$} : On force le coefficient d'intérêt $\beta_{ij}$ à $0$. Le modèle nul ne contenant que l'intercept, les covariables et les effets aléatoires est ajusté une seule fois par phénotype viral pour estimer les paramètres de nuisance et les composantes de la variance.
+    \item \textbf{Ajustement sous $H_0$} : On force le coefficient d'intérêt $\beta_{ij}$ à $0$. Le modèle nul ne contenant que l'intercept et les effets aléatoires. On ajuste le modèle une seule fois par phénotype viral pour estimer les paramètres de nuisance et les composantes de la variance.
     \item \textbf{Calcul du score} : Pour chaque variant de l'hôte $j$, on évalue le gradient de la log-vraisemblance au point $\beta_{ij} = 0$. Si ce gradient est significativement éloigné de zéro, l'hypothèse nulle est rejetée, indiquant une association entre $X_j$ et $Y_i$.
 \end{enumerate}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{images/rao.png}
+    \caption{Test du score de Rao}
+    \label{fig:rao}
+\end{figure}
+
 
 Cette méthode permet d'éviter le réajustement des effets aléatoires pour chaque SNP testé, réduisant ainsi drastiquement la complexité algorithmique tout en conservant une grande robustesse statistique.
 \\
@@ -454,7 +562,31 @@ Il existe quand même des façons d'obtenir une estimation de l'effet $\beta_{ij
 \vspace{1cm}
 \newpage
 \section{Résultats et discussion}
+\vspace{1.5cm}
 \subsection{Choix du codage}
+
+Le choix du codage des données du virus est un point qui a longtemps été discuté pendant ce stage.
+En effet, le codage initial des données est binaire : 0 pour l'absence de mutation et 1 pour la présence de mutation par rapport à la séquence de référence (majoritaire au jeu de donnée).
+Ceci afin de pouvoir garantir suffisamment de puissance statistique pour les tests d'association.
+Les sites viraux sont très variables puisque il est à ARN. Mais certains sites sont très conservés et ne présentent que très peu de mutations.
+Il est donc nécessaire dans un premier temps de filtrer les sites viraux afin de ne garder que ceux présentant une variabilité suffisante.
+Les sites viraux présentant une variabilité de moins de 5\% ont été retirés du jeu de données.
+\\
+\\
+A ce stade, plusieurs codages on été envisagés pour le jeu de données du virus. Le codage initial binaire et un codage par transition d'acide aminé.
+\\
+\\
+Avec le codage binaire, on ne prend pas en compte la nature de la mutation. On ne sait pas si la mutation est grave ou non. Puisque passer d'un acide aminé à un autre pourrait avoir un impact sur la structure de la protéine et donc sur son rôle pouvant induire des comportements différents du virus.
+Mais celui-ci présente l'avantage de pouvoir garder un maximum de sites viraux et donc de pouvoir garder une puissance statistique suffisante pour les tests d'association. 
+\\
+Au final, après filtrage des sites viraux, on a pu garder 427 sites viraux pour le codage binaire.
+\\
+\\
+Avec le codage par transition d'acide aminé, on prend en compte la nature de la mutation. On encode les mutations par rapport à une matrice de substitution qui permet de savoir si la mutation est conservatrice ou non. Il s'agit de la matrice de Grantham. Mais celui-ci présente l'inconvénient de réduire le nombre de sites viraux et donc de réduire la puissance statistique pour les tests d'association.
+Ainsi, le fait de passer à un codage continu baisse le nombre de sites viraux et la précision des tests d'association.
+
+ 
+
 \subsection{Comparaison des modèles}
 \subsection{Performances du modèle retenu}
 
