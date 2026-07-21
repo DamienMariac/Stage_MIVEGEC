@@ -81,7 +81,7 @@
 \tableofcontents
 
 \newpage
-\section{Environnement}
+\section[Environnement]{\huge Environnement}
 Bla bla sur la laboratoire et sur l'UMR MIVEGEC.
 
 
@@ -99,9 +99,10 @@ Bla bla sur la laboratoire et sur l'UMR MIVEGEC.
 % Gamma lien  ;
 
 \newpage
-\section{Context}
+\section[Contexte]{\huge 2 - Contexte}
 \vspace{1.5cm}
-\subsection{Context du sujet}
+
+\subsection{Contexte du sujet}
 D'un individus à un autre, les symptômes d'une infection virale peuvent varier allant d'une absence de symptômes à des formes sévères.
 Cette variabilité est en partie due à la diversité génétique de l'hôte et du virus.
 L'objectif de cette étude est de proposer de nouveaux modèle permettant de faciliter l'étude d'associations entre les variants génétiques de l'hôte et les mutations virales, afin de mieux comprendre les mécanismes des réponses immunitaires.
@@ -120,12 +121,40 @@ Mais il est également nécessaire de prendre en compte la structure de populati
 
 \subsection{Context biologique}
 
-Le virus est une entité biologique qui ne peut pas se reproduire par elle-même. Il a besoin d'un hôte pour se multiplier et se propager. Il est constitué d'une coque qui protège son matériel génétique, qui peut etre de l'ADN ou de l'ARN.
+Le virus est une entité biologique qui ne peut pas se reproduire par elle-même. Il a besoin d'un hôte pour se multiplier et se propager. Il est constitué d'une coque qui protège son matériel génétique, cela peut-être de l'ADN ou de l'ARN.
 La nature du support de l'information ADN ou ARN dicte la réplication, ce qui a un impact majeur sur sa diversité génétique. De ce fait, les virus à ARN ont un taux de mutation beaucoup plus élevé que les virus à ADN.
 Cela est dû au fait que l'ARN polymérase, l'enzyme responsable de la réplication de l'ARN, n'a pas de mécanisme de correction d'erreurs contrairement à l'ADN polymérase. Cette haute variance est fondamentale : elle permet au virus de s'adapter très rapidement pour trouver des solutions face aux défenses de l'hôte.
 \\
 \\
 Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C dont on a déjà identifié des liaisons afin de pouvoir l'étendre sur le virus de la dengue. Ce sont tous deux des virus à ARN qui présentent une grande diversité génétique.
+\\
+\\
+La multiplication du virus dépend entièrement de la machinerie cellulaire de l'hôte. L'infection débute lorsqu'un virus reconnaît un récepteur spécifique à la surface d’une cellule.
+Après son entrée dans celle-ci, son génome est libéré dans le cytoplasme où il est répliqué grâce
+aux enzymes virales ou cellulaires. Les ARN messagers viraux sont ensuite traduits par les
+ribosomes de la cellule afin de produire les protéines virales nécessaires au cycle infectieux.
+
+\begin{figure}[hbp!]
+    \centering
+    \includegraphics[width=1\textwidth]{images/viruscycle.png}
+    \caption{Cycle de vie d'un virus à ARN.}
+    \label{fig:virus_cycle}
+\end{figure}
+
+
+Lors de cette infection, le système immunitaire met en place plusieurs mécanismes de défense.
+Comme par exemple la production d'interférons qui est une molécule chargé de limité la réplication du virus.
+Mais aussi développe l'immunité adaptative en entrainant certains lymphocytes à reconnaître les virus et à les détruire.
+\\
+\\
+La réponse immunitaire exerce une forte pression de sélection sur le virus. Cela signifie que toute mutation permettant de diminuer la reconnaissance d'une protéine virale par le système immunitaire peut conférer un avantage évolutif. Au fil des cycles de réplication, ces mutations peuvent être sélectionnées et devenir majoritaires au sein de la population virale présente chez un individu.
+\\
+\\
+Dans le cadre de ce stage, nous nous sommes intéressés à deux virus à ARN : le virus de
+l'hépatite C (HCV) et le virus de la dengue (DENV). Tous deux présentent une importante
+diversité génétique, conséquence directe de leur fort taux de mutation.
+Le but étant de trouver de nouveaux modèles permettant d'identifier de nouveaux variants génétiques. La stratégie étant de le tester sur un jeu de données (HCV) dont on a déjà identifié des liaisons entre les variants génétiques de l'hôte et les mutations virales. Puis d'étendre cette approche sur le virus de la dengue.
+
 
 
 \newpage
