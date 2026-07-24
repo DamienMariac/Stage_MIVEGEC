@@ -96,7 +96,7 @@
 \tableofcontents
 
 \newpage
-\section[Environnement]{\huge Environnement}
+\section{Environnement}
 UMR MIVEGEC.
 
 
@@ -111,37 +111,41 @@ UMR MIVEGEC.
 
 % Perspective thèSE = nouveau codage (profondeur)
 
-% Gamma lien  ;
-
 \newpage
-\section[Contexte]{\huge 2 - Contexte}
+\section{Contexte}
 \vspace{1.5cm}
-
 \subsection{Contexte du sujet}
-D'un individus à un autre, les symptômes d'une infection virale peuvent varier allant d'une absence de symptômes à des formes sévères.
+La sévérité d'une infection virale varie fortement d'un individu à l'autre.
 Cette variabilité est en partie due à la diversité génétique de l'hôte et du virus.
-L'objectif de cette étude est de proposer de nouveaux modèles permettant de faciliter l'étude d'associations entre les variants génétiques de l'hôte et les mutations virales, afin de mieux comprendre les mécanismes des réponses immunitaires.
+Les deux génomes interagissent indirectement entre eux par le biais du système immunitaire. Le virus est soumis à la pression de sélection exercée par le système immunitaire de l'hôte, et le génome de l'hôte cherche à éliminer le virus de l'organisme.
+\\
+L'objectif de ce stage est de proposer de nouveaux modèles permettant de faciliter l'étude d'associations entre les variants génétiques de l'hôte et les mutations virales, afin de mieux comprendre les mécanismes des réponses immunitaires et des interactions entre les deux génomes.
 \\
 \\
-Historiquement, les études d'association sont menées sur les symptomes eux mêmes. Mais ceux-ci sont souvent largement influencés par des facteurs tel que l'environnement, l'alimentation ou les habitudes physique. 
+Historiquement, les études d'association sont menées sur les symptômes provoqués par l'infection. Mais ceux-ci sont souvent largement influencés par des facteurs tels que l'environnement, l'alimentation ou les habitudes physiques.
 \\
 \\
-Il existe depuis quelques années une variante de cette approche qui consiste à considerer le code génétique du virus comme symptome. L'idée est que les mutations virales sont le reflet de la pression de sélection exercée par le système immunitaire de l'hôte. Ainsi, en identifiant les variants génétiques de l'hôte associés à certaines mutations virales, on peut obtenir des informations sur les mécanismes immunitaires impliqués dans la réponse à l'infection.
+Pour pallier ce problème, il existe depuis quelques années une variante de cette approche. On cherche à identifier les variants génétiques de l'hôte qui influencent l'évolution du génome viral. Cette approche est appelée \textit{Genome-to-Genome} (GxG).
+L'idée est que les mutations virales sont le reflet de la pression de sélection exercée par le système immunitaire de l'hôte. Ainsi, en identifiant les variants génétiques de l'hôte associés à certaines mutations virales, on peut obtenir des informations sur les mécanismes immunitaires impliqués dans la réponse à l'infection.
 \\
 \\
 Ce qui fait toute la difficulté de cette approche est la haute dimensionnalité des données. En effet, on a du côté des hôtes des centaines de milliers de variants génétiques et du côté des virus des centaines de mutations après avoir filtré les sites dépassant un certain taux de variabilité.
 \\
-De plus, les individus issus de régions géographiques et d'ethnies différentes présentent des différences génétiques ce qui biaisent les résultats d'association. Il est donc nécessaire de prendre en compte la structure de population des hôtes.
-Mais il est également nécessaire de prendre en compte la structure de population des virus. En effet, les virus issus d'une même région géographique ou d'une même lignée évolutive partagent des mutations communes. Il est donc nécessaire de prendre en compte la structure de population des virus.
+De plus, les individus issus de régions géographiques et d'ethnies différentes présentent des différences génétiques, ce qui biaise les résultats d'association.
+Il est aussi possible que certains virus soient issus d'une même souche et partagent des mutations communes sans pour autant être responsables d'une pression de sélection.
+Il est donc nécessaire de prendre en compte la structure de population des hôtes et du virus.
+\\
+\\
+Afin de mieux comprendre les mécanismes à l'origine de cette diversité génétique, il est nécessaire de rappeler brièvement le cycle de vie d'un virus et son interaction avec le système immunitaire.
 
-\subsection{Context biologique}
+\subsection{Contexte biologique}
 
-Le virus est une entité biologique qui ne peut pas se reproduire par elle-même. Il a besoin d'un hôte pour se multiplier et se propager. Il est constitué d'une coque qui protège son matériel génétique, cela peut-être de l'ADN ou de l'ARN.
+Le virus est une entité biologique qui ne peut pas se reproduire par elle-même. Il a besoin d'un hôte pour se multiplier et se propager. Il est constitué d'une coque qui protège son matériel génétique, cela peut être de l'ADN ou de l'ARN.
 La nature du support de l'information ADN ou ARN dicte la réplication, ce qui a un impact majeur sur sa diversité génétique. De ce fait, les virus à ARN ont un taux de mutation beaucoup plus élevé que les virus à ADN.
 Cette haute variance est fondamentale : elle permet au virus de s'adapter très rapidement pour trouver des solutions face aux défenses de l'hôte.
 \\
 \\
-Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C dont on a déjà identifié des liaisons afin de pouvoir l'étendre sur le virus de la dengue. Ce sont tous deux des virus à ARN qui présentent une grande diversité génétique.
+Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C dont on a déjà identifié des liaisons afin de pouvoir l'étendre au virus de la dengue. Ce sont tous deux des virus à ARN qui présentent une grande diversité génétique.
 \\
 \\
 La multiplication du virus dépend entièrement de la machinerie cellulaire de l'hôte. L'infection débute lorsqu'un virus reconnaît un récepteur spécifique à la surface d’une cellule.
@@ -156,10 +160,9 @@ ribosomes de la cellule afin de produire les protéines virales nécessaires au 
     \label{fig:virus_cycle}
 \end{figure}
 
-
 Lors de cette infection, le système immunitaire met en place plusieurs mécanismes de défense.
-Comme par exemple la production d'interférons qui est une molécule chargé de limité la réplication du virus.
-Mais aussi développe l'immunité adaptative en entrainant certains lymphocytes à reconnaître les virus et à les détruire.
+Comme par exemple la production d'interférons qui est une molécule chargée de limiter la réplication du virus.
+Mais développe aussi l'immunité adaptative en entraînant certains lymphocytes à reconnaître les virus et à les détruire.
 \\
 \\
 La réponse immunitaire exerce une forte pression de sélection sur le virus. Cela signifie que toute mutation permettant de diminuer la reconnaissance d'une protéine virale par le système immunitaire peut conférer un avantage évolutif. Au fil des cycles de réplication, ces mutations peuvent être sélectionnées et devenir majoritaires au sein de la population virale présente chez un individu.
@@ -169,9 +172,6 @@ Dans le cadre de ce stage, nous nous sommes intéressés à deux virus à ARN : 
 l'hépatite C (HCV) et le virus de la dengue (DENV). Tous deux présentent une importante
 diversité génétique, conséquence directe de leur fort taux de mutation.
 Le but étant de trouver de nouveaux modèles permettant d'identifier de nouveaux variants génétiques. La stratégie étant de le tester sur un jeu de données (HCV) dont on a déjà identifié des liaisons entre les variants génétiques de l'hôte et les mutations virales. Puis d'étendre cette approche sur le virus de la dengue.
-
-
-
 \newpage
 \section{Préparation des données}
 \vspace{1.5cm}
@@ -459,7 +459,16 @@ graphe.
 \subsubsection{Construction du graphe de corrélation}
 
 Afin d'implémenter ce modèle, il est nécessaire de construire un graphe
-représentant les corrélations entre sites viraux. Les sites viraux étant
+représentant les corrélations entre sites viraux.
+\\
+\\
+Pour éviter d'avoir un biais, on calcule la corrélation sur un autre jeu de données de l'HCV du même serotype.
+Ces données proviennent de la banque de données du NCBI. On les a alignées par rapport à la séquence consensus 
+de nos données afin de pouvoir faire correspondre les bonnes positions. Puis nous avons calculé la corrélation entre
+les sites après avoir recodé en variables binaires sous forme de mutation/conservation. C'est avec $5000$ séquences que nous obtenons la matrice de corrélation.
+\\
+\\
+Les sites viraux étant
 binaires, ils sont supposés suivre une loi de Bernoulli, ce qui permet
 d'estimer leur corrélation de façon paramétrique. Pour deux sites viraux $i$
 et $i'$, de probabilités marginales $p_i$ et $p_{i'}$ et de probabilité
@@ -482,6 +491,8 @@ sont en rouge et celles proches de 0 en jaune.
     \caption{Matrice de corrélation entre sites viraux sous forme de heatmap.}
     \label{fig:heatmap}
 \end{figure}
+
+On remarque que la matrice de corrélation est très creuse, mais qu'elle présente des blocs de corrélations élevées, correspondant à des sites viraux fortement liés entre eux.
 
 
 \subsubsection{Choix des paramètres de régularisation}

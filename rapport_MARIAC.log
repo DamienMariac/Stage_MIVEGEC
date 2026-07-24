@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.1)  24 JUL 2026 11:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.1)  24 JUL 2026 15:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -827,54 +827,57 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.98 \newpage
               [1{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 121--136
+Underfull \hbox (badness 10000) in paragraph at lines 118--140
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--136
+Underfull \hbox (badness 10000) in paragraph at lines 118--140
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--136
+Underfull \hbox (badness 10000) in paragraph at lines 118--140
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--151
+Underfull \hbox (badness 10000) in paragraph at lines 118--140
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--151
+Underfull \hbox (badness 10000) in paragraph at lines 143--155
 
  []
 
-<images/viruscycle.png, id=230, 803.0pt x 451.6875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--155
+
+ []
+
+[3]
+<images/viruscycle.png, id=235, 803.0pt x 451.6875pt>
 File: images/viruscycle.png Graphic file (type png)
 <use images/viruscycle.png>
-Package pdftex.def Info: images/viruscycle.png  used on input line 154.
+Package pdftex.def Info: images/viruscycle.png  used on input line 158.
 (pdftex.def)             Requested size: 455.24411pt x 256.07921pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--172
+Underfull \hbox (badness 10000) in paragraph at lines 163--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--172
+Underfull \hbox (badness 10000) in paragraph at lines 163--175
 
  []
 
-[3] [4 <./images/viruscycle.png>]
+[4 <./images/viruscycle.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 189--195
 
  []
 
-<images/sequencage.png, id=240, 119.65231pt x 44.51067pt>
+<images/sequencage.png, id=241, 119.65231pt x 44.51067pt>
 File: images/sequencage.png Graphic file (type png)
 <use images/sequencage.png>
 Package pdftex.def Info: images/sequencage.png  used on input line 198.
@@ -968,106 +971,113 @@ Package pdftex.def Info: images/manhattanplot.png  used on input line 403.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [9{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./images/ACPvirusall.png> <./images/ACPhoteall.png>] [10 <./images/manhattanplot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 461--476
 
-LaTeX Warning: Citation `?' on page 11 undefined on input line 474.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 461--476
+
+ []
+
+
+LaTeX Warning: Citation `?' on page 11 undefined on input line 483.
 
 <images/heatmapcorr.png, id=291, 529.98pt x 324.46219pt>
 File: images/heatmapcorr.png Graphic file (type png)
 <use images/heatmapcorr.png>
-Package pdftex.def Info: images/heatmapcorr.png  used on input line 481.
+Package pdftex.def Info: images/heatmapcorr.png  used on input line 490.
 (pdftex.def)             Requested size: 455.24411pt x 278.71022pt.
 [11 <./images/heatmapcorr.png (PNG copy)>]
 
-LaTeX Warning: Citation `ref4' on page 12 undefined on input line 513.
+LaTeX Warning: Citation `ref4' on page 12 undefined on input line 524.
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 579--587
+Underfull \hbox (badness 10000) in paragraph at lines 590--598
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--598
+Underfull \hbox (badness 10000) in paragraph at lines 604--609
 
  []
 
 
-Overfull \hbox (6.8768pt too wide) in paragraph at lines 593--598
+Overfull \hbox (6.8768pt too wide) in paragraph at lines 604--609
 \T1/lmr/m/n/10.95 Les in-di-vi-dus sont sup-po-sés in-dé-pen-dants condi-tion-nel-le-ment à leur gé-no-type, la log-vraisemblance
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 722--735
+Underfull \hbox (badness 10000) in paragraph at lines 733--746
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 722--735
+Underfull \hbox (badness 10000) in paragraph at lines 733--746
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 722--735
+Underfull \hbox (badness 10000) in paragraph at lines 733--746
 
  []
-
-
-LaTeX Warning: Citation `fellay2020' on page 14 undefined on input line 745.
-
-
-LaTeX Warning: Citation `...' on page 14 undefined on input line 750.
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 791--796
 
- []
-
-<images/rao.png, id=322, 605.26125pt x 398.23781pt>
-File: images/rao.png Graphic file (type png)
-<use images/rao.png>
-Package pdftex.def Info: images/rao.png  used on input line 804.
-(pdftex.def)             Requested size: 455.24411pt x 299.53442pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Citation `fellay2020' on page 15 undefined on input line 756.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 810--819
-
- []
+LaTeX Warning: Citation `...' on page 15 undefined on input line 761.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 810--819
+Underfull \hbox (badness 10000) in paragraph at lines 802--807
 
  []
 
 [15]
+<images/rao.png, id=326, 605.26125pt x 398.23781pt>
+File: images/rao.png Graphic file (type png)
+<use images/rao.png>
+Package pdftex.def Info: images/rao.png  used on input line 815.
+(pdftex.def)             Requested size: 455.24411pt x 299.53442pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 821--830
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 821--830
+
+ []
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 821.
+(hyperref)                removing `math shift' on input line 832.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\beta' on input line 821.
+(hyperref)                removing `\beta' on input line 832.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 821.
+(hyperref)                removing `subscript' on input line 832.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 821.
+(hyperref)                removing `math shift' on input line 832.
 
 [16 <./images/rao.png (PNG copy)>] [17] [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 1052--1071
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1082
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1052--1071
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1082
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1052--1071
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1082
 
  []
 
@@ -1081,18 +1091,18 @@ L3 programming layer <2026-04-28>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `rapport_MARIAC.out' has not changed.
-(rerunfilecheck)             Checksum: E06437712962D6D01CD235302AEA2E57;6294.
+(rerunfilecheck)             Checksum: 50CDB63A3EBEE175F99943C6DAE4B843;6299.
  ) 
 Here is how much of TeX's memory you used:
- 31173 strings out of 467683
- 629972 string characters out of 5414722
- 1050760 words of memory out of 5000000
- 59646 multiletter control sequences out of 15000+600000
- 698622 words of font info for 85 fonts, out of 8000000 for 9000
+ 31215 strings out of 467683
+ 630873 string characters out of 5414722
+ 1049760 words of memory out of 5000000
+ 59688 multiletter control sequences out of 15000+600000
+ 695624 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,12n,118p,619b,635s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,12n,118p,619b,983s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rapport_MARIAC.pdf (25 pages, 1225971 bytes).
+Output written on rapport_MARIAC.pdf (25 pages, 1227329 bytes).
 PDF statistics:
  495 PDF objects out of 1000 (max. 8388607)
  88 named destinations out of 1000 (max. 500000)
