@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{lmodern}
 \usepackage{graphicx}
 \usepackage{subcaption}
@@ -26,6 +27,20 @@
 
 
 \begin{document}
+
+\theoremstyle{plain}                        % énoncé en italique
+\newtheorem{theoreme}{Théorème}[section]
+\newtheorem{proposition}[theoreme]{Proposition}
+\newtheorem{lemme}[theoreme]{Lemme}
+\newtheorem{corollaire}[theoreme]{Corollaire}
+
+\theoremstyle{definition}                   % énoncé en romain
+\newtheorem{definition}[theoreme]{Définition}
+\newtheorem{exemple}[theoreme]{Exemple}
+
+\theoremstyle{remark}                       % titre en italique, texte romain
+\newtheorem{remark}[theoreme]{Remarque}
+\newtheorem{remarque}[theoreme]{Remarque}
 
 \begin{titlepage}
     \centering 
@@ -82,7 +97,7 @@
 
 \newpage
 \section[Environnement]{\huge Environnement}
-Bla bla sur la laboratoire et sur l'UMR MIVEGEC.
+UMR MIVEGEC.
 
 
 
@@ -105,7 +120,7 @@ Bla bla sur la laboratoire et sur l'UMR MIVEGEC.
 \subsection{Contexte du sujet}
 D'un individus à un autre, les symptômes d'une infection virale peuvent varier allant d'une absence de symptômes à des formes sévères.
 Cette variabilité est en partie due à la diversité génétique de l'hôte et du virus.
-L'objectif de cette étude est de proposer de nouveaux modèle permettant de faciliter l'étude d'associations entre les variants génétiques de l'hôte et les mutations virales, afin de mieux comprendre les mécanismes des réponses immunitaires.
+L'objectif de cette étude est de proposer de nouveaux modèles permettant de faciliter l'étude d'associations entre les variants génétiques de l'hôte et les mutations virales, afin de mieux comprendre les mécanismes des réponses immunitaires.
 \\
 \\
 Historiquement, les études d'association sont menées sur les symptomes eux mêmes. Mais ceux-ci sont souvent largement influencés par des facteurs tel que l'environnement, l'alimentation ou les habitudes physique. 
@@ -123,7 +138,7 @@ Mais il est également nécessaire de prendre en compte la structure de populati
 
 Le virus est une entité biologique qui ne peut pas se reproduire par elle-même. Il a besoin d'un hôte pour se multiplier et se propager. Il est constitué d'une coque qui protège son matériel génétique, cela peut-être de l'ADN ou de l'ARN.
 La nature du support de l'information ADN ou ARN dicte la réplication, ce qui a un impact majeur sur sa diversité génétique. De ce fait, les virus à ARN ont un taux de mutation beaucoup plus élevé que les virus à ADN.
-Cela est dû au fait que l'ARN polymérase, l'enzyme responsable de la réplication de l'ARN, n'a pas de mécanisme de correction d'erreurs contrairement à l'ADN polymérase. Cette haute variance est fondamentale : elle permet au virus de s'adapter très rapidement pour trouver des solutions face aux défenses de l'hôte.
+Cette haute variance est fondamentale : elle permet au virus de s'adapter très rapidement pour trouver des solutions face aux défenses de l'hôte.
 \\
 \\
 Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C dont on a déjà identifié des liaisons afin de pouvoir l'étendre sur le virus de la dengue. Ce sont tous deux des virus à ARN qui présentent une grande diversité génétique.
@@ -134,7 +149,7 @@ Après son entrée dans celle-ci, son génome est libéré dans le cytoplasme o�
 aux enzymes virales ou cellulaires. Les ARN messagers viraux sont ensuite traduits par les
 ribosomes de la cellule afin de produire les protéines virales nécessaires au cycle infectieux.
 
-\begin{figure}[hbp!]
+\begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{images/viruscycle.png}
     \caption{Cycle de vie d'un virus à ARN.}
@@ -199,6 +214,7 @@ Ainsi, l'alignement de cette multitude de petits fragments n'est pas un défaut 
 \subsection{Alignements multiples de séquences}
   
 L'alignement multiple de séquences (MSA) consiste à disposer simultanément plusieurs séquences biologiques (nucléotidiques ou protéiques) de manière à faire correspondre les positions homologues, c'est-à-dire dérivées d'un ancêtre commun au cours de l'évolution. Contrairement à l'alignement par paires (deux séquences), l'alignement multiple permet d'identifier des régions conservées, des motifs fonctionnels ou structuraux communs à un ensemble de séquences, et sert de base à des analyses phylogénétiques.
+Puisque l'idée est de pouvoir considerer les positions du virus comme des variables. 
  
 Il sagit d'un problème de haute compléxité algorithmique : trouver l'alignement optimal de $N$ séquences exacte a une complexité qui croît exponentiellement avec le nombre de séquences, de l'ordre de $O(L^N)$ pour $N$ séquences de longueur $L$. Pour cette raison, des méthodes heuristiques sont généralement utilisées en pratique.
  
@@ -219,23 +235,90 @@ Enfin, fusionner progressivement ces alignements par paires en un alignement mul
 Cette stratégie est une simplification efficace par rapport aux méthodes progressives classiques (type ClustalW) qui construisent d'abord un arbre guide (\emph{guide tree}) à partir des similarités deux à deux, puis alignent les séquences en suivant cet arbre. L'approche par référence unique est plus rapide, mais suppose que la séquence de référence est suffisamment représentative pour bien guider l'alignement de l'ensemble des autres séquences.
  
 \subsubsection{Matrices de substitution}
- 
-Pour évaluer la qualité d'un alignement, et guider les alignements par paires sous-jacents, nous avons utilisé une matrice de substitution, qui attribue un score à chaque paire de caractères alignés~:
- 
+
+L'alignement de deux séquences repose sur un système de score permettant de quantifier
+la ressemblance entre deux acides aminés dans une colonne de l'alignement.
+Comme les vingt acides aminés ne sont en effet pas interchangeables de manière
+équivalente, on ne peut pas se contenter d'un simple score binaire.
+\\
+\\
+Certaines substitutions sont dites \emph{conservatives} : elles remplacent un acide aminé
+par un autre présentant des propriétés physico-chimiques voisines. De telles substitutions
+altèrent en général peu la structure et la fonction de la protéine, et sont donc fréquemment
+observées entre séquences homologues. À l'inverse, les substitutions dites \emph{radicales}
+remplacent un résidu par un autre aux propriétés très différentes,
+et sont bien plus rarement tolérées par la sélection naturelle.
+\\
+\\
+Une matrice de substitution est donc une matrice carrée $S$ de dimension $20 \times 20$,
+symétrique, dont le coefficient $s(a,b)$ représente le score attribué à l'alignement de
+l'acide aminé $a$ avec l'acide aminé $b$. Ce score est d'autant plus élevé que la
+substitution est jugée plausible ou peu coûteuse, et d'autant plus faible (voire négatif)
+qu'elle est jugée improbable. Les termes diagonaux $s(a,a)$, correspondant à la conservation
+d'un résidu, sont naturellement les plus favorables.
+\\
+\\
+On distingue classiquement deux grandes familles de matrices :
+
 \begin{itemize}
-    \item \underline{\textbf{Séquences protéiques}} : matrices de type BLOSUM (\emph{BLOcks SUbstitution Matrix}, ex. BLOSUM62) ou PAM (\emph{Point Accepted Mutation}). Ces matrices sont dérivées empiriquement des fréquences observées de substitutions d'acides aminés au sein de familles de protéines apparentées. Un score positif élevé indique une substitution fréquente et conservative (acides aminés aux propriétés physico-chimiques proches), tandis qu'un score négatif indique une substitution rare ou défavorable.
+    \item Les matrices empiriques, construites à partir de
+    l'observation des substitutions réellement constatées dans de grands jeux d'alignements
+    de protéines homologues. C'est le cas des matrices PAM (\emph{Point Accepted Mutation},
+    Dayhoff \emph{et al.}, 1978) et BLOSUM (\emph{BLOcks SUbstitution Matrix}, Henikoff \&
+    Henikoff, 1992). Leurs coefficients sont des rapports de vraisemblance logarithmiques
+    (\emph{log-odds}) de la forme
+    \[
+        s(a,b) \;=\; \frac{1}{\lambda} \, \log \frac{q_{ab}}{p_a \, p_b},
+    \]
+    où $q_{ab}$ est la fréquence d'observation du couple $(a,b)$ dans des alignements de
+    référence, $p_a$ et $p_b$ les fréquences d'apparition de chaque acide aminé, et
+    $\lambda$ un facteur d'échelle. Un score positif traduit ainsi une substitution plus
+    fréquente que ce que prédirait le hasard.
+
+    \vspace{1cm}
+
+    \item Les matrices physico-chimiques, qui ne reposent pas sur des données
+    évolutives mais sur la comparaison objective des propriétés chimiques des chaînes
+    latérales des acides aminés. Elles définissent une \emph{distance} entre acides aminés,
+    et non directement un score de similarité. Les matrices de Grantham (1974), de Miyata
+    (1979) ou de Sneath (1966) appartiennent à cette catégorie.
 \end{itemize}
- 
+
 \vspace{0.5cm}
+Le choix de la matrice n'est pas neutre : il conditionne directement l'alignement obtenu,
+et donc l'ensemble des analyses qui en découlent.
+
+
+\vspace{1cm}
+
+Plus tard dans ce travail, on utilisera un nouveau codage basé sur la matrice de Grantham (1974). Son principe
+est de quantifier la \emph{dissimilarité chimique} entre deux acides aminés à partir de
+trois propriétés de leur chaîne latérale, jugées déterminantes pour le comportement du
+résidu au sein de la protéine : la composition, la polarité et le volume moléculaire.
+\\
+\\
+Les valeurs obtenues s'échelonnent ainsi de $5$, pour le couple leucine/isoleucine
+(substitution quasiment neutre sur le plan chimique), à $215$ pour le couple
+cystéine/tryptophane, qui constitue la substitution la plus radicale au sens de ce critère.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/grantham.png}
+    \caption{Matrice de distance de Grantham (1974)}
+    \label{fig:grantham}
+\end{figure}
+
+
+
+L'intérêt de cette matrice est qu'elle repose sur des grandeurs physico-chimiques mesurables
+et indépendantes de tout jeu de données évolutif : elle n'introduit donc pas de biais lié à
+la composition des bases de données ayant servi à construire les matrices empiriques, et ne
+présuppose aucune distance évolutive particulière entre les séquences comparées (là où le
+choix d'une matrice PAM ou BLOSUM suppose implicitement un degré de divergence donné). En
+contrepartie, elle ignore la réalité observée des substitutions acceptées au cours de
+l'évolution, et notamment les contraintes fonctionnelles propres à certains sites.
  
-Dans notre cas, la matrice BLOSUM62 a été utilisée pour scorer chaque paire de résidus alignés. Chaque case $(i,j)$ de la matrice donne le score de substitution de l'acide aminé $i$ par l'acide aminé $j$, calculé à partir du logarithme du rapport entre la fréquence observée de la paire dans des blocs de séquences protéiques alignées et la fréquence attendue sous hypothèse d'indépendance~:
- 
-\[
-S(i,j) = \frac{1}{\lambda} \ln \left( \frac{q_{ij}}{p_i \, p_j} \right)
-\]
- 
-où $q_{ij}$ est la fréquence observée de la paire $(i,j)$ dans les blocs conservés, $p_i$ et $p_j$ les fréquences individuelles des acides aminés $i$ et $j$, et $\lambda$ un facteur d'échelle. Un score positif traduit ainsi une substitution plus fréquente qu'attendue par hasard (souvent entre résidus aux propriétés physico-chimiques proches, par exemple entre deux acides aminés hydrophobes), tandis qu'un score négatif traduit une substitution défavorable ou rare au regard de l'évolution des familles de protéines.
- 
+
+
 \subsubsection{Pénalités de gap}
  
 Enfin, l'algorithme d'alignement utilisé (de type Needleman-Wunsch, pour un alignement global) intègre une pénalité d'ouverture de gap (un trou dans le sequence) ainsi qu'une éventuelle pénalité d'extension de gap (une suite de trou), afin d'éviter la multiplication de petites insertions/délétions dispersées et de favoriser des gaps regroupés, biologiquement plus plausibles (une seule insertion/délétion plutôt que plusieurs événements ponctuels indépendants).
@@ -490,6 +573,152 @@ est particulièrement intéressante dans notre contexte, où le modèle doit
 \end{tcolorbox}
 \vspace{1cm}
 
+
+\subsubsection{Calculs du gradient}
+
+L'étape de descente de FISTA nécessite le gradient de la partie lisse
+$f$ de la fonction objectif. On note n le nombre d'individus et p le nombre de sites viraux.
+On note également $\mathbf{X} \in \{0,1,2\}^{n \times p}$ la matrice des génotypes de l'hôte
+, de terme général $x_{ki}$ (génotype de l'individu $k$ au SNP $i$), $\mathbf{Y} = (Y_1, \dots, Y_n)^\top \in \{0,1\}^n$ le vecteur réponse associé au SNP $j$, et $\boldsymbol\beta_{\cdot j} = (\beta_{1j}, \dots, \beta_{pj})^\top$ le vecteur des coefficients à estimer, avec $\beta_{0j}$ l'intercept.
+Et $\mathbf{B} = (\beta_{ij}) \in \mathbb{R}^{p \times q}$ la matrice des coefficients à estimer, et $\beta_{0j}$ l'intercept associé au site viral $j$.
+\\
+\\
+De plus, on note :
+\[
+\eta_{kj} = \beta_{0j} + \sum_{i=1}^{p} x_{ki}\,\beta_{ij},
+\qquad
+\pi_{kj} = \text{logit}^{-1}(\eta_{kj}) = \frac{e^{\eta_{kj}}}{1 + e^{\eta_{kj}}} .
+\]
+
+Qui sont respectivement le prédicteur linéaire et la probabilité pour l'individu $k$ au site viral $j$ d'obtenir une mutation.
+\\
+\\
+Les individus sont supposés indépendants conditionnellement à leur génotype,
+la log-vraisemblance du modèle logistique s'écrit donc :
+\[
+\ell(\mathbf{B}) = \sum_{j=1}^{q} \sum_{k=1}^{n}
+\Big\{ Y_{kj} \log \pi_{kj} + (1 - Y_{kj})\log(1 - \pi_{kj}) \Big\}
+= \sum_{j=1}^{q} \sum_{k=1}^{n}
+\Big\{ Y_{kj}\, \eta_{kj} - \log\!\big(1 + e^{\eta_{kj}}\big) \Big\},
+\]
+
+
+
+
+
+\subsubsection{Calculs du gradient}
+
+L'étape de descente de FISTA nécessite le gradient de la partie lisse $f$ de
+la fonction objectif. Notons :
+\begin{itemize}
+    \item $n$ le nombre d'individus, $p$ le nombre de SNPs hôtes et $q$ le
+          nombre de sites viraux ;
+    \item $\mathbf{X} \in \{0,1,2\}^{n \times p}$ la matrice des génotypes
+          hôtes, de terme général $x_{ki}$ (dosage allélique du SNP $i$ chez
+          l'individu $k$), dont les colonnes sont centrées et réduites au
+          préalable afin que la pénalisation s'applique de façon homogène ;
+    \item $\mathbf{Y} \in \{0,1\}^{n \times q}$ la matrice des sites viraux,
+          de terme général $Y_{kj}$ (présence de la mutation $j$ chez
+          l'individu $k$) ;
+    \item $\mathbf{B} = (\beta_{ij}) \in \mathbb{R}^{p \times q}$ la matrice
+          des coefficients à estimer, et $\beta_{0j}$ l'intercept associé au
+          site viral $j$.
+\end{itemize}
+
+Le prédicteur linéaire et la probabilité prédite pour l'individu $k$ au site
+viral $j$ s'écrivent
+\[
+\eta_{kj} = \beta_{0j} + \sum_{i=1}^{p} x_{ki}\,\beta_{ij},
+\qquad
+\pi_{kj} = \text{logit}^{-1}(\eta_{kj}) = \frac{e^{\eta_{kj}}}{1 + e^{\eta_{kj}}} .
+\]
+
+\paragraph{Log-vraisemblance.}
+Les individus étant supposés indépendants conditionnellement à leur génotype,
+la log-vraisemblance du modèle logistique s'écrit
+\[
+\ell(\mathbf{B}) = \sum_{j=1}^{q} \sum_{k=1}^{n}
+\Big\{ Y_{kj} \log \pi_{kj} + (1 - Y_{kj})\log(1 - \pi_{kj}) \Big\}
+= \sum_{j=1}^{q} \sum_{k=1}^{n}
+\Big\{ Y_{kj}\, \eta_{kj} - \log\!\big(1 + e^{\eta_{kj}}\big) \Big\},
+\]
+la seconde égalité s'obtenant en remarquant que
+$\log \pi_{kj} - \log(1-\pi_{kj}) = \eta_{kj}$ et
+$\log(1-\pi_{kj}) = -\log(1+e^{\eta_{kj}})$. La partie lisse de la fonction
+objectif est la log-vraisemblance négative, normalisée par $n$ afin de rendre
+le choix de $\lambda_1$ et $\lambda_2$ indépendant de la taille de
+l'échantillon :
+\[
+f(\mathbf{B}) = -\frac{1}{n}\,\ell(\mathbf{B})
+= \frac{1}{n} \sum_{j=1}^{q}\sum_{k=1}^{n}
+\Big\{ \log\!\big(1 + e^{\eta_{kj}}\big) - Y_{kj}\, \eta_{kj} \Big\}.
+\]
+On notera que $f$ est \emph{séparable} en les colonnes de $\mathbf{B}$ : seule
+la pénalité de fusion, portée par le graphe des sites viraux, couple les
+différents sites entre eux. Le calcul du gradient peut donc être mené site par
+site, le couplage étant entièrement reporté sur l'opérateur proximal.
+
+\paragraph{Dérivées partielles.}
+Comme $\partial \eta_{kj} / \partial \beta_{ij} = x_{ki}$ et
+\[
+\frac{\partial}{\partial \beta_{ij}} \log\!\big(1 + e^{\eta_{kj}}\big)
+= \frac{e^{\eta_{kj}}}{1 + e^{\eta_{kj}}} \, x_{ki} = \pi_{kj} \, x_{ki},
+\]
+on obtient, pour tout SNP $i \in \{1,\dots,p\}$ et tout site viral
+$j \in \{1,\dots,q\}$,
+\[
+\frac{\partial f}{\partial \beta_{ij}}
+= \frac{1}{n} \sum_{k=1}^{n} x_{ki}\,\big(\pi_{kj} - Y_{kj}\big),
+\qquad\text{et}\qquad
+\frac{\partial f}{\partial \beta_{0j}}
+= \frac{1}{n} \sum_{k=1}^{n} \big(\pi_{kj} - Y_{kj}\big).
+\]
+Le gradient s'interprète comme la covariance empirique entre le génotype au
+SNP $i$ et le résidu $\pi_{kj} - Y_{kj}$ : un SNP dont la distribution suit
+les erreurs de prédiction du site viral $j$ verra son coefficient d'autant
+plus déplacé lors du pas de gradient.
+
+\paragraph{Écriture matricielle.}
+En notant $\boldsymbol\Pi(\mathbf{B}) = (\pi_{kj})_{k,j} \in [0,1]^{n \times q}$
+la matrice des probabilités prédites, les expressions précédentes se résument à
+\[
+\nabla f(\mathbf{B})
+= \frac{1}{n}\,\mathbf{X}^\top \big(\boldsymbol\Pi(\mathbf{B}) - \mathbf{Y}\big)
+\;\in\; \mathbb{R}^{p \times q},
+\]
+ce qui correspond à la forme utilisée à l'étape de descente de FISTA, le
+gradient y étant évalué au point extrapolé plutôt qu'en l'itéré courant. Son
+évaluation ne requiert que deux produits matriciels, soit un coût en
+$\mathcal{O}(npq)$ par itération, qui peut être fortement réduit en exploitant
+le caractère creux de $\mathbf{X}$ et de $\mathbf{B}$ au fil des itérations.
+
+\paragraph{Constante de Lipschitz.}
+En dérivant une seconde fois et en utilisant
+$\partial \pi_{kj} / \partial \eta_{kj} = \pi_{kj}(1 - \pi_{kj})$, la hessienne
+de $f$ est bloc-diagonale, chaque bloc correspondant à un site viral :
+\[
+\nabla^2_{\boldsymbol\beta_{\cdot j}} f(\mathbf{B})
+= \frac{1}{n}\,\mathbf{X}^\top \mathbf{W}_j \mathbf{X},
+\qquad
+\mathbf{W}_j = \text{diag}\big(\pi_{kj}(1 - \pi_{kj})\big)_{k=1,\dots,n}.
+\]
+Comme $\pi(1-\pi) \leq 1/4$ pour tout $\pi \in [0,1]$, on a
+$\nabla^2 f \preccurlyeq \frac{1}{4n}\,\mathbf{X}^\top\mathbf{X}$
+uniformément en $\mathbf{B}$, ce qui garantit que $\nabla f$ est
+$L$-lipschitzien avec
+\[
+L = \frac{1}{4n}\,\lambda_{\max}\!\big(\mathbf{X}^\top \mathbf{X}\big)
+= \frac{1}{4n}\,\sigma_{\max}(\mathbf{X})^2 ,
+\]
+constante commune à tous les sites viraux. En très grande dimension, cette
+valeur propre n'est pas calculée explicitement mais approchée par la méthode
+de la puissance itérée ; à défaut, la majoration
+$\lambda_{\max}(\mathbf{X}^\top\mathbf{X}) \leq \lVert \mathbf{X} \rVert_F^2$
+fournit un pas admissible, plus conservateur mais immédiat. Enfin, le gradient
+ne porte que sur $f$ : les deux pénalités, non différentiables, sont
+entièrement prises en charge par l'opérateur proximal.
+
+\subsubsection{Limites de l'algorithme FISTA}
 Cepandant, dans le contexte de très haute dimensionnalité des données, l'algorithme FISTA
 met un temps de calcul très long pour converger.
 \\
@@ -523,7 +752,7 @@ qui introduit un effet aléatoire distinct pour l'hôte et pour le virus.
 
 
 
-En reprenant cette idée, le modèle logistique s'écrit alors comme un modèle
+En essayant de coller les notations le plus possible avec le modèle précédent et en reprenant cette idée, le modèle logistique s'écrit alors comme un modèle
 mixte linéaire généralisé (GLMM) à deux effets aléatoires :
 \[
 \text{logit}\big(P(Y_i = 1)\big) = \beta_0 + W\alpha + X_j \beta_{ij}
@@ -536,12 +765,12 @@ et les deux effets aléatoires
 \eta_v \sim \mathcal{N}(0, \sigma^2_v K_v), \qquad
 \eta_h \sim \mathcal{N}(0, \sigma^2_h K_h)
 \]
-capturent respectivement la structure de parenté génomique du virus et de
-l'hôte, via les matrices de parenté génomique $K_v$ et $K_h$.
+capturent respectivement la structure de parenté du virus et de
+l'hôte, via les matrices de parenté $K_v$ et $K_h$.
 \\
 Contrairement aux composantes principales, ces matrices résument l'intégralité de la
 similarité génétique entre individus (ou souches), sans perte d'information
-liée à un nombre de dimensions fixé a priori.
+liée à un nombre de dimensions fixé en amont.
 
 Dans ce cadre, l'intérêt principal n'est plus seulement d'estimer les
 coefficients du modèle, mais de tester la significativité de
@@ -565,8 +794,8 @@ Les tests du score de Rao est implémenté dans le package \textit{GMMAT} de \te
 \\
 Concrètement, la procédure se déroule en deux étapes :
 \begin{enumerate}
-    \item \textbf{Ajustement sous $H_0$} : On force le coefficient d'intérêt $\beta_{ij}$ à $0$. Le modèle nul ne contenant que l'intercept et les effets aléatoires. On ajuste le modèle une seule fois par phénotype viral pour estimer les paramètres de nuisance et les composantes de la variance.
-    \item \textbf{Calcul du score} : Pour chaque variant de l'hôte $j$, on évalue le gradient de la log-vraisemblance au point $\beta_{ij} = 0$. Si ce gradient est significativement éloigné de zéro, l'hypothèse nulle est rejetée, indiquant une association entre $X_j$ et $Y_i$.
+    \item Ajustement sous $H_0$ : On force le coefficient d'intérêt $\beta_{ij}$ à $0$. Le modèle nul ne contenant que l'intercept et les effets aléatoires. On ajuste le modèle une seule fois par phénotype viral pour estimer les paramètres de nuisance et les composantes de la variance.
+    \item Calcul du score : Pour chaque variant de l'hôte $j$, on évalue le gradient de la log-vraisemblance au point $\beta_{ij} = 0$. Si ce gradient est significativement éloigné de zéro, l'hypothèse nulle est rejetée, indiquant une association entre $X_j$ et $Y_i$.
 \end{enumerate}
 
 
@@ -587,6 +816,232 @@ Néanmoins, pour les associations les plus prometteuses, il est possible de réa
 \\
 \\
 Il existe quand même des façons d'obtenir une estimation de l'effet $\beta_{ij}$ à l'aide des p-values. % à completer car je ne m'en souviens plus
+
+
+\subsubsection{Estimation approchée de l'effet $\beta_{ij}$}
+
+
+On dispose de $n$ individus, $p$ sites de SNP de l'hôte indexés par
+$j \in \{1, \dots, p\}$ et $q$ sites viraux indexés par
+$i \in \{1, \dots, q\}$. Pour un site viral $i$ fixé, on note
+$\ell_i(\theta)$ la log-vraisemblance pénalisée du modèle mixte et $\theta_{ij} = \bigl(\beta_{ij},\, \gamma_i\bigr),
+  \;
+  \gamma_i = \bigl(\beta_0,\, \alpha^{\top},\, \sigma^2_v,\, \sigma^2_h\bigr)^{\top},$
+où $\beta_{ij} \in \mathbb{R}$ est le paramètre d'intérêt et $\gamma_i$ le
+vecteur des paramètres de nuisance.
+\\
+\vspace{0.5cm}
+
+On remarquera que les paramètres de nuisance ne dépendent que du site viral $i$, et non du SNP
+testé $j$ : c'est là tout l'intérêt de la méthode. Le modèle nul est ajusté
+$q$ fois --- une fois par phénotype viral --- alors que $p \times q$ tests
+sont effectués. Le coût dominant, l'estimation des composantes de la variance
+$(\sigma^2_v, \sigma^2_h)$, est donc factorisé entre les $p$ SNP.
+\\
+\vspace{0.5cm}
+
+On rappelle que l'hypothèse testée est $H_0 : \beta_{ij} = 0$ contre $H_1 : \beta_{ij} \neq 0$.
+On note $\tilde{\theta}_i = (0, \hat{\gamma}_i)$ l'estimateur du maximum de
+vraisemblance \emph{contraint}, c'est-à-dire l'ajustement du modèle nul, où
+$\hat{\gamma}_i$ maximise $\gamma \mapsto \ell_i(0, \gamma)$.
+\\
+\vspace{0.5cm}
+
+\textbf{Détails :}
+\\
+Le score et la matrice d'information de Fisher se décomposent par blocs à cause de $\theta_{ij}$ :
+\[
+  U(\theta_{ij}) =
+  \begin{pmatrix} U_{\beta} \\[2pt] U_{\gamma} \end{pmatrix},
+  \qquad
+  \mathcal{I}(\theta_{ij}) =
+  \begin{pmatrix}
+    \mathcal{I}_{\beta\beta} & \mathcal{I}_{\beta\gamma} \\[2pt]
+    \mathcal{I}_{\gamma\beta} & \mathcal{I}_{\gamma\gamma}
+  \end{pmatrix}.
+\]
+Par définition de $\hat{\gamma}_i$, la composante de nuisance du score s'annule
+au point contraint :
+\begin{equation}
+  U_{\gamma}(\tilde{\theta}_i) = 0 .
+  \label{eq:score-nul}
+\end{equation}
+On introduit l'\emph{information efficace} relative à $\beta_{ij}$, définie
+comme le complément de Schur du bloc de nuisance et évaluée en
+$\tilde{\theta}_i$ :
+\begin{equation}
+  V_{ij}
+  = \mathcal{I}_{\beta\beta}
+    - \mathcal{I}_{\beta\gamma}\,\mathcal{I}_{\gamma\gamma}^{-1}\,\mathcal{I}_{\gamma\beta}.
+  \label{eq:info-efficace}
+\end{equation}
+Elle mesure l'information disponible sur $\beta_{ij}$ une fois retirée la part
+partagée avec les effets fixes et les effets aléatoires. La formule
+d'inversion par blocs donne
+$\bigl[\mathcal{I}^{-1}\bigr]_{\beta\beta} = V_{ij}^{-1}$, et la statistique du
+score s'écrit alors
+\begin{equation}
+  T_{ij} = \frac{U_{ij}^{\,2}}{V_{ij}}
+  \;\xrightarrow[\;n \to \infty\;]{\mathcal{L}}\; \chi^2_1
+  \quad \text{sous } H_0,
+  \qquad
+  U_{ij} \equiv U_{\beta}(\tilde{\theta}_i).
+  \label{eq:rao}
+\end{equation}
+\\
+\vspace{0.5cm}
+
+\begin{proposition}[Approximation de Newton--Raphson en une itération]
+\label{prop:onestep}
+Une itération de l'algorithme de Newton--Raphson initialisée au point contraint
+$\tilde{\theta}_i$ fournit l'approximation
+\begin{equation}
+  \boxed{\;
+  \hat{\beta}_{ij} \;=\; \frac{U_{ij}}{V_{ij}},
+  \qquad
+  \widehat{\mathrm{SE}}\bigl(\hat{\beta}_{ij}\bigr) \;=\; \frac{1}{\sqrt{V_{ij}}} \; }
+  \label{eq:onestep}
+\end{equation}
+\end{proposition}
+\vspace{0.5cm}
+\begin{proof}
+L'itération de Newton--Raphson appliquée à l'équation de vraisemblance
+$U(\theta) = 0$ à partir de $\tilde{\theta}_i$ s'écrit
+$\hat{\theta}^{(1)} = \tilde{\theta}_i + \mathcal{I}(\tilde{\theta}_i)^{-1} U(\tilde{\theta}_i)$.
+En extrayant la composante en $\beta$, et en utilisant successivement
+\eqref{eq:score-nul} puis l'inversion par blocs :
+\[
+  \hat{\beta}_{ij}
+  = \underbrace{0}_{\text{valeur initiale}}
+  + \bigl[\mathcal{I}^{-1}\bigr]_{\beta\beta} U_{ij}
+  + \bigl[\mathcal{I}^{-1}\bigr]_{\beta\gamma} \underbrace{U_{\gamma}(\tilde{\theta}_i)}_{=\,0}
+  = \frac{U_{ij}}{V_{ij}} .
+\]
+L'annulation du second terme est essentielle : c'est elle qui rend l'estimateur
+indépendant d'une mise à jour simultanée des paramètres de nuisance, et donc
+calculable sans réajuster le modèle mixte.
+\end{proof}
+
+\begin{remark}[Interprétation]
+De façon équivalente, l'estimateur revient à remplacer la log-vraisemblance
+profilée par son approximation quadratique au voisinage de $\beta_{ij} = 0$ :
+son développement de Taylor à l'ordre~1,
+$\partial \ell_i^{\mathrm{prof}} / \partial\beta \simeq U_{ij} - V_{ij}\,\beta$,
+s'annule exactement en $U_{ij}/V_{ij}$. Le score $U_{ij}$ donne la pente de la
+vraisemblance en $0$, l'information $V_{ij}$ sa courbure, et leur rapport
+localise le sommet de la parabole ainsi ajustée.
+\end{remark}
+
+\paragraph{Cohérence avec les p-values déjà calculées.}
+En reportant \eqref{eq:onestep} dans la statistique de Wald, on obtient
+\begin{equation}
+  z_{\mathrm{Wald}}
+  = \frac{\hat{\beta}_{ij}}{\widehat{\mathrm{SE}}(\hat{\beta}_{ij})}
+  = \frac{U_{ij}/V_{ij}}{V_{ij}^{-1/2}}
+  = \frac{U_{ij}}{\sqrt{V_{ij}}}
+  = z_{\mathrm{score}} ,
+  \label{eq:equiv-wald}
+\end{equation}
+c'est-à-dire exactement la racine signée de \eqref{eq:rao}. Les coefficients
+reconstruits sont donc rigoureusement compatibles avec les p-values issues du
+criblage : l'approximation n'introduit aucune incohérence dans les résultats
+déjà produits, et le signe de $U_{ij}$ fournit directement le sens de
+l'association.
+
+\paragraph{Expression opérationnelle dans le modèle mixte.}
+Dans l'implémentation \textit{GMMAT}, le modèle nul est ajusté par
+quasi-vraisemblance pénalisée. En notant $\hat{\pi}^{(i)}$ le vecteur des
+probabilités prédites sous $H_0$ pour le site viral $i$,
+$D_i = \mathrm{diag}\bigl(\hat{\pi}^{(i)}_k(1 - \hat{\pi}^{(i)}_k)\bigr)$, et
+\[
+  \Sigma_i = D_i^{-1} + \hat{\sigma}^2_v K_v + \hat{\sigma}^2_h K_h ,
+  \qquad
+  P_i = \Sigma_i^{-1} - \Sigma_i^{-1} W \bigl(W^{\top}\Sigma_i^{-1}W\bigr)^{-1} W^{\top}\Sigma_i^{-1},
+\]
+le score et sa variance prennent la forme
+\begin{equation}
+  U_{ij} = X_j^{\top} P_i \tilde{Y}_i ,
+  \qquad
+  V_{ij} = X_j^{\top} P_i X_j ,
+  \label{eq:gmmat}
+\end{equation}
+où $\tilde{Y}_i$ désigne le vecteur de travail associé au site viral $i$. La
+matrice de projection $P_i$ est la forme opérationnelle de l'information
+efficace \eqref{eq:info-efficace} : elle retire simultanément de $X_j$ la part
+expliquée par les covariables $W$ et celle absorbée par les structures de
+parenté $K_v$ et $K_h$. Cruciale pour le coût de calcul, $P_i$ ne dépend que
+de $i$ : elle est calculée une seule fois par site viral, et chaque SNP ne
+coûte plus que deux produits matrice--vecteur.
+
+
+
+
+
+
+
+
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% A METTRE EN ANNEXE : 
+\paragraph{Domaine de validité.}
+L'estimateur \eqref{eq:onestep} est \emph{efficace au premier ordre} : sous les
+alternatives locales $\beta_{ij} = h/\sqrt{n}$, il est asymptotiquement
+équivalent au maximum de vraisemblance et partage sa loi limite. Cette
+propriété repose toutefois sur la proximité entre le point d'initialisation
+$\beta_{ij} = 0$ et la valeur vraie, ce qui reste vérifié pour l'immense
+majorité des $p \times q$ paires testées, dont l'effet est nul ou faible. La
+qualité de l'approximation se dégrade en revanche dans trois situations :
+
+\begin{itemize}
+  \item \textbf{effets de forte amplitude} --- l'approximation quadratique de la
+        vraisemblance induit une atténuation de $|\hat{\beta}_{ij}|$ vers zéro.
+        Paradoxalement, ce sont donc les associations les plus significatives,
+        celles qui nous intéressent, qui sont les moins bien estimées ;
+  \item \textbf{variants rares ou sites viraux déséquilibrés} --- lorsque la
+        fréquence allélique du SNP ou celle du variant viral est faible, la
+        courbure de la vraisemblance est mal décrite par $V_{ij}$, et la
+        convergence vers la loi $\chi^2_1$ de \eqref{eq:rao} est elle-même lente ;
+  \item \textbf{quasi-séparation} --- le maximum de vraisemblance diverge alors
+        que $\hat{\beta}_{ij}$ reste fini, l'écart devenant arbitrairement grand.
+\end{itemize}
+
+À ces limites propres à l'approximation s'ajoute le biais connu de la
+quasi-vraisemblance pénalisée pour les réponses binaires, dont
+$\hat{\beta}_{ij}$ hérite.
+
+\paragraph{Stratégie retenue.}
+Ces considérations conduisent à une procédure en deux temps, qui prolonge
+naturellement celle décrite plus haut :
+
+\begin{enumerate}
+  \item \textbf{Criblage.} Les $p \times q$ tests du score fournissent, à coût
+        nul, les estimations $\hat{\beta}_{ij} = \texttt{SCORE}/\texttt{VAR}$.
+        Celles-ci sont utilisées pour l'exploration --- sens et amplitude
+        relative des effets, ordonnancement des associations, représentations
+        de type \emph{volcano plot} --- usages pour lesquels une précision au
+        premier ordre est amplement suffisante.
+  \item \textbf{Confirmation.} Les paires franchissant le seuil de
+        significativité après correction pour tests multiples font l'objet d'un
+        réajustement complet du modèle mixte, via \texttt{glmm.wald()}. Le
+        nombre de modèles concernés étant réduit de plusieurs ordres de
+        grandeur, le surcoût est négligeable au regard du criblage initial.
+        Cette étape fournit les estimations et intervalles de confiance
+        rapportés dans les résultats, précisément dans le régime où
+        l'approximation \eqref{eq:onestep} est la moins fiable.
+\end{enumerate}
+
+Ce dispositif combine ainsi le gain computationnel du test du score, seul
+praticable à l'échelle de $p \times q$ paires, et l'exactitude du maximum de
+vraisemblance là où elle est nécessaire.
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+
+
+
+
 
 \vspace{1cm}
 \newpage
@@ -614,8 +1069,26 @@ Au final, après filtrage des sites viraux, on a pu garder 427 sites viraux pour
 Avec le codage par transition d'acide aminé, on prend en compte la nature de la mutation. On encode les mutations par rapport à une matrice de substitution qui permet de savoir si la mutation est conservatrice ou non. Il s'agit de la matrice de Grantham. Mais celui-ci présente l'inconvénient de réduire le nombre de sites viraux et donc de réduire la puissance statistique pour les tests d'association.
 Ainsi, le fait de passer à un codage continu baisse le nombre de sites viraux et la précision des tests d'association.
 
- 
 
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 \subsection{Comparaison des modèles}
 \subsection{Performances du modèle retenu}
 
