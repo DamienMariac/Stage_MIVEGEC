@@ -382,7 +382,7 @@ virus. Ce choix reste discutable : ces composantes ne capturent respectivement
 que XX\,\% et 12\,\% de la variance cumulée, ce qui suggère qu'une part
 importante de la structure de population n'est pas corrigée.
 
-Le modèle s'écrit finalement, pour un SNP $j$ et un site viral $i$ fixés :
+Le modèle s'écrit finalement, pour un site de l'hôte $SNP_j$ et un site viral $Y_i$ fixés :
 \[
 \text{logit}\big(P(Y_i = 1)\big) = \beta_0 + \beta_{ij}\, SNP_j
 + \sum_{k=1}^{10} \gamma_k\, PC^{h\^ote}_k + \sum_{l=1}^{5} \delta_l\, PC^{virus}_l
@@ -394,16 +394,6 @@ tests multiples est nécessaire afin de limiter les faux positifs : les
 auteurs utilisent une correction de Bonferroni, avec un seuil de
 significativité $\alpha = 10^{-8}$.
 
-
-Afin de pouvoir représenter les résultats, on peut construire un \textit{Manhattan plot}.
-Celui-ci est un graphique qui représente les p-values de chaque SNPpour un site viral donné.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{images/manhattanplot.png}
-    \caption{Manhattan plot pour un site viral donné.}
-    \label{fig:manhattan}
-\end{figure}
 
 \newpage
 \subsubsection{Limites du modèle ``classique''}
@@ -479,7 +469,7 @@ w_{ii'} = \text{corr}(Y_i, Y_{i'}) =
 \]
 
 La matrice de corrélation ainsi obtenue sert de support au graphe~: une
-arête est créée entre deux sites viraux lorsque leur corrélation dépasse un
+arête est créée entre deux sites viraux lorsque leur corrélation en valeur absolue dépasse un
 seuil fixé choisit arbitrairement à $0.7$ (comme dans l'article \cite{?}). La Figure~\ref{fig:heatmap}
 représente cette matrice sous forme de heatmap, où les valeurs proches de 1
 sont en rouge et celles proches de 0 en jaune.
@@ -740,6 +730,11 @@ de plusieurs mois pour l'ensemble du jeu de données.
 \\
 \\
 De plus, l'algorithme FISTA ne peut pas être parallélisé du à la dépendance entre les sites qui impose de calculer les coefficients simultanément.
+\\
+\\
+Ainsi, dans le cadre du stage il n'y pas eu de possibilité de tester l'algorithme FISTA sur l'ensemble des données,
+et nous n'avons pas pu obtenir de resultats. Il est néanmoins possible de tester l'algorithme sur un sous-ensemble de données, mais les résultats obtenus ne sont pas représentatifs de l'ensemble des données.
+Cette approche a donc été laissée de côté pour se concentrer sur une approche plus adaptée à l'ensemble des données.
 \\
 \\
 Il est donc nécessaire de trouver une alternative à cette approche afin de pouvoir estimer le modèle sur l'ensemble des données.
@@ -1100,7 +1095,172 @@ Ainsi, le fait de passer à un codage continu baisse le nombre de sites viraux e
 
 
 \newpage
-\subsection{Comparaison des modèles}
+\subsection{Modèles liénaire généaralisé avec effets aléatoires}
+
+\subsubsection{Avec un codage binaire}
+
+
+L'implémentation du modèle a été réalisée à l'aide du package \textit{GMMAT} de R, sur le cluster
+\textit{ITROP}. Le nombre de tests d'association à effectuer correspond au produit du nombre de SNPs
+de l'hôte par le nombre de sites viraux polymorphes retenus, soit environ $10^{9}$ tests.
+Sans parallélisation, le temps de calcul est estimé à deux jours. Le calcul a donc été partitionné
+sur 36 coeurs, ce qui ramène le temps d'exécution à environ une heure.
+\\
+\\
+Le volume de tests impose une correction stricte du seuil de significativité. Nous retenons ici un
+seuil de $10^{-8}$, qui correspond à la correction de Bonferroni appliquée à l'échelle d'un site
+viral (soit environ $0{,}05$ divisé par le nombre de SNPs testés).
+Cette correction reste conservatrice puisqu'elle suppose l'indépendance des tests, hypothèse mise en
+défaut par le déséquilibre de liaison entre SNPs voisins~; le nombre effectif de tests indépendants
+est en réalité plus faible.
+\\
+Nous obtenons un total de 287 couples (SNP de l'hôte, site viral) dépassant le seuil
+de $10^{-8}$. Ce chiffre ne doit pas être interprété comme 287 signaux indépendants~: un même locus,
+représenté par plusieurs SNPs corrélés, peut contribuer à de nombreuses paires significatives.
+\\
+\\
+La figure~\ref{fig:cercleassociation} résume l'ensemble des associations détectées. Les chromosomes
+de l'hôte sont disposés sur une partie de la circonférence, les protéines virales sur l'autre~; chaque
+lien relie un SNP à un site viral. Les liens gris correspondent aux associations dépassant le seuil de
+Bonferroni, les liens rouges à celles dépassant un seuil plus strict de $10^{-10}$.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.76\textwidth]{images/mod1cercle10.png}
+    \caption{Cercle d'association entre les SNPs de l'hôte et les sites viraux}
+    \label{fig:cercleassociation}
+\end{figure}
+
+Trois observations se dégagent de cette représentation. Premièrement, les associations ne se répartissent pas uniformément sur le génome viral~: la protéine
+NS3 concentre la majorité des liens, et la quasi-totalité des liens rouges. Cette concentration doit
+toutefois être relativisée par la taille de la protéine~: NS3 étant l'une des plus longues du génome
+du VHC, elle contribue mécaniquement à un plus grand nombre de sites testés. Une normalisation par le
+nombre de sites polymorphes effectivement testés dans chaque protéine permettrait de distinguer un
+enrichissement biologique d'un simple effet de longueur.
+\\
+\\
+Deuxièmement, du côté de l'hôte, les associations convergent massivement vers le chromosome 6. Cette
+structure en éventail, où un même faisceau de SNPs se projette vers de nombreux sites viraux, traduit
+à la fois la corrélation entre SNPs voisins et le fait qu'un même locus de l'hôte exerce une pression
+de sélection sur plusieurs positions du génome viral.
+\\
+\\
+Troisièmement, cette redondance d'un même segment chromosomique associé à plusieurs sites viraux est
+cohérente avec les résultats publiés par ANSARI \textit{et al.}, dont nous retrouvons plusieurs
+associations, notamment celle impliquant le site viral 1450.
+\\
+
+\vspace{1cm}
+\textbf{Site viral 1450.}
+La figure~\ref{fig:mplot1450} présente le \textit{Manhattan plot} associé au site viral 1450~: chaque
+point représente un SNP de l'hôte, positionné selon sa localisation génomique en abscisse et selon
+$-\log_{10}(p)$ en ordonnée.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/mplot1450.png}
+    \caption{Manhattan plot pour le site viral 1450}
+    \label{fig:mplot1450}
+\end{figure}
+
+Le signal est très largement dominé par un pic unique sur le chromosome~6, atteignant
+$-\log_{10}(p) \approx 19$, soit plusieurs ordres de grandeur au-delà du seuil de significativité.
+Ce pic n'est pas porté par un SNP isolé mais par un ensemble de marqueurs contigus, ce qui constitue
+la signature attendue d'une association réelle~: en raison du déséquilibre de liaison, les SNPs
+proches du variant causal sont partiellement corrélés à celui-ci et présentent donc des p-values
+également faibles. Une association portée par un point isolé serait au contraire suspecte et
+évoquerait davantage un artefact de génotypage.
+
+En dehors de ce pic, le nuage de points reste plat et homogène le long du génome, sans excès de
+signal résiduel. C'est un indicateur favorable de la calibration du modèle~: l'effet aléatoire
+apparenté (matrice de parenté) semble absorber correctement la structure de population, qui aurait
+sinon provoqué une élévation générale des statistiques de test. Un unique point sur le chromosome~2
+émerge légèrement, sans atteindre le seuil, et ne peut donc pas être retenu.
+% TODO : préciser la position exacte du pic (Mb) et confirmer qu'il tombe dans la région HLA (chr6p21).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/qqplot1450.png}
+    \caption{QQ plot pour le site viral 1450}
+    \label{fig:qqplot1450}
+\end{figure}
+
+Le \textit{QQ plot} de la figure~\ref{fig:qqplot1450} confirme cette lecture. Les p-values observées
+suivent la diagonale attendue sous l'hypothèse nulle sur la quasi-totalité de leur distribution, et ne
+s'en écartent que dans la queue extrême. Ce profil, caractérisé par une déviation tardive et abrupte,
+correspond à celui d'un signal localisé~: seule une faible fraction de tests s'écarte du modèle nul.
+Une inflation observable dès les faibles valeurs de $-\log_{10}(p)$ aurait au contraire signalé une
+structure de population résiduelle ou un modèle mal spécifié.
+% TODO : reporter le facteur d'inflation génomique lambda pour appuyer quantitativement cet argument.
+L'amplitude de la déviation, avec des valeurs observées atteignant $19$ pour des valeurs attendues de
+l'ordre de $6$, mesure directement la force du signal.
+
+Cette position sur le chromosome~6 correspond à la région du complexe majeur d'histocompatibilité,
+dont l'implication dans la présentation antigénique et donc dans la pression de sélection exercée sur
+le virus est bien documentée. % TODO : citer la référence appropriée (HLA classe I / classe II).
+\\
+
+\vspace{1cm}
+\textbf{Site viral 1276.}
+Le modèle capture une seconde association d'intérêt, portant sur le site viral 1276
+(figure~\ref{fig:mplot1276}).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/mplot1276.png}
+    \caption{Manhattan plot pour le site viral 1276}
+    \label{fig:mplot1276}
+\end{figure}
+
+Le SNP $rs11758515$, situé sur le chromosome~6, est ici le variant le plus fortement associé, avec
+$-\log_{10}(p) \approx 11{,}5$. Il est le seul à franchir nettement le seuil de significativité
+(ligne rouge), les autres marqueurs annotés se situant entre $4$ et $6$, c'est-à-dire dans la zone
+dite suggestive (ligne bleue) qui ne permet pas de conclure. Le signal est donc plus modéré et plus
+isolé que pour le site 1450~: le pic est moins large, ce qui suggère un bloc de déséquilibre de
+liaison plus étroit autour du variant.
+Ce variant ne possède pas d'implication médicale documentée ni de fonction connue recensée dans les
+principales bases de données annotées~; son interprétation fonctionnelle reste donc ouverte, et
+mériterait d'être complétée par l'examen des gènes situés à proximité de sa position.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/qqplot1276.png}
+    \caption{QQ plot pour le site viral 1276}
+    \label{fig:qqplot1276}
+\end{figure}
+
+Le \textit{QQ plot} correspondant (figure~\ref{fig:qqplot1276}) présente à nouveau une distribution
+conforme à l'hypothèse nulle sur l'essentiel de son étendue, avec une déviation restreinte à la queue.
+On y observe une structure en marches d'escalier~: plusieurs groupes de SNPs partagent des p-values
+quasiment identiques. Ce phénomène s'explique par le déséquilibre de liaison, des marqueurs en
+corrélation quasi parfaite produisant des statistiques de test redondantes. Le nombre de paliers donne
+ainsi une indication approximative du nombre de signaux réellement indépendants, nettement inférieur
+au nombre de points situés au-dessus de la diagonale.
+
+
+
+
+
+
+\newpage
+\subsubsection{Avec un codage continu}
+
+L'implémentation du modèle a été faite à l'aide du package \textit{GMMAT} de R sur le cluster \textit{ITROP}.
+Le temps de calcul est le même que pour le codage binaire puisque les ressouces utilisées sont les mêmes.
+\\
+\\
+Le recodage des sites viraux a été fait à l'aide de la matrice de Grantham. Le codage est donc continu et permet de prendre en compte la nature de la mutation et donc d'éliminer des mutations conservatrices.
+Mais le codage continu réduit le nombre de sites viraux considérés et donc la puissance statistique pour les tests d'association.
+\\
+\\
+Au final, nous obtenons un total de X intéractions significatives dépassant un seuil de p-value de $10^{-8}$.
+Ce sont les mêmes sites viraux à quelques exceptions près qui sont associés à des SNPs de l'hôte.
+\\
+Le modèle avec codage continu ne fait donc pas mieux que le modèle avec codage binaire.
+
+
+
+
 \subsection{Performances du modèle retenu}
 
 
@@ -1110,11 +1270,17 @@ Ainsi, le fait de passer à un codage continu baisse le nombre de sites viraux e
 
 \newpage
 \section{Annexes}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/ICmod1.png}
+    \caption{Volcano plot des résultats du modèle avec codage binaire}
+    \label{fig:I}
+\end{figure}
 \subsection{Annexe 1}
 
 \newpage
 \section{Bibliographie}
 
-
+\newpage
 
 \end{document}
