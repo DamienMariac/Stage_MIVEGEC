@@ -36,11 +36,15 @@
 \contentsline {paragraph}{Stratégie retenue.}{18}{section*.18}%
 \contentsline {section}{\numberline {5}Résultats et discussion}{20}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Choix du codage}{20}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Description des données hepatite C}{20}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Description des données Dengue}{20}{subsubsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.2}Modèles liénaire généaralisé avec effets aléatoires}{21}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Avec un codage binaire}{21}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Avec un codage continu}{26}{subsubsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.3}Performances du modèle retenu}{26}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Conclusion et perspectives}{27}{section.6}%
-\contentsline {section}{\numberline {7}Annexes}{28}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Annexe 1}{28}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Bibliographie}{30}{section.8}%
+\contentsline {subsubsection}{\numberline {5.2.1}Codage binaire sur l'HCV}{21}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Codage binaire sur la dengue}{25}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Avec un codage continu sur l'HCV}{26}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.4}Avec un codage continu sur la dengue}{29}{subsubsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.3}Performances du modèle retenu}{29}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Conclusion et perspectives}{30}{section.6}%
+\contentsline {section}{\numberline {7}Annexes}{31}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Annexe 1}{31}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Bibliographie}{33}{section.8}%

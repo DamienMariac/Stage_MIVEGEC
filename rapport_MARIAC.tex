@@ -1075,7 +1075,33 @@ Au final, après filtrage des sites viraux, on a pu garder 427 sites viraux pour
 Avec le codage par transition d'acide aminé, on prend en compte la nature de la mutation. On encode les mutations par rapport à une matrice de substitution qui permet de savoir si la mutation est conservatrice ou non. Il s'agit de la matrice de Grantham. Mais celui-ci présente l'inconvénient de réduire le nombre de sites viraux et donc de réduire la puissance statistique pour les tests d'association.
 Ainsi, le fait de passer à un codage continu baisse le nombre de sites viraux et la précision des tests d'association.
 
+\subsubsection{Description des données hepatite C}
 
+Pour ce stage, on possède un jeu de donnée de l'Hépatite C (HCV)  de genotype 3a. Il est constitué de n individus infectés par le virus de l'hépatite C. Pour chaque individu, on possède des données sur le virus et sur l'hôte.
+On possède pour chaque individu en plus des informations suplémentaires sur l'age, le sexe, la charge virale, le groupe ethnique, et la provenance géographique des sequences.
+\\
+\\
+On possède une grande quantité d'individus provenant d'angleterre. Mais surtout une grande quantité d'individus de groupe etnie blanc et avec pour certains pays une proportion plus modérée de groupe ethnique asiatique.
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/barplothcvtot.png}
+    \caption{Distribution de l'age des individus}
+    \label{fig:age}
+\end{figure}
+
+Cirrhosis maladie
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/boxplotagecir.png}
+    \caption{Boxplot}
+    \label{fig:sexe}
+\end{figure}
+
+
+
+\subsubsection{Description des données Dengue}
 
 \newpage
 
@@ -1097,7 +1123,7 @@ Ainsi, le fait de passer à un codage continu baisse le nombre de sites viraux e
 \newpage
 \subsection{Modèles liénaire généaralisé avec effets aléatoires}
 
-\subsubsection{Avec un codage binaire}
+\subsubsection{Codage binaire sur l'HCV}
 
 
 L'implémentation du modèle a été réalisée à l'aide du package \textit{GMMAT} de R, sur le cluster
@@ -1237,31 +1263,122 @@ corrélation quasi parfaite produisant des statistiques de test redondantes. Le 
 ainsi une indication approximative du nombre de signaux réellement indépendants, nettement inférieur
 au nombre de points situés au-dessus de la diagonale.
 
+\subsubsection{Codage binaire sur la dengue}
 
+La particularité de ce jeu de données est qu'il mélange plusieurs serotypes différents. C'est à dire que le virus dispose de plusieurs variants.
+Il est donc nécessaire de recoder les sites viraux afin de pouvoir les comparer entre eux.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{images/arbredengue.png}
+    \caption{arbre phylogénétique des différents serotypes de la dengue}
+    \label{fig:arbre_phylogenetique}
+\end{figure}
+
+En effet, conditionnellement au serotype on peut avoir des sites constants, mais variables entre les serotypes.
+On modifie le codage afin de prendre en compte si il y'a eu une mutation ou non par rapport à la séquence de référence du serotype.
 
 
 
 
 \newpage
-\subsubsection{Avec un codage continu}
+\subsubsection{Avec un codage continu sur l'HCV}
 
 L'implémentation du modèle a été faite à l'aide du package \textit{GMMAT} de R sur le cluster \textit{ITROP}.
 Le temps de calcul est le même que pour le codage binaire puisque les ressouces utilisées sont les mêmes.
 \\
 \\
 Le recodage des sites viraux a été fait à l'aide de la matrice de Grantham. Le codage est donc continu et permet de prendre en compte la nature de la mutation et donc d'éliminer des mutations conservatrices.
-Mais le codage continu réduit le nombre de sites viraux considérés et donc la puissance statistique pour les tests d'association.
+Mais le codage continu réduit le nombre de sites viraux considérés et donc réduit les chances de trouver de nouvelles associations.
 \\
 \\
-Au final, nous obtenons un total de X intéractions significatives dépassant un seuil de p-value de $10^{-8}$.
-Ce sont les mêmes sites viraux à quelques exceptions près qui sont associés à des SNPs de l'hôte.
-\\
-Le modèle avec codage continu ne fait donc pas mieux que le modèle avec codage binaire.
+Au final, nous obtenons un total de $30$ interactions significatives dépassant un seuil de p-value de $10^{-8}$.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.76\textwidth]{images/mod2cercle.png}
+    \caption{Cercle d'association entre les SNPs de l'hôte et les sites viraux avec codage continu}
+    \label{fig:cercleassociation_continu}
+\end{figure}
+
+Contrairement au codage binaire et de l'ensemble des interaction sur la figure~\ref{fig:cercleassociation_continu}, les interactions sont beaucoup plus dispersées sur l'ensemble du génome viral et moins concentrées sur la protéines NS3.
+De plus, du côté de l'hôte, les interactions ne sont plus autant concentrées sur le chromosome 6 mais sont plus dispersées sur l'ensemble du génome de l'hôte.
+\\
+\\
+Il se pourrait que le codage continu permette de détecter des interactions qui ne sont pas forcément liées à la région HLA du chromosome 6 mais à d'autres régions du génome de l'hôte. Cependant, le nombre d'interactions significatives est beaucoup plus faible que pour le codage binaire. Il est donc difficile de conclure sur la pertinence de ce codage.
+
+\vspace{1cm}
+
+\textbf{Site viral 1613.}
+Avec le codage continu, on observe que le site viral 1613 réapparaît plusieurs fois dans les associations significatives.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/mplotC1613.png}
+    \caption{Manhattan plot pour le site viral 1613}
+    \label{fig:mplot1613}
+\end{figure}
+
+On observe sur le manhattan plot \ref{fig:mplot1613} que le signal est porté par un SNP rs11802399 situé sur le chromosome 1 et le SNP rs79221421 du chromosome 11.
+Comparé au codage binaire et aux interactions sur le site 1450, le signal est beaucoup plus faible et ne dépasse pas autant le seuil de significativité. Cependant, il est intéressant de noter que ce site viral réapparaît dans les interactions significatives avec le codage continu.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.67\textwidth]{images/qqplotC1613.png}
+    \caption{QQ plot pour le site viral 1613}
+    \label{fig:qqplot1613}
+\end{figure}
+
+On peut observe sur le QQplot \ref{fig:qqplot1613} que la distribution des p-values est conforme à l'hypothèse nulle sur l'essentiel de son étendue.
+
+\vspace{1cm}
+
+\textbf{Site viral 1961.}
+Sur cette position, on observe sur le graph \ref{fig:mplot1961} un signal porté par le SNP rs893184 situé sur le chromosome 19.
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/mplotC1961.png}
+    \caption{Manhattan plot pour le site viral 1961}
+    \label{fig:mplot1961}
+\end{figure}
+
+Pour cette position, on posède un peu plus d'informations. Elle se situe sur le chromosome 19 et code pour la protéine CDC42BPA.
+Cette dernière serait responsable d'un processus qui permettrait de couper des morceaux de protéines.
+Bien que le signale soit faible, celui-ci n'apparaît pas comme étant significatif dans l'étude de Ansari et al. Il pourrait donc s'agir d'une nouvelle association qui n'avait pas été détectée avec le codage binaire.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/qqplotC1961.png}
+    \caption{QQ plot pour le site viral 1961}
+    \label{fig:qqplot1961}
+\end{figure}
+
+
+
+\subsubsection{Avec un codage continu sur la dengue}
 
 
 
 \subsection{Performances du modèle retenu}
+
+Le modèle avec un codage binaire sur l'HCV est celui qui permet de détecter le plus d'interactions significatives.
+Bien que celui-ci ne prenne pas en compte la nature de la mutation, il permet de garder un maximum de sites viraux et donc de garder une puissance statistique suffisante pour les tests d'association.
+\\
+En revanche, le codage continu permet de prendre en compte la nature de la mutation et donc d'éliminer
+des mutations conservatrices. Celui-ci réduit donc le nombre de sites viraux considérés.
+Bien que dans le cas de l'HCV, le codage continu permette de détecter des interactions qui ne sont pas forcément liées à la région HLA du chromosome 6 mais à d'autres régions du génome de l'hôte,
+le nombre d'interactions significatives est beaucoup plus faible que pour le codage binaire. Il est donc difficile de conclure sur la pertinence de ce codage.
+\\
+Néanmoins, il reste pertinent de tester les nouvelles associations trouvées comme le site viral 1961 associé au SNP rs893184. 
+\\
+Il est donc envisageable d'étendre l'analyse afin de trouver des explications biologiques à ces nouvelles associations. Il est possible que ces associations soient liées à des mécanismes de défense de l'hôte ou à des mécanismes de réplication du virus.
+\\
+\\
+Ainsi, les deux modèles sont pertinents et permettent de détecter des interactions significatives mais différents entre les SNPs de l'hôte et les sites viraux.
+Bien que le codage continu se repose sur des bases physiques et chimiques via la matrice de grantham, il est possible de changer et de considerer d'autres matrices de substitution
+se basant sur d'autres critères afin de trouver d'autres associations significatives. Par exemple, la matrice PAM250 qui est construite de facon empirique à partir de diverse alignement de séquences
+pourrait être envisagée.
 
 
 \newpage
