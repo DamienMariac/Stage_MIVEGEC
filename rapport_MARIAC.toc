@@ -1,50 +1,62 @@
 \babel@toc {french}{}\relax 
 \contentsline {section}{\numberline {1}Environnement}{2}{section.1}%
-\contentsline {section}{\numberline {2}Contexte}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Contexte du sujet}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Contexte biologique}{3}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Préparation des données}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Le séquençage viral}{5}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Alignements multiples de séquences}{6}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Alignement progressif par rapport à une séquence de référence}{6}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Matrices de substitution}{6}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Pénalités de gap}{8}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Traitement des valeurs manquantes}{8}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Modélisation statistique}{9}{section.4}%
-\contentsline {subsubsection}{\numberline {4.0.1}Modèle d'association ``classique''}{9}{subsubsection.4.0.1}%
-\contentsline {subsubsection}{\numberline {4.0.2}Limites du modèle ``classique''}{10}{subsubsection.4.0.2}%
-\contentsline {subsection}{\numberline {4.1}Modèle avec dépendances : Graph Fused Lasso}{10}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Construction du graphe de corrélation}{10}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Choix des paramètres de régularisation}{11}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Optimisation du modèle : algorithme FISTA}{11}{subsubsection.4.1.3}%
-\contentsline {paragraph}{Étape de descente de gradient.}{12}{section*.7}%
-\contentsline {paragraph}{Étape de seuillage (opérateur proximal).}{12}{section*.8}%
-\contentsline {paragraph}{Étape d'accélération.}{12}{section*.9}%
-\contentsline {subsubsection}{\numberline {4.1.4}Calculs du gradient}{12}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Calculs du gradient}{13}{subsubsection.4.1.5}%
-\contentsline {paragraph}{Log-vraisemblance.}{13}{section*.10}%
-\contentsline {paragraph}{Dérivées partielles.}{13}{section*.11}%
-\contentsline {paragraph}{Écriture matricielle.}{14}{section*.12}%
-\contentsline {paragraph}{Constante de Lipschitz.}{14}{section*.13}%
-\contentsline {subsubsection}{\numberline {4.1.6}Limites de l'algorithme FISTA}{14}{subsubsection.4.1.6}%
-\contentsline {subsection}{\numberline {4.2}Modèle avec effets aléatoires}{14}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Estimation - Test du score de Rao}{15}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Estimation approchée de l'effet $\beta _{ij}$}{16}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Cohérence avec les p-values déjà calculées.}{18}{section*.15}%
-\contentsline {paragraph}{Expression opérationnelle dans le modèle mixte.}{18}{section*.16}%
-\contentsline {paragraph}{Domaine de validité.}{18}{section*.17}%
-\contentsline {paragraph}{Stratégie retenue.}{18}{section*.18}%
-\contentsline {section}{\numberline {5}Résultats et discussion}{20}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Choix du codage}{20}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Description des données hepatite C}{20}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Description des données Dengue}{20}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Modèles liénaire généaralisé avec effets aléatoires}{21}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Codage binaire sur l'HCV}{21}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Codage binaire sur la dengue}{25}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Avec un codage continu sur l'HCV}{26}{subsubsection.5.2.3}%
-\contentsline {subsubsection}{\numberline {5.2.4}Avec un codage continu sur la dengue}{29}{subsubsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.3}Performances du modèle retenu}{29}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Conclusion et perspectives}{30}{section.6}%
-\contentsline {section}{\numberline {7}Annexes}{31}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Annexe 1}{31}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Bibliographie}{33}{section.8}%
+\contentsline {subsection}{\numberline {1.1}L'unité d'accueil : l'UMR MIVEGEC}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}L'équipe d'accueil : PEV}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Conditions matérielles et vie de l'unité}{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Contexte}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Contexte du sujet}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Contexte biologique}{4}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Préparation des données}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Le séquençage viral}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Alignements multiples de séquences}{7}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Alignement progressif par rapport à une séquence de référence}{7}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Matrices de substitution}{7}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Pénalités de gap}{9}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Traitement des valeurs manquantes}{9}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Modélisation statistique}{10}{section.4}%
+\contentsline {subsubsection}{\numberline {4.0.1}Modèle d'association ``classique''}{10}{subsubsection.4.0.1}%
+\contentsline {subsubsection}{\numberline {4.0.2}Limites du modèle ``classique''}{11}{subsubsection.4.0.2}%
+\contentsline {subsection}{\numberline {4.1}Modèle avec dépendances : Graph Fused Lasso}{11}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Construction du graphe de corrélation}{11}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Choix des paramètres de régularisation}{12}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Optimisation du modèle : algorithme FISTA}{12}{subsubsection.4.1.3}%
+\contentsline {paragraph}{Étape de descente de gradient.}{13}{section*.7}%
+\contentsline {paragraph}{Étape de seuillage (opérateur proximal).}{13}{section*.8}%
+\contentsline {paragraph}{Étape d'accélération.}{13}{section*.9}%
+\contentsline {subsubsection}{\numberline {4.1.4}Calculs du gradient}{13}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Calculs du gradient}{14}{subsubsection.4.1.5}%
+\contentsline {paragraph}{Log-vraisemblance.}{14}{section*.10}%
+\contentsline {paragraph}{Dérivées partielles.}{14}{section*.11}%
+\contentsline {paragraph}{Écriture matricielle.}{15}{section*.12}%
+\contentsline {paragraph}{Constante de Lipschitz.}{15}{section*.13}%
+\contentsline {subsubsection}{\numberline {4.1.6}Limites de l'algorithme FISTA}{15}{subsubsection.4.1.6}%
+\contentsline {subsection}{\numberline {4.2}Modèle avec effets aléatoires}{15}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Estimation - Test du score de Rao}{16}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Estimation approchée de l'effet $\beta _{ij}$}{17}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Cohérence avec les p-values déjà calculées.}{19}{section*.15}%
+\contentsline {paragraph}{Expression opérationnelle dans le modèle mixte.}{19}{section*.16}%
+\contentsline {paragraph}{Domaine de validité.}{19}{section*.17}%
+\contentsline {paragraph}{Stratégie retenue.}{19}{section*.18}%
+\contentsline {section}{\numberline {5}Résultats et discussion}{21}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Choix du codage}{21}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Description des données hepatite C}{21}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Description des données Dengue}{22}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Modèles liénaire généaralisé avec effets aléatoires}{23}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Modèle linéaire généralisé à effets aléatoires}{23}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Codage binaire appliqué au VHC}{23}{subsubsection.5.3.1}%
+\contentsline {paragraph}{Site viral 1450.}{23}{section*.21}%
+\contentsline {paragraph}{Site viral 1276.}{25}{section*.24}%
+\contentsline {subsubsection}{\numberline {5.3.2}Codage binaire appliqué à la dengue}{27}{subsubsection.5.3.2}%
+\contentsline {paragraph}{Site viral 2775.}{29}{section*.29}%
+\contentsline {paragraph}{Site viral 173.}{30}{section*.32}%
+\contentsline {subsubsection}{\numberline {5.3.3}Codage continu appliqué au VHC}{31}{subsubsection.5.3.3}%
+\contentsline {paragraph}{Un profil d'associations sensiblement différent.}{31}{section*.36}%
+\contentsline {paragraph}{Site viral 1613.}{32}{section*.37}%
+\contentsline {paragraph}{Site viral 1961.}{33}{section*.40}%
+\contentsline {subsubsection}{\numberline {5.3.4}Codage continu appliqué à la dengue}{34}{subsubsection.5.3.4}%
+\contentsline {subsubsection}{\numberline {5.3.5}Tableaux comparatif}{34}{subsubsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.4}Performances du modèle retenu}{34}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Conclusion et perspectives}{36}{section.6}%
+\contentsline {section}{\numberline {7}Annexes}{37}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Annexe 1}{37}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Bibliographie}{39}{section.8}%
