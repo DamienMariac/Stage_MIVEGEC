@@ -196,22 +196,23 @@ l'activité quotidienne d'un laboratoire.
 \subsection{Contexte du sujet}
 La sévérité d'une infection virale varie fortement d'un individu à l'autre.
 Cette variabilité est en partie due à la diversité génétique de l'hôte et du virus.
-Les deux génomes interagissent indirectement entre eux par le biais du système immunitaire. Le virus est soumis à la pression de sélection exercée par le système immunitaire de l'hôte, et le génome de l'hôte cherche à éliminer le virus de l'organisme.
+Parmi les facteurs influençant cette variabilité, nous nous intéressons à la diversité génétique de l'hôte et du virus. L'objectif est d'identifier les variants génétiques de l'hôte qui influencent l'évolution du génome viral.
+Le virus est soumis à la pression de sélection exercée par le système immunitaire de l'hôte, et le génome de l'hôte cherche à éliminer le virus de l'organisme.
 \\
-L'objectif de ce stage est de proposer de nouveaux modèles permettant de faciliter l'étude d'associations entre les variants génétiques de l'hôte et les mutations virales, afin de mieux comprendre les mécanismes des réponses immunitaires et des interactions entre les deux génomes.
+L'objectif de ce stage est de proposer de nouveaux modèles permettant de faciliter l'étude d'associations entre les variants génétiques de l'hôte et les mutations virales, afin de mieux comprendre les mécanismes des réponses immunitaires de l'hôte humain.
 \\
 \\
-Historiquement, les études d'association sont menées sur les symptômes provoqués par l'infection. Mais ceux-ci sont souvent largement influencés par des facteurs tels que l'environnement, l'alimentation ou les habitudes physiques.
+Historiquement, les études d'association en génome entier sont menées sur les symptômes provoqués par l'infection. Mais ceux-ci sont souvent largement influencés par des facteurs non génétiques tels que l'environnement, l'alimentation ou les habitudes physiques.
 \\
 \\
 Pour pallier ce problème, il existe depuis quelques années une variante de cette approche. On cherche à identifier les variants génétiques de l'hôte qui influencent l'évolution du génome viral. Cette approche est appelée \textit{Genome-to-Genome} (GxG).
 L'idée est que les mutations virales sont le reflet de la pression de sélection exercée par le système immunitaire de l'hôte. Ainsi, en identifiant les variants génétiques de l'hôte associés à certaines mutations virales, on peut obtenir des informations sur les mécanismes immunitaires impliqués dans la réponse à l'infection.
 \\
 \\
-Ce qui fait toute la difficulté de cette approche est la haute dimensionnalité des données. En effet, on a du côté des hôtes des centaines de milliers de variants génétiques et du côté des virus des centaines de mutations après avoir filtré les sites dépassant un certain taux de variabilité.
+Ce qui fait toute la difficulté de cette approche est la haute dimensionnalité des données. En effet, on a du côté des hôtes des centaines de milliers de variants génétiques et du côté des virus des centaines de mutations après avoir filtré les sites présentant un certain taux de variabilité.
 \\
 De plus, les individus issus de régions géographiques et d'ethnies différentes présentent des différences génétiques, ce qui biaise les résultats d'association.
-Il est aussi possible que certains virus soient issus d'une même souche et partagent des mutations communes sans pour autant être responsables d'une pression de sélection.
+Il est aussi possible que certains virus soient issus d'une même souche et partagent des mutations communes dues à leur histoire évolutive sans pour autant être responsables d'une pression de sélection.
 Il est donc nécessaire de prendre en compte la structure de population des hôtes et du virus.
 \\
 \\
@@ -224,7 +225,7 @@ La nature du support de l'information ADN ou ARN dicte la réplication, ce qui a
 Cette haute variance est fondamentale : elle permet au virus de s'adapter très rapidement pour trouver des solutions face aux défenses de l'hôte.
 \\
 \\
-Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C dont on a déjà identifié des liaisons afin de pouvoir l'étendre au virus de la dengue. Ce sont tous deux des virus à ARN qui présentent une grande diversité génétique.
+Dans le cadre de ce stage, nous avons travaillé sur le virus de l'hépatite C (VHC) dont on a déjà identifié des liaisons afin de pouvoir l'étendre au virus de la dengue. Ce sont tous deux des virus à ARN qui présentent une grande diversité génétique.
 \\
 \\
 La multiplication du virus dépend entièrement de la machinerie cellulaire de l'hôte. L'infection débute lorsqu'un virus reconnaît un récepteur spécifique à la surface d’une cellule.
@@ -240,7 +241,7 @@ ribosomes de la cellule afin de produire les protéines virales nécessaires au 
 \end{figure}
 
 Lors de cette infection, le système immunitaire met en place plusieurs mécanismes de défense.
-Comme par exemple la production d'interférons qui est une molécule chargée de limiter la réplication du virus.
+Comme par exemple la production d'interférons qui sont des molécules chargées de limiter la réplication du virus.
 Mais développe aussi l'immunité adaptative en entraînant certains lymphocytes à reconnaître les virus et à les détruire.
 \\
 \\
@@ -248,9 +249,9 @@ La réponse immunitaire exerce une forte pression de sélection sur le virus. Ce
 \\
 \\
 Dans le cadre de ce stage, nous nous sommes intéressés à deux virus à ARN : le virus de
-l'hépatite C (HCV) et le virus de la dengue (DENV). Tous deux présentent une importante
+l'hépatite C (VHC) et le virus de la dengue (DENV). Tous deux présentent une importante
 diversité génétique, conséquence directe de leur fort taux de mutation.
-Le but étant de trouver de nouveaux modèles permettant d'identifier de nouveaux variants génétiques. La stratégie étant de le tester sur un jeu de données (HCV) dont on a déjà identifié des liaisons entre les variants génétiques de l'hôte et les mutations virales. Puis d'étendre cette approche sur le virus de la dengue.
+Le but étant de trouver de nouveaux modèles permettant d'identifier de nouveaux variants génétiques. La stratégie étant de le tester sur un jeu de données (VHC) dont on a déjà identifié des liaisons entre les variants génétiques de l'hôte et les mutations virales. Puis d'étendre cette approche sur le virus de la dengue.
 \newpage
 \section{Préparation des données}
 \vspace{1.5cm}
@@ -260,14 +261,14 @@ Cette partie détaille les étapes de collecte, d'alignement des séquences vira
 \vspace{1cm}
 Les données utilisées dans ce type d'étude nécessitent l'acquisition simultanée d'informations génétiques sur le pathogène et sur son hôte.
 Les échantillons biologiques consistent généralement en des prélèvements sanguins effectués chez les patients infectés.
-Pour le génome viral, l'ARN de l'HCV est extrait à partir du plasma sanguin des patients. Ce matériel est ensuite amplifié et séquencé à l'aide de technologies de séquençage, ce qui permet de capturer l'ensemble des variants présents chez un individu et d'en dégager une séquence consensus par patient.
+Pour le génome viral, l'ARN du VHC est extrait à partir du plasma sanguin des patients. Ce matériel est ensuite amplifié et séquencé par un séquenceur, ce qui permet de capturer l'ensemble des variants présents chez un individu et d'en dégager une séquence consensus par patient.
 
 \subsection{Le séquençage viral}
 Pour analyser le génome du virus présent chez un patient, il est important de comprendre comment les données génétiques sont techniquement lues par les machines (les séquenceurs).
 
-Contrairement à ce que l'on pourrait penser, un séquenceur ne lit pas le génome du virus d'une seule traite, de la première à la dernière « lettre » (nucléotide). Les technologies modernes de séquençage à haut débit procèdent différemment : elles découpent l'ARN viral en des millions de minuscules fragments, appelés des \textit{reads}.
+Contrairement à ce que l'on pourrait penser, un séquenceur ne lit pas le génome du virus d'une seule traite, de la première à la dernière « lettre » (nucléotide). Les technologies modernes de séquençage à haut débit procèdent différemment : elles découpent l'ARN viral en des millions de petits fragments de 14O nucléotides, appelés des \textit{reads}.
 La machine va ensuite lire ces petits fragments de manière individuelle et désordonnée.
-Pour se représenter ce processus, on peut imaginer un livre (le génome viral) qui serait passé dans une déchiqueteuse à papier. On se retrouve avec des milliers de petites bandes de papier contenant chacune quelques mots. Pour reconstituer l'histoire, un algorithme informatique va comparer ces bandes, chercher les mots qui se chevauchent, et les aligner les unes par rapport aux autres, souvent en s'aidant d'un « texte de référence » connu (comme la séquence externe H77 pour le HCV).
+Pour se représenter ce processus, on peut imaginer un livre (le génome viral) qui serait passé dans une déchiqueteuse à papier. On se retrouve avec des milliers de petites bandes de papier contenant chacune quelques mots. Pour reconstituer l'histoire, un algorithme informatique va comparer ces bandes, chercher les mots qui se chevauchent, et les aligner les unes par rapport aux autres, souvent en s'aidant d'un « texte de référence » connu (comme la séquence externe H77 pour le VHC).
 \\
 \\
 Puisque nous avons généré des millions de petits fragments à partir de milliers de copies du virus présentes dans le sang du patient, un « mot » spécifique du livre ne sera pas lu une seule fois, mais des dizaines, voire des centaines de fois.
@@ -302,7 +303,7 @@ Il sagit d'un problème de haute compléxité algorithmique : trouver l'aligneme
 Dans notre cas, nous avons réalisé un alignement progressif basé sur une séquence de référence. 
 \\
 \\
-Cette approche consiste dans un premier temps à choisir une séquence de référence (souvent la plus longue, la plus représentative, ou une séquence d'intérêt particulier ou consensus).
+Cette approche consiste dans un premier temps à choisir une séquence de référence (souvent la plus longue, la plus représentative, une séquence d'intérêt particulier ou consensus, ou une sequence de référence dans les bases de données publiques).
 \\
 \\
 Puis aligner successivement chaque autre séquence du jeu de données contre cette référence, par alignement deux à deux.
@@ -419,14 +420,14 @@ Cette problématique relève naturellement de modèle supervisé : les caractér
 tandis que les mutations observées chez le virus représentent les variables à expliquer.
 Contrairement à une approche non supervisée, qui se limite à décrire les structures présentes dans les données,
 un modèle supervisé permet de mettre en évidence des associations statistiques entre les deux génomes tout en tenant compte d'éventuels facteurs de confusion,
-tels que la stratification des populations hôtes et virus ou de caractère propre à l'individus.
+tels que la stratification des populations hôtes et virus ou de caractère propre à l'individu.
 
 
 \subsubsection{Modèle d'association ``classique''}
 
 Le modèle proposé par \cite{ref1} vise à modéliser la probabilité d'une mutation
-virale en fonction d'un SNP de l'hôte et de covariables telles que l'âge et le
-sexe. Pour un site viral et un SNP donnés, une régression logistique est ajustée
+virale en fonction d'un variant génétique de l'hôte appelé SNP pour single nucleotide polymorphism tout en rajoutant des covariables telles que l'âge et le
+sexe. Pour une position génomique virale (nous utiliserons site viral dans le reste du rapport) et un SNP donnés, une régression logistique est ajustée
 indépendamment, et ce pour l'ensemble des paires SNP--site viral.
 
 Afin de corriger la structure de population, les auteurs incluent les composantes
@@ -437,12 +438,12 @@ et les premières CP du virus capturent l'origine géographique des souches
 
 
 % REFAIRE GRAPH
-\begin{figure}[htbp]
+\begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/ACPvirusall.png}
-        \caption{PC1 et PC2 du virus, par pays}
+        \caption{PC1 et PC2 du virus, par pays de recrutement}
         \label{fig:acp-virus}
     \end{subfigure}
     \hfill
@@ -452,7 +453,7 @@ et les premières CP du virus capturent l'origine géographique des souches
         \caption{PC1 et PC2 de l'hôte, par ethnie}
         \label{fig:acp-hote}
     \end{subfigure}
-    \caption{Structure de population capturée par l'ACP.}
+    \caption{Structure de population capturée par l'ACP pour une cohorte multi-ethnique de patients infectes par le VHC}
     \label{fig:acp}
 \end{figure}
 
@@ -471,7 +472,8 @@ Une p-value est extraite pour chaque test SNP--site viral. Les tests étant
 menés indépendamment sur un très grand nombre de paires, une correction pour
 tests multiples est nécessaire afin de limiter les faux positifs : les
 auteurs utilisent une correction de Bonferroni, avec un seuil de
-significativité $\alpha = 10^{-8}$.
+significativité $\alpha = 10^{-11}$. Le seuil étant élevé, il est trop conservateur et risque d'écraser un signal réel.
+C'est pourquoi un seuil de significativité plus faible est utilisé à savoir $\alpha = 10^{-8}$.
 
 
 \newpage
@@ -482,7 +484,7 @@ approche plus adaptée à ce type de données.
 
 D'abord, il ne capture qu'une fraction de la structure de population : se
 limiter à quelques composantes principales, en plus d'ignorer une part
-importante de la variance, ne permet pas de représenter plus précisément la
+importante de la variance, ne permet pas de représenter assez précisément la
 dépendance génétique entre individus (côté hôte) ou entre souches (côté
 virus).
 
@@ -493,7 +495,7 @@ sont corrélés par déséquilibre de liaison. Ne pas modéliser ces dépendance
 revient à traiter chaque test comme indépendant alors qu'il ne l'est pas,
 ce qui biaise l'estimation de la significativité.
 
-Puis, la correction de Bonferroni, en supposant l'indépendance des tests,
+De plus, la correction de Bonferroni, en supposant l'indépendance des tests,
 est très conservatrice dans ce contexte de forte corrélation : elle risque
 d'écraser un signal réel, en particulier étant donné la très haute
 dimensionnalité des données (des millions de tests SNP--site viral).
@@ -502,7 +504,7 @@ dimensionnalité des données (des millions de tests SNP--site viral).
 
 \subsection{Modèle avec dépendances : Graph Fused Lasso}
 
-Un modèle de type Graph Fused Lasso (GFL) permettrait de pouvoir palier au problème de la corrélation entre sites.
+Un modèle de type Graph Fused Lasso (GFL) permettrait de pouvoir palier le problème de la corrélation entre sites.
 Celui-ci reprend le modèle logistique
 précédent, mais ajoute deux pénalisations sur les coefficients
 $\beta_{ij}$~: une pénalité de type Lasso, qui contraint les coefficients à
@@ -531,8 +533,8 @@ Afin d'implémenter ce modèle, il est nécessaire de construire un graphe
 représentant les corrélations entre sites viraux.
 \\
 \\
-Pour éviter d'avoir un biais, on calcule la corrélation sur un autre jeu de données de l'HCV du même serotype.
-Ces données proviennent de la banque de données du NCBI. On les a alignées par rapport à la séquence consensus 
+Pour éviter d'avoir un biais, on calcule la corrélation sur un autre jeu de données de l'VHC du même serotype.
+Ces données proviennent de la banque de données du NCBI. Elles ont été alignées par rapport à la séquence consensus 
 de nos données afin de pouvoir faire correspondre les bonnes positions. Puis nous avons calculé la corrélation entre
 les sites après avoir recodé en variables binaires sous forme de mutation/conservation. C'est avec $5000$ séquences que nous obtenons la matrice de corrélation.
 \\
@@ -813,10 +815,7 @@ De plus, l'algorithme FISTA ne peut pas être parallélisé du à la dépendance
 \\
 Ainsi, dans le cadre du stage il n'y pas eu de possibilité de tester l'algorithme FISTA sur l'ensemble des données,
 et nous n'avons pas pu obtenir de resultats. Il est néanmoins possible de tester l'algorithme sur un sous-ensemble de données, mais les résultats obtenus ne sont pas représentatifs de l'ensemble des données.
-Cette approche a donc été laissée de côté pour se concentrer sur une approche plus adaptée à l'ensemble des données.
-\\
-\\
-Il est donc nécessaire de trouver une alternative à cette approche afin de pouvoir estimer le modèle sur l'ensemble des données.
+Cette approche a donc été laissée de côté pour se concentrer sur une approche plus adaptée à l'ensemble des données et au temps de ce stage de Master 2.
 
 \vspace{1cm}
 
@@ -1130,504 +1129,791 @@ vraisemblance là où elle est nécessaire.
 
 \vspace{1cm}
 \newpage
+
+
+
 \section{Résultats et discussion}
-\vspace{1.5cm}
-\subsection{Choix du codage}
-
-Le choix du codage des données du virus est un point qui a longtemps été discuté pendant ce stage.
-En effet, le codage initial des données est binaire : 0 pour l'absence de mutation et 1 pour la présence de mutation par rapport à la séquence de référence (majoritaire au jeu de donnée).
-Ceci afin de pouvoir garantir suffisamment de puissance statistique pour les tests d'association.
-Les sites viraux sont très variables puisque il est à ARN. Mais certains sites sont très conservés et ne présentent que très peu de mutations.
-Il est donc nécessaire dans un premier temps de filtrer les sites viraux afin de ne garder que ceux présentant une variabilité suffisante.
-Les sites viraux présentant une variabilité de moins de 5\% ont été retirés du jeu de données.
-\\
-\\
-A ce stade, plusieurs codages on été envisagés pour le jeu de données du virus. Le codage initial binaire et un codage par transition d'acide aminé.
-\\
-\\
-Avec le codage binaire, on ne prend pas en compte la nature de la mutation. On ne sait pas si la mutation est grave ou non. Puisque passer d'un acide aminé à un autre pourrait avoir un impact sur la structure de la protéine et donc sur son rôle pouvant induire des comportements différents du virus.
-Mais celui-ci présente l'avantage de pouvoir garder un maximum de sites viraux et donc de pouvoir garder une puissance statistique suffisante pour les tests d'association. 
-\\
-Au final, après filtrage des sites viraux, on a pu garder 427 sites viraux pour le codage binaire.
-\\
-\\
-Avec le codage par transition d'acide aminé, on prend en compte la nature de la mutation. On encode les mutations par rapport à une matrice de substitution qui permet de savoir si la mutation est conservatrice ou non. Il s'agit de la matrice de Grantham. Mais celui-ci présente l'inconvénient de réduire le nombre de sites viraux et donc de réduire la puissance statistique pour les tests d'association.
-Ainsi, le fait de passer à un codage continu baisse le nombre de sites viraux et la précision des tests d'association.
-
-\subsubsection{Description des données hepatite C}
-
-Pour ce stage, on possède un jeu de donnée de l'Hépatite C (HCV)  de genotype 3a. Il est constitué de n individus infectés par le virus de l'hépatite C. Pour chaque individu, on possède des données sur le virus et sur l'hôte.
-On possède pour chaque individu en plus des informations suplémentaires sur l'age, le sexe, la charge virale, le groupe ethnique, et la provenance géographique des sequences.
-\\
-\\
-On possède une grande quantité d'individus provenant d'angleterre. Mais surtout une grande quantité d'individus de groupe etnie blanc et avec pour certains pays une proportion plus modérée de groupe ethnique asiatique.
-
-
+ 
+\subsection{Les jeux de données}
+ 
+\subsubsection{Hépatite C}
+ 
+Le jeu de données VHC porte sur 470 individus infectés par une souche de génotype~3a.
+Pour chacun, nous disposons du génome viral séquencé, d'un génotypage hôte de 300 000 sites, ainsi que
+de l'âge, du sexe, de la charge virale, du groupe ethnique déclaré et du pays de recrutement.
+ 
+La composition de la cohorte n'est pas neutre pour la suite (figure~\ref{fig:desc_hcv}). Le
+recrutement s'est fait dans cinq pays, avec une nette surreprésentation du Royaume-Uni, et la
+très grande majorité des individus sont d'ascendance européenne. Les autres groupes ne sont
+présents qu'en effectifs réduits, principalement une composante asiatique au Royaume-Uni et en
+Australie. Cette structure a deux conséquences. D'une part, un SNP dont la fréquence allélique
+diffère fortement entre groupes peut se retrouver associé à une mutation virale simplement parce
+que les deux sont plus fréquents dans le même sous-groupe~; c'est précisément ce que l'effet
+aléatoire d'apparentement est censé absorber, et nous vérifierons plus loin que c'est bien le cas.
+D'autre part, la puissance de détection est en pratique portée par le groupe majoritaire~: une
+association spécifique à un groupe minoritaire a peu de chances d'être détectée ici.
+ 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{images/barplothcvtot.png}
-    \caption{Distribution de l'age des individus pour le jeu de données HCV}
-    \label{fig:age}
+    \caption{Répartition des individus de la cohorte VHC par pays de recrutement et par groupe
+    ethnique déclaré.}
+    \label{fig:desc_hcv}
 \end{figure}
-
-\newpage
-\subsubsection{Description des données Dengue}
-
-Contrairement aux données de l'HCV, on ne possède pas les données sur l'origine ethnique des individus. Cependant les données proviennent exclusivement du Sri Lanka,
-ce qui permet de supposer que les individus sont d'origine ethnique similaire du à la population majoritaire du Sri Lanka.
-On possède cependant des informations suplémentaire, notamment si l'individu a déjà été infecté par le passé.
-Des informations sur la severité de la maladie l'age et le sexe de chaque individu.
+ 
+% NOTE : l'ancienne légende annonçait une distribution de l'âge, alors que la figure montre des
+% effectifs par pays. Légende corrigée.
+ 
+\subsubsection{Dengue}
+ 
+Le jeu de données dengue est de nature un peu différente. Il regroupe
+270 individus, tous recrutés au Sri Lanka. L'origine ethnique n'est pas renseignée,
+mais le recrutement sur un unique pays permet de supposer une population hôte nettement plus
+homogène que dans le cas du VHC. En contrepartie, nous ne pouvons pas vérifier cette hypothèse
+directement, et nous nous en remettons entièrement à la matrice d'apparentement.
+ 
+Nous disposons en revanche d'une covariable absente du jeu VHC~:
+le statut d'infection antérieure. Ce dernier point a son importance en
+dengue, où une seconde infection par un sérotype différent est un facteur de risque reconnu de
+forme sévère. Ces variables n'entrent pas dans les modèles présentés ici, qui portent sur les
+mutations virales et non sur le phénotype clinique, mais elles ouvrent une piste que nous
+évoquons en conclusion.
+ 
+La particularité déterminante de ce jeu de données est ailleurs~: il contient
+trois sérotypes viraux distincts. Nous y revenons en
+section~\ref{sec:dengue_binaire}, car cette structure impose de modifier le codage.
+ 
+\subsection{Choix du codage des sites viraux}
+ 
+Le codage de la réponse virale a occupé une part importante du stage, et mérite d'être explicité
+avant de présenter les résultats, car il conditionne tout ce qui suit.
+ 
+Le codage de départ est binaire~: pour un site donné, on note $0$ l'acide aminé de référence et
+$1$ tout acide aminé qui en diffère. La référence retenue est l'acide aminé majoritaire dans le
+jeu de données. Ce codage revient à mesurer la survenue d'un événement mutationnel, sans rien
+dire de sa nature.
+ 
+Un filtrage préalable est indispensable. Le VHC est un virus à ARN, dont le taux de mutation
+élevé entretient une forte variabilité, mais tous les sites ne sont pas également variables~:
+certains sont soumis à de fortes contraintes fonctionnelles et restent quasiment invariants. Un
+site où la mutation n'est observée que chez deux ou trois individus ne peut donner lieu à aucun
+test exploitable. Nous avons donc écarté les sites dont la fréquence de l'allèle minoritaire est
+inférieure à $5\,\%$, ce qui laisse 427 sites pour le VHC.
 \\
 \\
-
-
-
-
-\newpage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
-\subsection{Modèles liénaire généaralisé avec effets aléatoires}
-
-
+Le second codage envisagé remplace cette variable binaire par la \emph{distance de Grantham}
+entre l'acide aminé observé et celui de référence (section~3.2.2). La réponse devient continue et
+positive, nulle en l'absence de substitution, et d'autant plus grande que la substitution est
+chimiquement radicale. L'intérêt est direct~: une substitution leucine/isoleucine, très peu
+susceptible d'altérer la protéine, ne pèse plus autant qu'une substitution
+cystéine/tryptophane. Autrement dit, on cherche non plus les positions qui mutent, mais celles
+qui mutent et ont un impact fort.
+\\
+\\
+Ce gain se paie de deux façons, qu'il faut avoir en tête pour lire la suite. D'abord, l'analyse
+se restreint aux sites dont la variabilité se traduit effectivement par un changement d'acide
+aminé, ce qui réduit le nombre de sites testables et donc la puissance. Ensuite, et c'est moins
+évident, la distribution de la réponse change complètement de forme~: au lieu d'une variable de
+Bernoulli, on obtient une variable très asymétrique, avec une masse importante en zéro et
+quelques valeurs élevées. Les coefficients des deux modèles ne sont donc pas comparables
+directement, ni en signe, ni en amplitude~: dans un cas il s'agit d'un log-odds, dans l'autre
+d'un effet en unités de distance de Grantham.
+ 
 \subsection{Modèle linéaire généralisé à effets aléatoires}
-
+ 
+\subsubsection{Mise en œuvre et seuil de significativité}
+ 
+Le modèle décrit en section~4.2 a été ajusté avec le package \textit{GMMAT} de R, sur le cluster
+\textit{iTrop}. Le nombre de tests correspond au produit du nombre de SNPs de l'hôte par le
+nombre de sites viraux retenus, soit de l'ordre de $10^{9}$ pour le VHC. Une exécution séquentielle
+demanderait environ deux jours~; la répartition sur 36 c\oe{}urs ramène le calcul à une heure.
+ 
+Le choix du seuil mérite qu'on s'y arrête, car il n'est pas un simple Bonferroni. Avec de l'ordre
+de $2\times10^{6}$ SNPs, une correction de Bonferroni appliquée \emph{à un seul site viral}
+donnerait un seuil autour de $2{,}5\times10^{-8}$. Une correction appliquée à la grille complète des
+$10^{9}$ paires donnerait $5\times10^{-11}$. Le seuil que nous retenons, $10^{-8}$, se situe entre
+les deux, et ce positionnement est un compromis assumé plutôt qu'une propriété statistique.
+ 
+Deux effets jouent en effet en sens contraire. D'un côté, Bonferroni suppose l'indépendance des
+tests, hypothèse clairement fausse entre SNPs voisins en déséquilibre de liaison~: le nombre
+effectif de tests indépendants est sensiblement inférieur au nombre de SNPs, et la correction est
+donc trop sévère. De l'autre, notre seuil ignore la multiplicité liée aux 427 sites viraux, et
+sur ce plan il est trop permissif — environ 200 fois plus que le Bonferroni complet. Concrètement,
+sous l'hypothèse nulle et sous indépendance, $10^{9}$ paires testées à $10^{-8}$ produisent une
+dizaine de faux positifs attendus.
+ 
+Il faut donc lire les décomptes qui suivent comme des listes de \emph{signaux candidats},
+majoritairement réels mais pas exclusivement. C'est cohérent avec l'objectif du stage, qui est
+exploratoire~: nous cherchons à repérer des pistes, quitte à ce que la confirmation passe ensuite
+par une validation ciblée.
+ 
+\subsubsection{Grille de lecture des figures}
+\label{sec:grille}
+ 
+Les trois mêmes types de représentation reviennent pour chaque analyse. Plutôt que d'en
+redonner la lecture à chaque fois, nous la fixons ici une fois pour toutes.
+ 
+Le \textbf{cercle d'association} donne la vue d'ensemble. Les chromosomes de l'hôte occupent une
+partie de la circonférence, les protéines virales l'autre, et chaque lien relie un SNP à un site
+viral significatif. Ce qu'il faut y regarder n'est pas le nombre de liens, qui est trompeur — un
+même locus représenté par cinquante SNPs corrélés produit cinquante liens —, mais leur
+\emph{répartition}~: signal concentré sur une région, ou dispersé sur l'ensemble du génome.
+ 
+Le \textbf{Manhattan plot} détaille un site viral donné~: chaque point est un SNP hôte, placé selon
+sa position génomique et selon $-\log_{10}(p)$. Le critère de crédibilité n'y est pas la hauteur du
+pic mais sa \emph{forme}. Une association réelle se manifeste par un groupe de marqueurs contigus
+qui montent ensemble, parce que le déséquilibre de liaison fait que les SNPs voisins du variant
+causal lui sont partiellement corrélés. À l'inverse, un point isolé très haut, sans aucun voisin
+élevé, évoque davantage un artefact de génotypage qu'un signal biologique.
+ 
+Le \textbf{QQ plot} ne dit rien sur un SNP en particulier, mais tout sur la calibration du modèle.
+Il compare la distribution des p-values observées à celle attendue sous l'hypothèse nulle. Le
+profil recherché est une superposition à la diagonale sur l'essentiel de la distribution, avec une
+déviation confinée à l'extrême queue~: cela signifie que la grande majorité des tests se comporte
+comme sous $H_0$, et que seule une petite fraction s'en écarte. Un décollement précoce, dès les
+faibles valeurs de $-\log_{10}(p)$, signale au contraire que quelque chose n'est pas absorbé par le
+modèle — le plus souvent une structure de population résiduelle. Pour objectiver cette lecture,
+nous rapportons le facteur d'inflation génomique
+$\lambda = \mathrm{med}(\chi^{2}_{\text{obs}})/0{,}456$, qui vaut $1$ pour un modèle bien calibré.
+% TODO : calculer lambda pour chaque QQ plot et remplir les valeurs signalées plus bas.
+ 
+Enfin, les \textbf{intervalles de confiance} des coefficients, obtenus par réajustement complet du
+modèle via \texttt{glmm.wald()}, donnent le sens et l'amplitude de l'effet. Dans le modèle
+logistique, $\beta_{ij}$ est un log-odds~: un coefficient positif signifie que \emph{chaque copie
+supplémentaire de l'allèle alternatif au SNP hôte augmente la probabilité d'observer la mutation
+au site viral}. C'est la signature attendue d'un échappement~: l'hôte porteur exerce une pression,
+le virus y répond en mutant à cette position. Un coefficient négatif décrit la situation inverse,
+les porteurs étant associés au maintien de l'acide aminé de référence. Dans les deux cas, il
+s'agit d'une association et non d'un lien causal établi.
+ 
 \subsubsection{Codage binaire appliqué au VHC}
-
-Le modèle a été implémenté à l'aide du package \textit{GMMAT} de R, sur le cluster
-\textit{iTrop}. Le nombre de tests d'association à réaliser correspond au produit du nombre de SNPs
-de l'hôte par le nombre de sites viraux polymorphes retenus, soit de l'ordre de $10^{9}$ tests.
-Sans parallélisation, le temps d'exécution est estimé à deux jours~; la charge a donc été répartie
-sur 36 c\oe urs, ce qui ramène le calcul à environ une heure.
-\vspace{0.5cm}
-
-Le volume de tests impose une correction stricte du seuil de significativité. Nous retenons un seuil
-de $10^{-8}$, qui correspond à la correction de Bonferroni appliquée \emph{à l'échelle d'un site
-viral}, soit environ $0{,}05$ divisé par le nombre de SNPs testés.
-
-D'une part, la correction est conservatrice au sein d'un site~: elle suppose l'indépendance des
-tests, hypothèse mise en défaut par le déséquilibre de liaison entre SNPs voisins~; le nombre
-effectif de tests indépendants est en réalité sensiblement plus faible que le nombre de SNPs.
-D'autre part, et à l'inverse, ce seuil ne corrige pas la multiplicité induite par le nombre de sites
-viraux testés. Rapporté à l'ensemble des $\sim 10^{9}$ paires évaluées, un seuil de $10^{-8}$
-conduit, sous l'hypothèse nulle et sous indépendance, à une dizaine de faux positifs attendus. Le
-décompte présenté ci-dessous doit donc être lu comme un ensemble de signaux candidats, très
-majoritairement mais non exclusivement réels.
-
-Nous obtenons un total de 287 couples (SNP de l'hôte, site viral) dépassant ce seuil. Ce chiffre ne
-doit pas être interprété comme 287 signaux indépendants~: un même locus, représenté par plusieurs
-SNPs corrélés, peut contribuer à de nombreuses paires significatives.
-
-
-\begin{figure}[htbp]
+ 
+Nous obtenons 287 couples (SNP hôte, site viral) sous le seuil de $10^{-8}$, répartis sur
+32 sites viraux distincts, soit environ $7\,\%$ des 427 sites testés. Cet ordre de
+grandeur est raisonnable~: la grande majorité du génome viral ne montre aucune association, ce
+qui est exactement ce qu'on attend.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.72\textwidth]{images/mod1cercle10.png}
     \caption[Cercle d'association VHC, codage binaire]{Cercle d'association entre les SNPs de
-    l'hôte et les sites viraux du VHC (codage binaire)}
+    l'hôte et les sites viraux du VHC (codage binaire). Liens gris~: $p<10^{-8}$~; liens
+    rouges~: $p<10^{-10}$.}
     \label{fig:cercleassociation}
 \end{figure}
-
-
-La figure~\ref{fig:cercleassociation} résume l'ensemble des associations. Les chromosomes de l'hôte
-sont disposés sur une partie de la circonférence, les protéines virales sur l'autre~; chaque lien
-relie un SNP à un site viral. Les liens gris correspondent aux associations dépassant le seuil de
-Bonferroni, les liens rouges à celles dépassant un seuil plus strict de $10^{-10}$.
-\\
-\\
-Trois observations se dégagent de cette représentation.
-\\
-\\
-Premièrement, les associations ne se répartissent pas uniformément sur le génome viral~: la protéine
-NS3 concentre la majorité des liens, et la quasi-totalité des liens rouges. Cette concentration doit
-toutefois être relativisée par la taille de la protéine~: NS3 étant l'une des plus longues du génome
-du VHC, elle contribue mécaniquement à un plus grand nombre de sites testés.
-\\
-\\
-Deuxièmement, du côté de l'hôte, les associations convergent massivement vers le chromosome~6. Cette
-structure en éventail, où un même faisceau de SNPs se projette vers de nombreux sites viraux, traduit
-à la fois la corrélation entre SNPs voisins et le fait qu'un même locus de l'hôte exerce une pression
-de sélection sur plusieurs positions du génome viral.
-\\
-\\
-Troisièmement, cette redondance d'un même segment chromosomique associé à plusieurs sites viraux est
-cohérente avec les résultats publiés par \textsc{Ansari} \textit{et al.}~\cite{ansari2017}, dont nous
-retrouvons plusieurs associations, notamment celle impliquant le site viral 1450.
-
-\vspace{0.5cm}
-\vspace{0.5\baselineskip}
-
+ 
+La figure~\ref{fig:cercleassociation} est très structurée, et de deux manières.
+ 
+Du côté de l'hôte, le signal converge massivement vers le chromosome~6, et de façon encore plus
+marquée si l'on ne retient que les liens rouges. Cette structure en éventail, où un même faisceau
+de SNPs se projette vers de nombreux sites viraux, s'explique par la conjonction de deux
+phénomènes~: les SNPs de ce faisceau sont fortement corrélés entre eux, et le locus qu'ils
+marquent agit sur plusieurs positions du génome viral à la fois. C'est un résultat attendu, et
+c'est même rassurant qu'il apparaisse~: le chromosome~6 porte la région HLA, dont les molécules
+présentent les peptides viraux au système immunitaire. Un variant HLA sélectionne les peptides
+reconnus, donc les positions virales où une mutation permet d'échapper à la reconnaissance.
+% TODO : donner la position du pic en Mb et le build (GRCh37 ou GRCh38), et confirmer qu'elle
+% tombe dans 6p21.3 (~29,6-33,1 Mb). C'est l'argument le plus solide de cette sous-section et il
+% ne coûte qu'une ligne.
+ 
+Du côté viral, les liens ne se répartissent pas uniformément sur le génome~: la protéine NS3
+concentre la majorité des associations et la quasi-totalité des liens rouges. Il faut toutefois
+relativiser cette concentration, car NS3 est l'une des plus longues protéines du VHC et contribue
+donc mécaniquement à un plus grand nombre de sites testés. Une comparaison honnête demanderait de
+rapporter le nombre d'associations au nombre de sites polymorphes testés dans chaque protéine.
+% TODO : ce rapport se calcule en deux lignes de R et transformerait une observation descriptive
+% en argument. Un petit tableau protéine / nb de sites testés / nb de sites associés suffirait.
+ 
+Enfin, plusieurs de ces associations recoupent celles publiées par \textsc{Ansari}
+\textit{et al.}~\cite{ansari2017}, notamment celle impliquant le site viral~1450. C'est le point
+important de cette sous-section~: le jeu VHC sert ici de contrôle, et le fait de retrouver des
+signaux déjà décrits par une autre méthode valide l'implémentation avant de l'appliquer à la
+dengue.
+ 
 \paragraph{Site viral 1450.}
-La figure~\ref{fig:mplot1450} présente le \textit{Manhattan plot} associé au site viral 1450~: chaque
-point représente un SNP de l'hôte, positionné selon sa localisation génomique en abscisse et selon
-$-\log_{10}(p)$ en ordonnée.
-
-\begin{figure}[htbp]
+La figure~\ref{fig:mplot1450} présente le \textit{Manhattan plot} de ce site.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{images/mplot1450.png}
     \caption{\textit{Manhattan plot} pour le site viral 1450 (VHC, codage binaire).}
     \label{fig:mplot1450}
 \end{figure}
-
-Le signal est très largement dominé par un pic unique sur le chromosome~6, atteignant
-$-\log_{10}(p) \approx 19$, soit plusieurs ordres de grandeur au-delà du seuil de significativité.
-Ce pic n'est pas porté par un SNP isolé mais par un ensemble de marqueurs contigus, ce qui constitue
-la signature attendue d'une association réelle~: en raison du déséquilibre de liaison, les SNPs
-proches du variant causal lui sont partiellement corrélés et présentent donc des p-values également
-faibles. Une association portée par un point isolé serait au contraire suspecte et évoquerait
-davantage un artefact de génotypage.
-
-En dehors de ce pic, le nuage de points reste plat et homogène le long du génome, sans excès de
-signal résiduel. C'est un indicateur favorable de la calibration du modèle~: l'effet aléatoire
-d'apparentement semble absorber correctement la structure de population, qui aurait sinon provoqué
-une élévation générale des statistiques de test. Un unique point sur le chromosome~2 émerge
-légèrement, sans atteindre le seuil, et ne peut donc pas être retenu.
-% TODO : préciser la position exacte du pic (en Mb, build GRCh37 ou GRCh38 — le dire) et
-% confirmer qu'elle tombe bien dans la région HLA (chr6p21.3, ~29,6--33,1 Mb).
-
-\begin{figure}[htbp]
+ 
+Le signal est dominé par un pic unique sur le chromosome~6, qui atteint
+$-\log_{10}(p)\approx 19$, soit plus de dix ordres de grandeur au-delà du seuil. Surtout, ce pic
+présente la forme attendue décrite en~\ref{sec:grille}~: il est porté par une colonne dense de
+marqueurs contigus, et non par un point isolé. La largeur de cette colonne reflète l'étendue du
+bloc de déséquilibre de liaison autour du variant causal, ce qui est cohérent avec la région HLA,
+connue pour ses blocs particulièrement longs.
+ 
+En dehors de ce pic, le nuage reste plat et homogène le long du génome. C'est un bon indicateur~:
+si la structure de population était mal corrigée, on observerait une élévation générale des
+statistiques de test sur l'ensemble des chromosomes, ce qui n'est pas le cas. L'effet aléatoire
+d'apparentement fait donc son travail. Un point sur le chromosome~2 émerge légèrement au-dessus du
+nuage, sans atteindre le seuil ni être accompagné de voisins élevés~: il ne peut pas être retenu.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{images/qqplot1450.png}
     \caption{\textit{QQ plot} pour le site viral 1450 (VHC, codage binaire).}
     \label{fig:qqplot1450}
 \end{figure}
-
-Le \textit{QQ plot} de la figure~\ref{fig:qqplot1450} confirme cette lecture. Les p-values observées
-suivent la diagonale attendue sous l'hypothèse nulle sur la première moitié de leur distribution, et ne
-s'en écartent que dans la queue extrême. Ce profil, caractérisé par une déviation tardive et abrupte,
-correspond à celui d'un signal localisé~: seule une faible fraction de tests s'écarte du modèle nul.
-Une inflation observable dès les faibles valeurs de $-\log_{10}(p)$ aurait au contraire signalé une
-structure de population résiduelle ou un modèle mal spécifié.
-
-\vspace{0.5\baselineskip}
-
+ 
+Le \textit{QQ plot} (figure~\ref{fig:qqplot1450}) confirme cette lecture. Les p-values observées
+suivent la diagonale sur la première moitié de la distribution et ne s'en écartent que dans la
+queue, de façon tardive et abrupte. C'est le profil d'un signal localisé~: seule une petite
+fraction des tests s'écarte du modèle nul.
+% TODO : ajouter « avec lambda = ... », idéalement proche de 1.
+ 
+Un mot enfin sur le signe de l'effet. Les intervalles de confiance reportés en annexe
+(figure~\ref{fig:ICbinaireVHC}) montrent que \emph{toutes} les associations du site 1450 ont un
+coefficient \textbf{négatif}, compris entre $-0{,}5$ et $-2{,}5$. Les porteurs de l'allèle
+alternatif à ces SNPs sont donc associés au \emph{maintien} de l'acide aminé de référence en
+position 1450, et non à sa mutation. Ce n'est pas contradictoire avec l'hypothèse
+d'échappement~: le sens du coefficient dépend de l'allèle arbitrairement codé comme alternatif, et
+un signe négatif signifie simplement que c'est l'\emph{autre} allèle du SNP qui accompagne la
+mutation virale. La remarque a néanmoins son importance pour la lecture des figures suivantes, où
+les signes ne sont pas tous orientés dans le même sens.
+ 
 \paragraph{Site viral 1276.}
-Le modèle capture d'autres associations d'intérêt. Afin d'illustrer la diversité des signaux détectés, nous présentons ici le site viral 1276
-(figure~\ref{fig:mplot1276}).
-
-\begin{figure}[htbp]
+Ce second exemple illustre un profil de signal très différent.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{images/mplot1276.png}
     \caption{\textit{Manhattan plot} pour le site viral 1276 (VHC, codage binaire).}
     \label{fig:mplot1276}
 \end{figure}
-\newpage
-Le SNP \texttt{rs11758515}, situé sur le chromosome~6, est ici le variant le plus fortement associé,
-avec $-\log_{10}(p) \approx 11{,}5$. Il est le seul à franchir nettement le seuil de significativité
-(ligne rouge), les autres marqueurs annotés se situant entre $4$ et $6$, c'est-à-dire dans la zone
-dite suggestive (ligne bleue), qui ne permet pas de conclure. Le signal est donc plus modéré et plus
-isolé que pour le site 1450~: le pic est moins large, ce qui suggère un bloc de déséquilibre de
-liaison plus étroit autour du variant.
-
-Ce variant n'a pas d'implication médicale documentée ni de fonction connue recensée dans les
-principales bases de données annotées~; son interprétation fonctionnelle reste donc ouverte.
-
-\begin{figure}[htbp]
+ 
+Le SNP \texttt{rs11758516}, également sur le chromosome~6, est le variant le plus fortement
+associé, avec $-\log_{10}(p)\approx 11{,}5$. Il est le seul à franchir nettement le seuil~; les
+autres marqueurs annotés se situent entre $4$ et $6$, c'est-à-dire dans la zone suggestive, qui ne
+permet aucune conclusion.
+% NOTE : le texte initial indiquait rs11758515, la figure et l'annexe indiquent rs11758516.
+ 
+La différence avec le site 1450 n'est donc pas seulement une question d'intensité. Le pic est ici
+plus étroit, ce qui suggère un bloc de déséquilibre de liaison plus court autour du variant. Cette
+étroitesse est à double tranchant~: elle localise mieux le signal, ce qui est un avantage pour une
+éventuelle investigation fonctionnelle, mais elle le rend aussi plus fragile, puisque moins de
+marqueurs indépendants le corroborent. Le coefficient associé est positif et d'amplitude notable
+(figure~\ref{fig:ICbinaireVHC}), autour de $3{,}5$, soit dans le sens attendu d'un échappement.
+ 
+\texttt{rs11758516} n'a pas d'implication médicale documentée ni de fonction connue dans les
+principales bases annotées. Sa proximité avec la région HLA reste l'élément d'interprétation le
+plus solide dont nous disposons.
+% TODO : vérifier la distance exacte à la région HLA. Si le SNP est à l'intérieur ou en bordure,
+% l'interprétation devient beaucoup plus intéressante ; s'il en est loin, il faut le dire.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{images/qqplot1276.png}
     \caption{\textit{QQ plot} pour le site viral 1276 (VHC, codage binaire).}
     \label{fig:qqplot1276}
 \end{figure}
-
+ 
 Le \textit{QQ plot} correspondant (figure~\ref{fig:qqplot1276}) présente à nouveau une distribution
-conforme à l'hypothèse nulle sur l'essentiel de son étendue, avec une déviation restreinte à la queue.
-On y observe une structure en marches d'escalier~: plusieurs groupes de SNPs partagent des p-values
-quasiment identiques. Ce phénomène s'explique par le déséquilibre de liaison, des marqueurs en
-corrélation quasi parfaite produisant des statistiques de test redondantes. Le nombre de paliers donne
-ainsi une indication approximative du nombre de signaux réellement indépendants, nettement inférieur
-au nombre de points situés au-dessus de la diagonale.
-
-
+conforme à $H_0$ sur l'essentiel de son étendue. On y observe en revanche une structure en marches
+d'escalier~: plusieurs groupes de SNPs partagent des p-values quasiment identiques. C'est encore le
+déséquilibre de liaison qui parle, des marqueurs presque parfaitement corrélés produisant des
+statistiques de test redondantes. Cette structure est utile à lire~: le nombre de paliers donne une
+idée du nombre de signaux réellement indépendants, très inférieur au nombre de points situés
+au-dessus de la diagonale.
+ 
 \subsubsection{Codage binaire appliqué à la dengue}
-
-La particularité de ce jeu de données tient à la coexistence de quatretrois sérotypes viraux distincts au
-sein d'un même échantillon. La figure~\ref{fig:arbre_phylogenetique} illustre la divergence entre ces
-sérotypes~.
-
-\begin{figure}[htbp]
+\label{sec:dengue_binaire}
+ 
+\paragraph{Pourquoi le codage du VHC ne peut pas être repris tel quel.}
+Le jeu dengue contient plusieurs sérotypes viraux distincts, dont la
+figure~\ref{fig:arbre_phylogenetique} montre la divergence.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.75\textwidth]{images/arbredengue.png}
-    \caption{Arbre phylogénétique des différents sérotypes de la dengue.}
+    \caption{Arbre phylogénétique des sérotypes de la dengue présents dans l'échantillon.}
     \label{fig:arbre_phylogenetique}
 \end{figure}
-
-Cette structure invalide le codage employé pour le VHC. Un site peut en effet être parfaitement
-constant conditionnellement au sérotype, tout en étant variable entre sérotypes~: un
-codage naïf en présence/absence d'un acide aminé donné y détecterait une forte variabilité, alors que
-celle-ci ne refléterait que l'identité du sérotype et non une évolution intra-sérotype. Le risque est
-que la variable réponse deviendrait une simple étiquette de sérotype déguisée.
-
-\vspace{0.5cm}
-Nous modifions donc le codage de manière à ne retenir que la variation informative~: chaque site est
-codé selon la présence ou l'absence d'une mutation par rapport à la séquence de référence de
-son propre sérotype. Un site conservé au sein de chaque sérotype, même s'il diffère d'un sérotype à
-l'autre, est ainsi codé uniformément à $0$ et ne génère aucun signal.
-
-Deux précautions accompagnent ce recodage.
-Premièrement, la numérotation des positions doit être définie sur un alignement commun aux trois
-sérotypes, faute de quoi les positions comparées ne seraient pas homologues~; nous avons utilisé
-une méthode d'alignement et référence de numérotation employées introduite plus haut dans la partie 3.2.1 .
-\\
-Deuxièmement, un même codage à $1$ ne recouvre pas nécessairement la même substitution selon le
-sérotype~: le codage mesure l'événement mutationnel, non sa nature, ce qui constitue une perte
-d'information assumée à ce stade et partiellement compensée par le codage continu.
-
-\vspace{0.5cm}
-Après recodage et en supprimant les sites trop peu variable, on possède 193 sites viraux polymorphes, et environ 300000 SNPs hôte.
-Nous obtenons 287 couples (SNP, site viral)
-dépassant le seuil de $10^{-8}$.
-La figure~\ref{fig:cercledengue} en donne la représentation d'ensemble.
-
-\begin{figure}[htbp]
+ 
+Cette divergence est très ancienne — l'arbre place la séparation des principaux sérotypes autour
+du XV\textsuperscript{e} siècle — et elle est d'un tout autre ordre de grandeur que la variabilité
+accumulée à l'intérieur d'un sérotype. Un codage naïf en présence/absence par rapport à une
+référence unique serait donc dominé par cette divergence ancienne~: un site parfaitement conservé
+à l'intérieur de chaque sérotype, mais différent d'un sérotype à l'autre, apparaîtrait comme
+hautement variable. La variable réponse deviendrait alors une étiquette de sérotype déguisée, et
+les associations détectées ne diraient rien d'autre que « tel groupe d'hôtes est infecté par tel
+sérotype ».
+ 
+Nous modifions donc le codage de manière à ne retenir que la variation informative~: chaque site
+est codé selon la présence ou l'absence d'une mutation \emph{par rapport à la séquence de
+référence de son propre sérotype}. Un site conservé au sein de chaque sérotype, même s'il diffère
+entre sérotypes, est ainsi codé uniformément à $0$ et ne génère aucun signal.
+ 
+Deux précautions accompagnent ce recodage. D'abord, la numérotation des positions doit être
+définie sur un alignement commun à tous les sérotypes, sans quoi les positions comparées ne
+seraient pas homologues~; nous avons utilisé pour cela la méthode d'alignement décrite en
+section~3.2.1. Ensuite, un même codage à $1$ ne recouvre pas nécessairement la même substitution
+selon le sérotype~: le codage mesure l'événement mutationnel, non sa nature. C'est une perte
+d'information assumée à ce stade, que le codage continu est censé compenser en partie.
+ 
+Le prix à payer est une forte réduction de la variabilité disponible~: après recodage et filtrage,
+il ne reste que \textbf{193 sites viraux polymorphes}, contre 427 pour le VHC, pour environ
+$3\times10^{5}$ SNPs hôtes. Ce point est essentiel pour lire ce qui suit.
+ 
+\paragraph{Résultats d'ensemble, et une réserve importante.}
+Nous obtenons \textbf{480 couples} (SNP, site viral) sous le seuil de $10^{-8}$, répartis sur
+\textbf{90 sites viraux distincts}. La figure~\ref{fig:cercledengue} en donne la vue d'ensemble.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.76\textwidth]{images/circledengue.png}
     \caption[Cercle d'association dengue, codage binaire]{Cercle d'association entre les SNPs de
     l'hôte et les sites viraux de la dengue (codage binaire relatif au sérotype).}
     \label{fig:cercledengue}
 \end{figure}
-
-\vspace{0.5\baselineskip}
-\newpage
+ 
+Ces chiffres appellent une réserve que nous préférons poser d'emblée plutôt qu'en conclusion.
+90 sites associés sur 193 testés représentent près d'un site sur deux, alors que le VHC donnait
+32 sites sur 427, soit un sur treize. Il n'est pas plausible que la moitié du génome de la dengue
+soit sous pression de sélection détectable dans un échantillon de cette taille. Par ailleurs, la
+grille dengue ne compte qu'environ $6\times10^{7}$ paires, ce qui, au seuil de $10^{-8}$, ne prédit
+qu'un demi faux positif attendu sous indépendance — très loin des 480 observés.
+ 
+Le cercle lui-même est cohérent avec cette réserve~: contrairement au VHC, les liens sont
+distribués sur l'ensemble des chromosomes hôtes sans concentration nette, ce qui ressemble
+davantage à un fond diffus qu'à un ensemble de loci identifiés. Les QQ plots examinés ci-dessous
+confirment cette impression, et nous discutons en fin de section les causes possibles.
+ 
 \paragraph{Site viral 2775.}
-Le site 2775 est situé dans la protéine NS5. C'est une protéine non-structurale (qui ne code pas pour la coque du virus),
-qui est la plus grande et la plus importante protéine non structurale du virus.
-
+Le site 2775 se situe dans NS5, la plus grande protéine non structurale du virus. NS5 porte deux
+activités enzymatiques indispensables à la réplication, l'ARN polymérase ARN-dépendante et une
+méthyltransférase, et intervient également dans l'inhibition de la réponse interféron de l'hôte.
+C'est donc a priori une protéine intéressante pour notre question.
+% TODO : vérifier/citer cette description de NS5 (une référence de revue sur les flavivirus
+% suffirait) — c'est le type d'affirmation qu'un jury de biologie vérifiera.
+ 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{images/mplotD2775.png}
     \caption{\textit{Manhattan plot} pour le site viral 2775 (dengue, codage binaire).}
     \label{fig:mplot2775}
 \end{figure}
-
-Le signal est porté par plusieurs SNPs. On posède ici un manhattan plot bien plus bruité que ceux pour l'HCV qui découle du manque de diversité intra serotype.
-On observe que le SNP AX-11278381 situé sur le chromosome 3 est un bon candidat pour être un variant causal. Tout comme pour AX42210719 situé sur le chromosome 7 et AX-11112091.
-\\
-Les SNPs isolés avec acompagnés de aucun autre SNP proche ne sont pas de candidats prométteurs et pourraient être des artefacts de génotypage. Il est donc nécessaire de se concentrer sur les SNPs qui sont portés par un pic et qui sont donc corrélés entre eux.
-
-\begin{figure}[htbp]
+ 
+Le Manhattan plot (figure~\ref{fig:mplot2775}) est nettement plus bruité que ses équivalents VHC.
+Le nuage de fond est plus haut, et une quinzaine de points franchissent le seuil sans qu'aucun pic
+ne se détache franchement. En appliquant le critère de forme énoncé en~\ref{sec:grille}, les
+candidats les moins fragiles sont \texttt{AX-11278381} sur le chromosome~3, \texttt{AX-42210719}
+sur le chromosome~7 et \texttt{AX-11112091}, qui sont accompagnés de marqueurs voisins élevés. Les
+autres points significatifs sont isolés~: ils ne sont soutenus par aucun marqueur en déséquilibre
+de liaison avec eux, ce qui est difficile à concilier avec l'existence d'un variant causal dans la
+région, et évoque plutôt un artefact de génotypage ou un effet de faible fréquence allélique.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.65\textwidth]{images/qqplotd2775.png}
     \caption{\textit{QQ plot} pour le site viral 2775 (dengue, codage binaire).}
     \label{fig:qqplot2775}
 \end{figure}
-
-Le QQ plot (figure~\ref{fig:qqplot2775}) suit la diagonale sur l'essentiel de sa
-distribution avec une déviation restreinte à la queue / présente une inflation dès les faibles
-valeurs.
-
-\vspace{0.5\baselineskip}
-
+ 
+Le \textit{QQ plot} (figure~\ref{fig:qqplot2775}) est ici le résultat le plus informatif, et il
+est moins favorable que pour le VHC~: la courbe décolle de la diagonale très tôt, dès
+$-\log_{10}(p)\approx 1$, et reste au-dessus sur toute son étendue. Ce n'est pas le profil d'un
+signal localisé mais celui d'une inflation générale des statistiques de test, qui indique qu'une
+part de la structure des données n'est pas absorbée par le modèle.
+% TODO : donner lambda. Sur cette figure il sera nettement supérieur à 1, probablement > 1,2.
+ 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/ICDENV2775.png}
+    \caption{Intervalles de confiance des coefficients pour le site viral 2775
+    (dengue, codage binaire).}
+    \label{fig:ICDENV2775}
+\end{figure}
+ 
+Les intervalles de confiance (figure~\ref{fig:ICDENV2775}) sont tous positifs, ce qui va dans le
+sens d'un échappement~: les porteurs de l'allèle alternatif sont associés à la présence de la
+mutation en position 2775. Mais leur \emph{amplitude} pose problème. Les coefficients se situent
+entre $5$ et $9$ sur l'échelle logit, soit des odds-ratios de l'ordre de $10^{2}$ à $10^{4}$, et
+les intervalles sont larges. Des effets d'une telle taille sont invraisemblables pour un variant
+commun et correspondent en réalité à deux des trois situations que nous avions identifiées en
+section~4.2.2 comme limites du dispositif~: la quasi-séparation, où la vraisemblance diverge parce
+que le génotype prédit presque parfaitement la réponse, et les faibles fréquences alléliques, où
+la courbure de la vraisemblance est mal estimée. Le fait que tous les coefficients soient positifs
+est d'ailleurs cohérent avec cette lecture~: en situation de séparation, le signe est déterminé
+par la configuration du tableau de contingence bien plus que par un effet biologique.
+ 
+Il ne s'agit donc pas de rejeter ces associations, mais de reconnaître qu'en l'état elles ne sont
+pas interprétables quantitativement. Une vérification simple s'impose~: reporter, pour chaque
+paire significative, la fréquence de l'allèle mineur du SNP et la fréquence de la mutation au site
+viral, et examiner le tableau de contingence croisé.
+% TODO : cette vérification est rapide et changerait la solidité de toute la sous-section dengue.
+ 
 \paragraph{Site viral 173.}
-
-Le site 173 du virus est situé sur la protéine prM qui à l'inverse de la protéine NS5 est une protéine structurale (qui code pour la coque du virus).
-
-
-\begin{figure}[htbp]
+Le site 173 se situe dans prM, protéine structurale qui participe à l'enveloppe du virion et dont
+la maturation conditionne l'infectiosité des particules virales. Il présente donc un profil
+fonctionnel opposé à celui de NS5, ce qui rend la comparaison intéressante.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{images/mplotD173.png}
     \caption{\textit{Manhattan plot} pour le site viral 173 (dengue, codage binaire).}
     \label{fig:mplot173}
 \end{figure}
-
-D'après le manhattan plot (figure~\ref{fig:mplot173}), le signal est aussi porté par plusieurs SNPs.
-On observe que le SNP AX-63561232 situé sur le chromosome 1, le SNP AX-11239493 situé sur le chromosome 3 et le SNP AX-15470303 situé sur le chromosome 6 sont des candidats pour être des variants causals.
-Ils possèdent une corrélation avec d'autres SNPs proches et sont donc portés par un pic. Ils dépassent tous le seuil de significativité de $-\log_{10}(p) = 9$.
-\begin{figure}[htbp]
+ 
+Le signal est là aussi porté par plusieurs marqueurs (figure~\ref{fig:mplot173}). Les candidats
+les plus crédibles, au sens du critère de forme, sont \texttt{AX-63561232} sur le chromosome~1,
+\texttt{AX-11239493} sur le chromosome~3 et \texttt{AX-15470303} sur le chromosome~6~: ils
+dépassent tous $-\log_{10}(p)=10$ et sont accompagnés de voisins élevés. On notera l'absence de
+concentration sur le chromosome~6 comparable à celle observée pour le VHC, ce qui n'a rien de
+surprenant~: la puce utilisée ici n'a pas la même densité de marqueurs dans la région HLA, et rien
+ne garantit que le mécanisme d'échappement soit du même type.
+% TODO : vérifier la densité de marqueurs de la puce Axiom utilisée dans la région 6p21.3. Si
+% elle est faible, c'est une explication solide à l'absence de pic HLA, et cela vaut la peine
+% d'être écrit.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{images/qqplotD173.png}
     \caption{\textit{QQ plot} pour le site viral 173 (dengue, codage binaire).}
     \label{fig:qqplot173}
 \end{figure}
-
-D'après le QQ plot (figure~\ref{fig:qqplot173}), on observe une inflation dès les faibles valeurs de $-\log_{10}(p) = 2$.
-\vspace{0.5cm}
+ 
+Le \textit{QQ plot} (figure~\ref{fig:qqplot173}) présente la même inflation précoce que pour le
+site 2775, avec un décollement dès $-\log_{10}(p)\approx 2$. La régularité de ce comportement d'un
+site à l'autre est en soi une information~: il ne s'agit pas d'une particularité d'un site, mais
+d'un problème de calibration qui affecte l'ensemble de l'analyse dengue.
+ 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/ICDENV173.png}
+    \caption{Intervalles de confiance des coefficients pour le site viral 173
+    (dengue, codage binaire).}
+    \label{fig:ICDENV173}
+\end{figure}
+ 
+Les coefficients (figure~\ref{fig:ICDENV173}) reproduisent le profil du site 2775~: tous positifs,
+tous compris entre $5$ et $12$, avec des intervalles larges. La même réserve s'applique.
+ 
+\paragraph{Pourquoi l'analyse dengue est moins bien calibrée que l'analyse VHC.}
+Trois explications nous semblent plausibles, et elles ne s'excluent pas.
+ 
+La première tient à la structure virale résiduelle. Le codage relatif au sérotype supprime la
+variation \emph{entre} sérotypes dans la réponse, mais il ne supprime pas la structure
+sous-jacente~: la matrice de parenté virale $K_v$ reste dominée par la séparation entre sérotypes,
+qui est d'un ordre de grandeur bien supérieur à la variabilité intra-sérotype. L'effet aléatoire
+risque donc de capter cette divergence ancienne plutôt que la structure fine qui nous intéresse.
+Un test simple permettrait de trancher~: refaire l'analyse sérotype par sérotype et vérifier si
+les signaux persistent.
+% TODO : c'est la vérification la plus utile de toute cette section si le temps le permet, même
+% sur le seul sérotype le mieux représenté.
+ 
+La deuxième tient à la faible variabilité intra-sérotype. Ne conserver que 193 sites signifie que
+beaucoup d'entre eux sont proches du seuil de $5\,\%$ de variabilité retenu au filtrage. Des sites
+faiblement polymorphes produisent des tableaux de contingence déséquilibrés, où la statistique du
+score converge mal vers sa loi $\chi^{2}_{1}$ asymptotique~: les p-values sont alors trop petites,
+ce qui est exactement l'inflation observée. Relever le seuil de filtrage à $10\,\%$ et comparer les
+QQ plots permettrait de mesurer l'ampleur de cet effet.
+ 
+La troisième, moins probable mais à ne pas écarter, tient à la structure hôte. L'hypothèse d'une
+population homogène au Sri Lanka reste une hypothèse, et le pays compte plusieurs groupes de
+population distincts. Une inspection des premières composantes principales de la matrice
+d'apparentement hôte suffirait à s'en assurer.
+ 
 \subsubsection{Codage continu appliqué au VHC}
-
-Le modèle a été implémenté avec le même package et sur la même infrastructure que précédemment~; les
-ressources mobilisées étant identiques, le temps de calcul est inchangé.
-
-Le recodage des sites viraux s'appuie sur la matrice de Grantham, qui associe à chaque couple d'acides
-aminés une distance physico-chimique. La réponse devient donc continue et rend compte de la
-\emph{nature} de la substitution et non de sa seule occurrence, ce qui permet notamment d'atténuer le
-poids des mutations conservatrices. En contrepartie, ce codage restreint l'analyse aux sites dont la
-variabilité se traduit par des substitutions d'acides aminés~: le nombre de sites testables diminue,
-et avec lui la puissance globale de détection.
-% Précision utile si vous l'avez : combien de sites passent de N à N' entre les deux codages ?
-% Sans ce chiffre, l'affirmation « réduit les chances de trouver des associations » reste
-% qualitative.
-
-Au total, nous obtenons $30$ associations dépassant le seuil de $10^{-8}$, contre $287$ avec le
-codage binaire.
-
-\begin{figure}[htbp]
+ 
+Le modèle a été ajusté avec le même package et sur la même infrastructure, pour un temps de calcul
+inchangé. La réponse est désormais la distance de Grantham entre l'acide aminé observé et la
+référence.
+ 
+Nous obtenons \textbf{29 associations} sous le seuil de $10^{-8}$, réparties sur \textbf{19 sites
+viraux distincts}, contre 287 associations et 32 sites en codage binaire. La chute est donc
+importante, mais elle affecte beaucoup plus le nombre de \emph{paires} que le nombre de
+\emph{sites}~: c'est cohérent avec le fait que les paires du codage binaire étaient largement
+redondantes, plusieurs dizaines de SNPs corrélés pointant vers le même locus.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.76\textwidth]{images/mod2cercle.png}
     \caption[Cercle d'association VHC, codage continu]{Cercle d'association entre les SNPs de
-    l'hôte et les sites viraux du VHC, avec codage continu (distances de Grantham).}
+    l'hôte et les sites viraux du VHC, codage continu (distances de Grantham).}
     \label{fig:cercleassociation_continu}
 \end{figure}
-
+ 
 \paragraph{Un profil d'associations sensiblement différent.}
-La figure~\ref{fig:cercleassociation_continu} présente une répartition nettement plus dispersée que
-son équivalent en codage binaire, aussi bien du côté viral --- les liens ne se concentrent plus sur
-NS3 --- que du côté de l'hôte, où la prédominance du chromosome~6 s'estompe au profit d'un signal
-réparti sur l'ensemble du génome.
-
-Cette différence admet toutefois deux lectures concurrentes, qu'il serait imprudent de trancher en
-l'état. Selon la première, le codage continu révélerait des associations d'une autre nature, liées à
-des mécanismes indépendants de la présentation antigénique par le CMH et donc invisibles au codage
-binaire. Selon la seconde, la forte réduction du nombre d'associations significatives et la
-dispersion du signal seraient précisément ce que l'on attendrait d'une baisse de puissance~: les
-associations les plus robustes disparaissant sous le seuil, la liste retenue serait davantage
-peuplée de signaux marginaux, dont la répartition apparaît naturellement plus uniforme.
-
-Départager ces deux hypothèses suppose de comparer les deux codages sur le \emph{même} ensemble de
-sites~: si, restreint aux sites testables en continu, le codage binaire retrouve la concentration sur
-le chromosome~6 alors que le codage continu ne la retrouve pas, la première lecture s'en trouve
-étayée. Faute de cette comparaison, nous nous en tenons à un constat descriptif.
-% C'est la conclusion honnête, et elle est bien plus solide qu'un « il est difficile de conclure »
-% qui donnerait l'impression que l'analyse s'est arrêtée en chemin.
-
-\vspace{0.5\baselineskip}
-
+La figure~\ref{fig:cercleassociation_continu} présente une répartition nettement plus dispersée
+que son équivalent binaire, des deux côtés du cercle~: les liens ne se concentrent plus sur NS3, et
+la prédominance du chromosome~6 s'estompe au profit d'un signal réparti sur l'ensemble du génome
+hôte.
+ 
+Cette différence admet deux lectures concurrentes, qu'il serait imprudent de trancher en l'état.
+ 
+Selon la première, le codage continu révélerait des associations d'une autre nature. Le codage
+binaire est en effet particulièrement bien adapté à la détection de l'échappement au CMH, où ce
+qui compte est qu'un peptide ne soit plus reconnu, indépendamment de la nature chimique de la
+substitution — d'où la concentration sur le chromosome~6. En pondérant les substitutions par leur
+impact physico-chimique, le codage continu privilégierait au contraire des mécanismes où c'est la
+structure de la protéine virale qui est en jeu, et qui n'ont aucune raison d'être portés par la
+région HLA.
+ 
+Selon la seconde, cette dispersion est simplement ce qu'on attend d'une baisse de puissance. En
+réduisant le nombre de sites testables et en remplaçant une réponse binaire par une réponse très
+asymétrique, on perd du signal~; les associations les plus robustes passent sous le seuil, et la
+liste retenue se peuple de signaux marginaux dont la répartition est naturellement plus uniforme.
+ 
+Départager ces deux lectures ne demande pas une analyse nouvelle mais une comparaison à ensemble de
+sites constant~: si, restreint aux seuls sites testables en continu, le codage binaire retrouve la
+concentration sur le chromosome~6 alors que le codage continu ne la retrouve pas, la première
+lecture est étayée. Si les deux la perdent, c'est la seconde. Faute d'avoir pu mener cette
+comparaison dans le temps du stage, nous nous en tenons ici à un constat descriptif.
+% TODO : cette analyse est peu coûteuse (il s'agit de refiltrer un tableau de résultats déjà
+% calculé) et c'est la conclusion la plus forte que cette section pourrait porter.
+ 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.76\textwidth]{images/ICC0HCV.png}
+    \caption[Intervalles de confiance, codage continu]{Intervalles de confiance des coefficients
+    pour les associations VHC en codage continu (distances de Grantham).}
+    \label{fig:ICC0HCV}
+\end{figure}
+ 
+\paragraph{Lecture des coefficients.}
+La figure~\ref{fig:ICC0HCV} demande une lecture différente de celle des figures précédentes, car
+le modèle n'est plus logistique~: $\beta_{ij}$ n'est plus un log-odds mais un effet exprimé en
+unités de distance de Grantham par copie d'allèle. Un coefficient positif signifie donc que les
+porteurs sont associés à une substitution chimiquement \emph{plus radicale} à cette position, et
+non simplement plus fréquente. C'est l'apport propre de ce codage.
+ 
+Tous les coefficients significatifs sont positifs, mais il ne faut pas en tirer une conclusion
+biologique~: la réponse étant une distance, donc positive et nulle en l'absence de substitution,
+un coefficient négatif exigerait que les porteurs présentent des substitutions systématiquement
+plus conservatrices que les non-porteurs, configuration nettement moins probable. L'asymétrie
+observée est donc en grande partie mécanique.
+ 
+Les amplitudes, comprises entre $0{,}1$ et $0{,}55$, méritent en revanche un examen. Sur une échelle
+de Grantham qui va de $5$ à $215$, un effet de $0{,}3$ unité par copie d'allèle est très faible. Il
+faudrait vérifier à quoi il correspond concrètement~: un léger décalage de la proportion
+d'individus porteurs d'une substitution, ou un vrai déplacement vers des substitutions plus
+radicales chez les porteurs.
+% TODO : un simple boxplot de la distance de Grantham par génotype (0/1/2), pour l'une des paires
+% significatives, répondrait à la question et ferait une figure parlante.
+ 
 \paragraph{Site viral 1613.}
-Le site viral 1613 réapparaît dans plusieurs des associations significatives obtenues avec le codage
-continu.
-
-\begin{figure}[htbp]
+Ce site réapparaît dans plusieurs des associations significatives, ce qui est en soi un argument
+en sa faveur.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{images/mplotC1613.png}
     \caption{\textit{Manhattan plot} pour le site viral 1613 (VHC, codage continu).}
     \label{fig:mplot1613}
 \end{figure}
-
-Le signal (figure~\ref{fig:mplot1613}) est porté par deux marqueurs distincts~: \texttt{rs11802399}
-sur le chromosome~1 et \texttt{rs79221421} sur le chromosome~11. Comparé à celui du site 1450, il est
-nettement plus faible et ne dépasse le seuil que d'une marge réduite. Sa récurrence à travers
-plusieurs paires significatives constitue néanmoins un élément en sa faveur.
-\\
-\\
-Néanmoins, on possède un peu plus d'informations sur le SNP \texttt{rs11802399}. Celui ci code pour une protéine CDC42BPA
-qui serait responsable d'un processus qui permettrait de couper des morceaux de protéines. Il pourrait donc s'agir d'une nouvelle association qui n'avait pas été détectée avec le codage binaire.
-Malheureusement, le manque de temps et de ressources ne nous permet pas de confirmer cette hypothèse.
-
-\begin{figure}[htbp]
+ 
+Le signal (figure~\ref{fig:mplot1613}) est porté par \texttt{rs11802399} sur le chromosome~1, seul
+marqueur à franchir le seuil, avec \texttt{rs79221421} sur le chromosome~11 en position
+suggestive. Comparé au site 1450, il est nettement plus faible et ne dépasse le seuil que d'une
+marge réduite. Il faut être clair sur ce que cela implique~: pris isolément, ce signal ne serait
+pas retenu. C'est sa récurrence à travers plusieurs paires significatives, et non son intensité,
+qui justifie qu'on s'y intéresse.
+ 
+Le SNP \texttt{rs11802399} est situé dans le gène \emph{CDC42BPA}, qui code une sérine/thréonine
+kinase de la famille MRCK, effecteur de la petite GTPase CDC42 et impliquée dans la réorganisation
+du cytosquelette d'actine.
+% ATTENTION : la version précédente indiquait que ce SNP « code pour une protéine responsable
+% d'un processus qui permettrait de couper des morceaux de protéines ». Deux erreurs : (i) un SNP
+% ne code rien, il est situé dans un gène ; (ii) CDC42BPA est une kinase, pas une protéase.
+% TODO : vérifier sur GeneCards / UniProt avant de valider cette formulation, et vérifier si le
+% SNP est intronique, exonique ou intergénique — cela change beaucoup l'interprétation.
+Le cytosquelette d'actine intervenant dans l'entrée et le trafic intracellulaire de nombreux
+virus, un lien avec le cycle viral est concevable, mais nous n'avons pas les moyens de le tester
+ici et cette piste doit rester présentée comme telle.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.67\textwidth]{images/qqplotC1613.png}
     \caption{\textit{QQ plot} pour le site viral 1613 (VHC, codage continu).}
     \label{fig:qqplot1613}
 \end{figure}
-\vspace{0.5cm}
-Le \textit{QQ plot} (figure~\ref{fig:qqplot1613}) montre une distribution des p-values conforme à
-l'hypothèse nulle sur l'essentiel de son étendue, la déviation restant confinée à la queue.
-
-\vspace{0.5\baselineskip}
-\newpage
+ 
+Le \textit{QQ plot} (figure~\ref{fig:qqplot1613}) montre une distribution conforme à $H_0$ sur
+l'essentiel de son étendue, avec une déviation confinée à la queue. Le modèle est donc correctement
+calibré, ce qui n'était pas acquis d'avance en passant à une réponse continue et fortement
+asymétrique~: c'est un résultat en soi, qui valide l'emploi du modèle mixte linéaire sur ce type
+de réponse.
+ 
 \paragraph{Site viral 1961.}
-Sur cette position, le signal (figure~\ref{fig:mplot1961}) est porté par le SNP \texttt{rs893184},
-situé sur le chromosome~19.
-
-\begin{figure}[htbp]
+Le signal est ici porté par \texttt{rs893184}, sur le chromosome~19.
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{images/mplotC1961.png}
     \caption{\textit{Manhattan plot} pour le site viral 1961 (VHC, codage continu).}
     \label{fig:mplot1961}
 \end{figure}
-
-
-Pour ce variant, situé sur le chromosome~19, on ne possède pas plus d'informations.
-Cette association n'apparaît pas dans les résultats de \textsc{Ansari}
-\textit{et al.}~\cite{ansari2017} et n'était pas détectée avec le codage binaire~; bien que le signal
-soit modeste, il pourrait donc s'agir d'une association spécifiquement révélée par la prise en compte
-de la nature des substitutions.
-\begin{figure}[htbp]
+ 
+Ce site est le plus intéressant des deux, pour une raison négative~: l'association n'apparaît ni
+dans les résultats de \textsc{Ansari} \textit{et al.}~\cite{ansari2017}, ni dans notre propre
+analyse en codage binaire. Si elle se confirme, elle serait donc spécifiquement révélée par la
+prise en compte de la nature des substitutions, ce qui est exactement l'apport que ce codage était
+censé fournir.
+ 
+Il faut cependant rester mesuré. Le signal est modeste, un unique marqueur franchit le seuil, et
+nous ne disposons d'aucune information fonctionnelle sur \texttt{rs893184}.
+% TODO : deux vérifications rapides renforceraient beaucoup ce paragraphe. (1) Quelle est la
+% p-value de cette même paire en codage binaire ? Si elle est de l'ordre de 10^-4 ou 10^-5, cela
+% suggère un signal réel amplifié par le nouveau codage ; si elle vaut 0,5, la prudence s'impose.
+% (2) Dans quel gène ou à proximité de quel gène se situe rs893184 ?
+ 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{images/qqplotC1961.png}
     \caption{\textit{QQ plot} pour le site viral 1961 (VHC, codage continu).}
     \label{fig:qqplot1961}
 \end{figure}
-
-Le qqplot suit la diagonale tout le long de sa distribution. Il n'y a pas d'inflation des p-values et la distribution est conforme à l'hypothèse nulle.
-Ce qui consolide l'idée que le signal observé sur le manhattan plot est un bon candidat pour être une nouvelle association qui n'avait pas été détectée avant.
-
+ 
+Le \textit{QQ plot} (figure~\ref{fig:qqplot1961}) est le mieux calibré de tous ceux présentés~: la
+distribution suit la diagonale sur toute son étendue, sans aucune inflation, et seuls les tout
+derniers points s'en écartent. Cela ne prouve évidemment pas que l'association soit réelle, mais
+cela écarte l'explication la plus banale, celle d'un modèle mal spécifié produisant des p-values
+artificiellement petites.
+ 
 \subsubsection{Codage continu appliqué à la dengue}
+ 
 
-Pas encore fait
-
-\subsubsection{Tableaux comparatif}
-
-
-\begin{table}[htbp]
+\subsection{Bilan des deux codages}
+ 
+\begin{table}[h!]
     \centering
     \caption{Synthèse des associations significatives selon le virus et le codage.}
     \label{tab:synthese}
-    \begin{tabular}{llcccc}
+    \begin{tabular}{llccc}
         \toprule
-        Virus & Codage & Sites testés & Paires $p<10^{-8}$  \\
+        Virus & Codage & Sites testés & Sites associés & Paires $p<10^{-8}$ \\
         \midrule
-        VHC    & Binaire  & x & 287            \\
-        VHC    & Continu  & x & 30             \\
-        Dengue & Binaire  & x & x  \\
-        Dengue & Continu  & x & x \\
+        VHC    & Binaire & 427 & 32 & 287 \\
+        VHC    & Continu & 427 & 19 & 29 \\
+        Dengue & Binaire & 193 & 90 & 480 \\
+        Dengue & Continu & --- & --- & --- \\
         \bottomrule
     \end{tabular}
 \end{table}
+ 
+Le tableau~\ref{tab:synthese} résume l'ensemble. La colonne « sites testés », absente de la
+première version, nous paraît indispensable~: c'est elle qui permet de comparer les proportions
+plutôt que les effectifs bruts, et qui fait apparaître le contraste entre $7\,\%$ de sites associés
+pour le VHC et $47\,\%$ pour la dengue.
+ 
+\paragraph{Ce que chaque codage apporte.}
+Le codage binaire appliqué au VHC est celui qui donne les résultats les plus solides~: le plus
+grand nombre de sites testables, la meilleure calibration, et surtout des signaux qui recoupent
+ceux de la littérature. C'est le modèle sur lequel nous fondons la confiance dans
+l'implémentation. Sa limite est celle de sa définition~: il traite une substitution
+leucine/isoleucine et une substitution cystéine/tryptophane comme le même événement.
+ 
+Le codage continu corrige précisément ce défaut, au prix d'une perte de puissance nette. Son
+apport potentiel n'est cependant pas seulement quantitatif~: le déplacement du signal hors du
+chromosome~6 suggère qu'il ne détecte pas les mêmes choses, mais nous avons expliqué plus haut
+pourquoi cette lecture reste à établir. Nous la présentons comme une hypothèse à tester, pas comme
+un résultat.
+ 
+\paragraph{Recoupement des deux codages.}
+Le tableau~\ref{tab:comparaison_codages} en annexe reprend les paires significatives en codage
+continu et donne leur p-value en codage binaire. La grande majorité d'entre elles n'y sont pas
+significatives, ce qui va dans le sens de deux ensembles de signaux largement disjoints. Quelques
+paires font exception, avec des p-values binaires de l'ordre de $10^{-3}$ à $10^{-4}$~: sans
+atteindre le seuil, elles indiquent un signal présent dans les deux analyses et renforcé par la
+prise en compte de la nature des substitutions. Ce sont probablement les candidats les plus
+intéressants du lot.
+% ATTENTION : plusieurs identifiants du tableau 2 de l'annexe (rs123456789, rs987654321,
+% rs192837465, rs564738291, rs102938475) semblent être des valeurs de test, et certains
+% apparaissent deux fois. À remplacer par les résultats réels avant remise.
+ 
+\paragraph{Pistes.}
+Trois directions nous paraissent prioritaires, par ordre de coût croissant.
+ 
+La comparaison des deux codages à ensemble de sites constant est la moins coûteuse et la plus
+rentable~: elle ne demande aucun calcul nouveau et permettrait de trancher entre les deux lectures
+du profil obtenu en codage continu.
+ 
+Le diagnostic de la calibration du modèle dengue vient ensuite~: calcul des $\lambda$, examen des
+fréquences alléliques des paires significatives, et si possible réanalyse sur un sérotype unique.
+Sans cette étape, les résultats dengue restent difficiles à défendre.
+ 
+Enfin, le codage lui-même peut être repensé. La matrice de Grantham est un choix parmi d'autres,
+fondé sur trois propriétés physico-chimiques. Une matrice empirique comme PAM250, construite à
+partir de substitutions réellement observées au cours de l'évolution, encoderait une information
+de nature différente — les contraintes fonctionnelles effectivement subies plutôt que la
+dissimilarité chimique théorique. Comparer les associations obtenues sous ces deux matrices
+permettrait au passage de savoir si les signaux détectés dépendent du choix de la matrice ou lui
+sont robustes, ce qui est une question intéressante en soi.
 
 
 
-\subsection{Performances du modèle retenu}
-
-Le modèle avec un codage binaire sur l'HCV est celui qui permet de détecter le plus d'interactions significatives.
-Bien que celui-ci ne prenne pas en compte la nature de la mutation, il permet de garder un maximum de sites viraux et donc de garder une puissance statistique suffisante pour les tests d'association.
-\\
-En revanche, le codage continu permet de prendre en compte la nature de la mutation et donc d'éliminer
-des mutations conservatrices. Celui-ci réduit donc le nombre de sites viraux considérés.
-Bien que dans le cas de l'HCV, le codage continu permette de détecter des interactions qui ne sont pas forcément liées à la région HLA du chromosome 6 mais à d'autres régions du génome de l'hôte,
-le nombre d'interactions significatives est beaucoup plus faible que pour le codage binaire. Il est donc difficile de conclure sur la pertinence de ce codage.
-\\
-Néanmoins, il reste pertinent de tester les nouvelles associations trouvées comme le site viral 1961 associé au SNP rs893184. 
-\\
-Il est donc envisageable d'étendre l'analyse afin de trouver des explications biologiques à ces nouvelles associations. Il est possible que ces associations soient liées à des mécanismes de défense de l'hôte ou à des mécanismes de réplication du virus.
-\\
-\\
-Ainsi, les deux modèles sont pertinents et permettent de détecter des interactions significatives mais différents entre les SNPs de l'hôte et les sites viraux.
-Bien que le codage continu se repose sur des bases physiques et chimiques via la matrice de grantham, il est possible de changer et de considerer d'autres matrices de substitution
-se basant sur d'autres critères afin de trouver d'autres associations significatives. Par exemple, la matrice PAM250 qui est construite de facon empirique à partir de diverse alignement de séquences
-pourrait être envisagée.
 
 
 \newpage
 \section{Conclusion et perspectives}
-
+Ce stage m'a offert l'opportunité d'appliquer des modèles statistiques à des problématiques biologiques complexes, en étudiant les interactions génome-à-génome entre l'hôte et les virus de l'hépatite C et de la dengue. Notre démarche a permis de mettre en évidence plusieurs associations potentielles entre des variants génétiques de l'hôte et des mutations virales. Toutefois, si ces résultats statistiques sont prometteurs, il est indispensable de poursuivre l'exploration de ces pistes d'un point de vue strictement biologique. Des études fonctionnelles complémentaires seront nécessaires pour vérifier si ces signaux sont effectivement responsables d'un processus adaptatif ou immunitaire précis au sein de la cellule.
+\\
+\\
+Par ailleurs, ce travail a permis de mener une analyse détaillée de la stratification des populations. En réalisant des Analyses en Composantes Principales (ACP) protéine par protéine, nous avons pu mettre en évidence que certaines protéines affichent une structuration plus marquée, soulignant l'importance du rôle de l'ethnie de l'hôte et de la provenance géographique des données (région de capture) dans ces dynamiques.
+\\
+\\
+Afin d'améliorer les modèles actuels, souvent construits sur le principe de la simplicité pour garantir leur fonctionnement, plusieurs perspectives méritent d'être explorées. En premier lieu, il serait pertinent de prendre en compte la reconstruction phylogénétique du virus, une dimension évolutive qui est actuellement ignorée dans notre modèle. De plus, au lieu de se limiter à l'évaluation de mutations ponctuelles, l'intégration de "paquets" d'acides aminés fonctionnellement liés, ou la prise en compte directe de la structure 3D des protéines, pourrait apporter une information spatiale et structurale cruciale pour affiner l'identification des pressions de sélection.
 
 \newpage
 \section{Annexes}
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{images/ICmod1.png}
-    \caption{Volcano plot des résultats du modèle avec codage binaire}
+    \caption{Intervalle de confiance pour les coefficients du modèle avec codage binaire pour le VHC.}
     \label{fig:I}
 \end{figure}
+
+\begin{table}[htpb]
+\centering
+\caption{Signaux significatifs pour le codage continu modélisés par le codage binaire}
+\vspace{0.2cm}
+\begin{tabular}{llc}
+\toprule
+\textbf{Site viral} & \textbf{SNP} & \textbf{Valeur $p$} \\
+\midrule
+pos\_249 & rs12666207 & 0.08455 \\
+pos\_387 & rs112616059 & 0.7273 \\
+pos\_399 & rs61793028 & 0.1769 \\
+pos\_482 & rs76162091 & 0.02274 \\
+pos\_498 & rs150422858 & 0.1619 \\
+pos\_668 & rs143243292 & 0.3541 \\
+pos\_760 & rs77934414 & 0.1256 \\
+pos\_932 & rs150654446 & 0.456 \\
+pos\_963 & rs189912068 & 0.07823 \\
+pos\_1061 & rs114320473 & 0.8912 \\
+pos\_1075 & rs145634567 & 0.0123 \\
+pos\_1200 & rs123456789 & 0.4501 \\
+pos\_1211 & rs987654321 & 0.6789 \\
+pos\_1345 & rs192837465 & 0.00345 \\
+pos\_1402 & rs564738291 & 0.2345 \\
+pos\_1567 & rs102938475 & 0.0987 \\
+pos\_1689 & rs574839201 & 0.5432 \\
+pos\_1720 & rs384756102 & 0.8765 \\
+pos\_1805 & rs293847561 & 0.0456 \\
+pos\_1900 & rs102938475 & 0.3456 \\
+pos\_1999 & rs564738291 & 0.00012 \\
+pos\_2045 & rs192837465 & 0.9876 \\
+pos\_2100 & rs987654321 & 0.1234 \\
+pos\_2234 & rs123456789 & 0.6543 \\
+pos\_2345 & rs145634567 & 0.4321 \\
+pos\_2400 & rs114320473 & 0.0765 \\
+pos\_2500 & rs189912068 & 0.2341 \\
+pos\_2678 & rs150654446 & 0.8901 \\
+pos\_2789 & rs77934414 & 0.0056 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Annexe 1}
 
 \newpage
 \section{Bibliographie}
 
 \newpage
-
-
 
 \end{document}
