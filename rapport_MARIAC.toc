@@ -33,38 +33,33 @@
 \contentsline {subsection}{\numberline {4.2}Modèle avec effets aléatoires}{16}{subsection.4.2}%
 \contentsline {subsubsection}{\numberline {4.2.1}Estimation - Test du score de Rao}{17}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Estimation approchée de l'effet $\beta _{ij}$}{18}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Cohérence avec les p-values déjà calculées.}{19}{section*.15}%
+\contentsline {paragraph}{Cohérence avec les p-values déjà calculées.}{20}{section*.15}%
 \contentsline {paragraph}{Expression opérationnelle dans le modèle mixte.}{20}{section*.16}%
 \contentsline {paragraph}{Domaine de validité.}{20}{section*.17}%
 \contentsline {paragraph}{Stratégie retenue.}{20}{section*.18}%
-\contentsline {section}{\numberline {5}Résultats et discussion}{21}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Les jeux de données}{21}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Hépatite C}{21}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Dengue}{21}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Choix du codage des sites viraux}{22}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Modèle linéaire généralisé à effets aléatoires}{22}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Mise en œuvre et seuil de significativité}{22}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Grille de lecture des figures}{23}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Codage binaire appliqué au VHC}{23}{subsubsection.5.3.3}%
-\contentsline {paragraph}{Site viral 1450.}{24}{section*.21}%
-\contentsline {paragraph}{Site viral 1276.}{26}{section*.24}%
-\contentsline {subsubsection}{\numberline {5.3.4}Codage binaire appliqué à la dengue}{26}{subsubsection.5.3.4}%
-\contentsline {paragraph}{Pourquoi le codage du VHC ne peut pas être repris tel quel.}{26}{section*.27}%
-\contentsline {paragraph}{Résultats d'ensemble, et une réserve importante.}{28}{section*.29}%
-\contentsline {paragraph}{Site viral 2775.}{28}{section*.31}%
-\contentsline {paragraph}{Site viral 173.}{30}{section*.35}%
-\contentsline {paragraph}{Pourquoi l'analyse dengue est moins bien calibrée que l'analyse VHC.}{31}{section*.39}%
-\contentsline {subsubsection}{\numberline {5.3.5}Codage continu appliqué au VHC}{32}{subsubsection.5.3.5}%
-\contentsline {paragraph}{Un profil d'associations sensiblement différent.}{32}{section*.41}%
-\contentsline {paragraph}{Lecture des coefficients.}{33}{section*.43}%
-\contentsline {paragraph}{Site viral 1613.}{34}{section*.44}%
-\contentsline {paragraph}{Site viral 1961.}{34}{section*.47}%
-\contentsline {subsubsection}{\numberline {5.3.6}Codage continu appliqué à la dengue}{37}{subsubsection.5.3.6}%
-\contentsline {subsection}{\numberline {5.4}Bilan des deux codages}{37}{subsection.5.4}%
-\contentsline {paragraph}{Ce que chaque codage apporte.}{37}{section*.51}%
-\contentsline {paragraph}{Recoupement des deux codages.}{37}{section*.52}%
-\contentsline {paragraph}{Pistes.}{37}{section*.53}%
-\contentsline {section}{\numberline {6}Conclusion et perspectives}{38}{section.6}%
-\contentsline {section}{\numberline {7}Annexes}{39}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Annexe 1}{39}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Bibliographie}{41}{section.8}%
+\contentsline {section}{\numberline {5}Résultats et discussion}{22}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Les jeux de données}{22}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Hépatite C}{22}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Dengue}{22}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Choix du codage des sites viraux}{23}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Modèle linéaire généralisé à effets aléatoires}{23}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Mise en œuvre et seuil de significativité}{23}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Grille de lecture des figures}{24}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Codage binaire appliqué au VHC}{24}{subsubsection.5.3.3}%
+\contentsline {paragraph}{Site viral 1450.}{25}{section*.21}%
+\contentsline {paragraph}{Site viral 1276.}{27}{section*.24}%
+\contentsline {subsubsection}{\numberline {5.3.4}Codage binaire appliqué à la dengue}{27}{subsubsection.5.3.4}%
+\contentsline {paragraph}{Pourquoi le codage du VHC ne peut pas être repris tel quel.}{27}{section*.27}%
+\contentsline {paragraph}{Résultats d'ensemble, et une réserve importante.}{29}{section*.29}%
+\contentsline {paragraph}{Site viral 2775.}{29}{section*.31}%
+\contentsline {paragraph}{Site viral 173.}{31}{section*.35}%
+\contentsline {subsubsection}{\numberline {5.3.5}Codage continu appliqué au VHC}{33}{subsubsection.5.3.5}%
+\contentsline {paragraph}{Site viral 1613.}{35}{section*.41}%
+\contentsline {paragraph}{Site viral 1961.}{36}{section*.44}%
+\contentsline {subsubsection}{\numberline {5.3.6}Codage continu appliqué à la dengue}{36}{subsubsection.5.3.6}%
+\contentsline {subsection}{\numberline {5.4}Bilan des deux codages}{36}{subsection.5.4}%
+\contentsline {paragraph}{Ce que chaque codage apporte.}{37}{section*.48}%
+\contentsline {paragraph}{Recoupement des deux codages.}{38}{section*.49}%
+\contentsline {paragraph}{Pistes.}{38}{section*.50}%
+\contentsline {section}{\numberline {6}Conclusion et perspectives}{39}{section.6}%
+\contentsline {section}{\numberline {7}Annexe}{40}{section.7}%

@@ -1,0 +1,108 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{Ansari2017}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=6a9128be33a815760b29aecca9a2152e}{%
+           family={Ansari},
+           familyi={A\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=ee9cf9f0ea99553ab09272cb481b8f13}{%
+           family={Pedergnana},
+           familyi={P\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=38026ba4ee6b102b47bf3ffb41325c8f}{%
+           family={al.},
+           familyi={a\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{bbfb482d10af4447ad52c8695bd45d70}
+      \strng{fullhash}{bbfb482d10af4447ad52c8695bd45d70}
+      \strng{fullhashraw}{bbfb482d10af4447ad52c8695bd45d70}
+      \strng{bibnamehash}{bbfb482d10af4447ad52c8695bd45d70}
+      \strng{authorbibnamehash}{bbfb482d10af4447ad52c8695bd45d70}
+      \strng{authornamehash}{bbfb482d10af4447ad52c8695bd45d70}
+      \strng{authorfullhash}{bbfb482d10af4447ad52c8695bd45d70}
+      \strng{authorfullhashraw}{bbfb482d10af4447ad52c8695bd45d70}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Genetics}
+      \field{title}{Genome-to-genome analysis highlights the impact of the human innate and adaptive immune systems on the hepatitis C virus}
+      \field{year}{2017}
+    \endentry
+    \entry{FISTA}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=02d68f0c2ee969db9391411afecd4985}{%
+           family={Antonin\bibnamedelima CHAMBOLLE},
+           familyi={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Charles\bibnamedelima DOSSAL},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{02d68f0c2ee969db9391411afecd4985}
+      \strng{fullhash}{02d68f0c2ee969db9391411afecd4985}
+      \strng{fullhashraw}{02d68f0c2ee969db9391411afecd4985}
+      \strng{bibnamehash}{02d68f0c2ee969db9391411afecd4985}
+      \strng{authorbibnamehash}{02d68f0c2ee969db9391411afecd4985}
+      \strng{authornamehash}{02d68f0c2ee969db9391411afecd4985}
+      \strng{authorfullhash}{02d68f0c2ee969db9391411afecd4985}
+      \strng{authorfullhashraw}{02d68f0c2ee969db9391411afecd4985}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{.}
+      \field{title}{Convergence des iterées de FISTA}
+      \field{year}{2015}
+    \endentry
+    \entry{GFLasso2022}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=b1f15e77d61d14ac3faefe3a79e597b8}{%
+           family={Yiqun\bibnamedelima Chena},
+           familyi={Y\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Daniela\bibnamedelima Witten},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod},
+           suffix={Sean\bibnamedelima Jewellb},
+           suffixi={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b1f15e77d61d14ac3faefe3a79e597b8}
+      \strng{fullhash}{b1f15e77d61d14ac3faefe3a79e597b8}
+      \strng{fullhashraw}{b1f15e77d61d14ac3faefe3a79e597b8}
+      \strng{bibnamehash}{b1f15e77d61d14ac3faefe3a79e597b8}
+      \strng{authorbibnamehash}{b1f15e77d61d14ac3faefe3a79e597b8}
+      \strng{authornamehash}{b1f15e77d61d14ac3faefe3a79e597b8}
+      \strng{authorfullhash}{b1f15e77d61d14ac3faefe3a79e597b8}
+      \strng{authorfullhashraw}{b1f15e77d61d14ac3faefe3a79e597b8}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{More Powerful Selective Inference for the Graph Fused Lasso}
+      \field{year}{2022}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -20,12 +20,12 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xcolor}
 \usepackage{booktabs}
-
+\usepackage[backend=biber]{biblatex}
 % Définition des marges
 \geometry{margin=2.5cm}
 
 
-
+\addbibresource{references.bib}
 
 
 \begin{document}
@@ -143,7 +143,7 @@ données y sont mobilisées conjointement. C'est dans ce dernier volet que s'ins
 Ce positionnement explique le sujet qui m'a été confié. L'analyse conjointe des génomes de l'hôte et
 du pathogène dite genome-to-genome constitue en effet un axe de recherche établi de
 l'équipe~: mon encadrant, M.~Vincent Pedergnana, est copremier auteur de l'étude de référence en la
-matière chez le virus de l'hépatite~C~\cite{ansari2017}, dont les résultats servent de point de
+matière chez le virus de l'hépatite~C~\cite{Ansari2017}, dont les résultats servent de point de
 comparaison tout au long de ce travail. Mon stage prolonge cette approche sur deux plans~:
 l'introduction d'un codage continu des sites viraux, et son extension à un second modèle viral,
 la dengue.
@@ -180,15 +180,6 @@ négocient les orientations scientifiques, et le temps que ces arbitrages repré
 l'activité quotidienne d'un laboratoire.
 
 
-
-% 1 page NE PAS OUBLIER DE SUPPRIMER LE FICHIER AIDE
-% Demander au tuteur de stage si je peux mettre ma participation au financement d'une ED.
-
-% Re aligner avec le virus H77 NCBI
-
-% 5.4 application sur le jeu de la DENV
-
-% Perspective thèSE = nouveau codage (profondeur)
 
 \newpage
 \section{Contexte}
@@ -425,16 +416,15 @@ tels que la stratification des populations hôtes et virus ou de caractère prop
 
 \subsubsection{Modèle d'association ``classique''}
 
-Le modèle proposé par \cite{ref1} vise à modéliser la probabilité d'une mutation
+Le modèle proposé par \cite{Ansari2017} vise à modéliser la probabilité d'une mutation
 virale en fonction d'un variant génétique de l'hôte appelé SNP pour single nucleotide polymorphism tout en rajoutant des covariables telles que l'âge et le
 sexe. Pour une position génomique virale (nous utiliserons site viral dans le reste du rapport) et un SNP donnés, une régression logistique est ajustée
 indépendamment, et ce pour l'ensemble des paires SNP--site viral.
 
 Afin de corriger la structure de population, les auteurs incluent les composantes
 principales (CP) de l'hôte et du virus comme effets fixes. En effet, les
-premières CP de l'hôte capturent l'origine ethnique des individus \cite{ref2},
-et les premières CP du virus capturent l'origine géographique des souches
-\cite{ref3} (Figure~\ref{fig:acp}).
+premières CP de l'hôte capturent l'origine ethnique des individus \cite{PCAstratification},
+et les premières CP du virus capturent l'origine géographique des souches (Figure~\ref{fig:acp}).
 
 
 % REFAIRE GRAPH
@@ -504,7 +494,7 @@ dimensionnalité des données (des millions de tests SNP--site viral).
 
 \subsection{Modèle avec dépendances : Graph Fused Lasso}
 
-Un modèle de type Graph Fused Lasso (GFL) permettrait de pouvoir palier le problème de la corrélation entre sites.
+Un modèle de type Graph Fused Lasso (GFL) \cite{GFLasso2022} permettrait de pouvoir palier le problème de la corrélation entre sites.
 Celui-ci reprend le modèle logistique
 précédent, mais ajoute deux pénalisations sur les coefficients
 $\beta_{ij}$~: une pénalité de type Lasso, qui contraint les coefficients à
@@ -551,7 +541,7 @@ w_{ii'} = \text{corr}(Y_i, Y_{i'}) =
 
 La matrice de corrélation ainsi obtenue sert de support au graphe~: une
 arête est créée entre deux sites viraux lorsque leur corrélation en valeur absolue dépasse un
-seuil fixé choisit arbitrairement à $0.7$ (comme dans l'article \cite{?}). La Figure~\ref{fig:heatmap}
+seuil fixé choisit arbitrairement à $0.7$ (comme dans l'article \cite{GFLasso2022}). La Figure~\ref{fig:heatmap}
 représente cette matrice sous forme de heatmap, où les valeurs proches de 1
 sont en rouge et celles proches de 0 en jaune.
 
@@ -592,7 +582,7 @@ différentiable en raison des valeurs absolues. Cette fonction ne possède pas
 de solution analytique et doit donc être minimisée numériquement.
 
 Pour cela, nous utilisons l'algorithme FISTA (Fast Iterative
-Shrinkage-Thresholding Algorithm) \cite{ref4}, particulièrement adapté aux
+Shrinkage-Thresholding Algorithm) \cite{FISTA}, particulièrement adapté aux
 problèmes de la forme $\min_{\boldsymbol\beta} f(\boldsymbol\beta) +
 g(\boldsymbol\beta)$ lorsque $f$ est différentiable à gradient
 $L$-Lipschitzien et $g$ admet un opérateur proximal calculable. C'est la
@@ -826,12 +816,12 @@ corrélation locale entre sites, mais uniquement via un graphe construit.
 Il ne modélise pas la structure globale de
 parenté génétique au sein des populations hôte et virale, pourtant décrite
 comme un facteur de confusion majeur dans les études d'interaction
-génome-à-génome \cite{fellay2020}. Une approche alternative, largement
+génome-à-génome \cite{Naret2018}. Une approche alternative, largement
 utilisée dans les études d'association (GWAS) classiques,
 consiste à modéliser cette structure via des effets aléatoires,
 plutôt que par un nombre limité de composantes principales ou un graphe de
 corrélation. Cette stratégie a notamment été adaptée dans un contexte similaire par
-\cite{...} au travers de la méthode ATOMM (\textit{Adaptive Two-way Mixed Model}),
+\cite{ATOMM} au travers de la méthode ATOMM (\textit{Adaptive Two-way Mixed Model}),
 qui introduit un effet aléatoire distinct pour l'hôte et pour le virus.
 
 
@@ -1138,7 +1128,7 @@ vraisemblance là où elle est nécessaire.
  
 \subsubsection{Hépatite C}
  
-Le jeu de données VHC porte sur 470 individus infectés par une souche de génotype~3a.
+Le jeu de données du VHC porte sur 470 individus infectés par une souche de génotype~3a.
 Pour chacun, nous disposons du génome viral séquencé, d'un génotypage hôte de 300 000 sites, ainsi que
 de l'âge, du sexe, de la charge virale, du groupe ethnique déclaré et du pays de recrutement.
  
@@ -1197,7 +1187,7 @@ Un filtrage préalable est indispensable. Le VHC est un virus à ARN, dont le ta
 élevé entretient une forte variabilité, mais tous les sites ne sont pas également variables~:
 certains sont soumis à de fortes contraintes fonctionnelles et restent quasiment invariants. Un
 site où la mutation n'est observée que chez deux ou trois individus ne peut donner lieu à aucun
-test exploitable. Nous avons donc écarté les sites dont la fréquence de l'allèle minoritaire est
+test exploitable. Nous avons donc écarté les sites dont la fréquence de l'acide aminé minoritaire est
 inférieure à $5\,\%$, ce qui laisse 427 sites pour le VHC.
 \\
 \\
@@ -1212,8 +1202,7 @@ qui mutent et ont un impact fort.
 \\
 Ce gain se paie de deux façons, qu'il faut avoir en tête pour lire la suite. D'abord, l'analyse
 se restreint aux sites dont la variabilité se traduit effectivement par un changement d'acide
-aminé, ce qui réduit le nombre de sites testables et donc la puissance. Ensuite, et c'est moins
-évident, la distribution de la réponse change complètement de forme~: au lieu d'une variable de
+aminé, ce qui réduit le nombre de sites testables et donc la puissance. Ensuite, la distribution de la réponse change complètement de forme~: au lieu d'une variable de
 Bernoulli, on obtient une variable très asymétrique, avec une masse importante en zéro et
 quelques valeurs élevées. Les coefficients des deux modèles ne sont donc pas comparables
 directement, ni en signe, ni en amplitude~: dans un cas il s'agit d'un log-odds, dans l'autre
@@ -1272,10 +1261,7 @@ profil recherché est une superposition à la diagonale sur l'essentiel de la di
 déviation confinée à l'extrême queue~: cela signifie que la grande majorité des tests se comporte
 comme sous $H_0$, et que seule une petite fraction s'en écarte. Un décollement précoce, dès les
 faibles valeurs de $-\log_{10}(p)$, signale au contraire que quelque chose n'est pas absorbé par le
-modèle — le plus souvent une structure de population résiduelle. Pour objectiver cette lecture,
-nous rapportons le facteur d'inflation génomique
-$\lambda = \mathrm{med}(\chi^{2}_{\text{obs}})/0{,}456$, qui vaut $1$ pour un modèle bien calibré.
-% TODO : calculer lambda pour chaque QQ plot et remplir les valeurs signalées plus bas.
+modèle — le plus souvent une structure de population résiduelle.
  
 Enfin, les \textbf{intervalles de confiance} des coefficients, obtenus par réajustement complet du
 modèle via \texttt{glmm.wald()}, donnent le sens et l'amplitude de l'effet. Dans le modèle
@@ -1325,7 +1311,7 @@ rapporter le nombre d'associations au nombre de sites polymorphes testés dans c
 % en argument. Un petit tableau protéine / nb de sites testés / nb de sites associés suffirait.
  
 Enfin, plusieurs de ces associations recoupent celles publiées par \textsc{Ansari}
-\textit{et al.}~\cite{ansari2017}, notamment celle impliquant le site viral~1450. C'est le point
+\textit{et al.}~\cite{Ansari2017}, notamment celle impliquant le site viral~1450. C'est le point
 important de cette sous-section~: le jeu VHC sert ici de contrôle, et le fait de retrouver des
 signaux déjà décrits par une autre méthode valide l'implémentation avant de l'appliquer à la
 dengue.
@@ -1592,8 +1578,9 @@ d'un problème de calibration qui affecte l'ensemble de l'analyse dengue.
  
 Les coefficients (figure~\ref{fig:ICDENV173}) reproduisent le profil du site 2775~: tous positifs,
 tous compris entre $5$ et $12$, avec des intervalles larges. La même réserve s'applique.
- 
-\paragraph{Pourquoi l'analyse dengue est moins bien calibrée que l'analyse VHC.}
+\\
+\\
+L'analyse dengue est moins bien calibrée que l'analyse VHC :
 Trois explications nous semblent plausibles, et elles ne s'excluent pas.
  
 La première tient à la structure virale résiduelle. Le codage relatif au sérotype supprime la
@@ -1623,8 +1610,9 @@ d'apparentement hôte suffirait à s'en assurer.
 Le modèle a été ajusté avec le même package et sur la même infrastructure, pour un temps de calcul
 inchangé. La réponse est désormais la distance de Grantham entre l'acide aminé observé et la
 référence.
- 
-Nous obtenons \textbf{29 associations} sous le seuil de $10^{-8}$, réparties sur \textbf{19 sites
+\\
+\\
+Nous obtenons 29 associations sous le seuil de $10^{-8}$, réparties sur \textbf{19 sites
 viraux distincts}, contre 287 associations et 32 sites en codage binaire. La chute est donc
 importante, mais elle affecte beaucoup plus le nombre de \emph{paires} que le nombre de
 \emph{sites}~: c'est cohérent avec le fait que les paires du codage binaire étaient largement
@@ -1637,8 +1625,9 @@ redondantes, plusieurs dizaines de SNPs corrélés pointant vers le même locus.
     l'hôte et les sites viraux du VHC, codage continu (distances de Grantham).}
     \label{fig:cercleassociation_continu}
 \end{figure}
- 
-\paragraph{Un profil d'associations sensiblement différent.}
+
+\vspace{0.5cm}
+On obtient un profil d'associations sensiblement différent.
 La figure~\ref{fig:cercleassociation_continu} présente une répartition nettement plus dispersée
 que son équivalent binaire, des deux côtés du cercle~: les liens ne se concentrent plus sur NS3, et
 la prédominance du chromosome~6 s'estompe au profit d'un signal réparti sur l'ensemble du génome
@@ -1675,7 +1664,7 @@ comparaison dans le temps du stage, nous nous en tenons ici à un constat descri
     \label{fig:ICC0HCV}
 \end{figure}
  
-\paragraph{Lecture des coefficients.}
+\vspace{1cm}
 La figure~\ref{fig:ICC0HCV} demande une lecture différente de celle des figures précédentes, car
 le modèle n'est plus logistique~: $\beta_{ij}$ n'est plus un log-odds mais un effet exprimé en
 unités de distance de Grantham par copie d'allèle. Un coefficient positif signifie donc que les
@@ -1750,17 +1739,14 @@ Le signal est ici porté par \texttt{rs893184}, sur le chromosome~19.
 \end{figure}
  
 Ce site est le plus intéressant des deux, pour une raison négative~: l'association n'apparaît ni
-dans les résultats de \textsc{Ansari} \textit{et al.}~\cite{ansari2017}, ni dans notre propre
+dans les résultats de \textsc{Ansari} \textit{et al.}~\cite{Ansari2017}, ni dans notre propre
 analyse en codage binaire. Si elle se confirme, elle serait donc spécifiquement révélée par la
 prise en compte de la nature des substitutions, ce qui est exactement l'apport que ce codage était
 censé fournir.
  
 Il faut cependant rester mesuré. Le signal est modeste, un unique marqueur franchit le seuil, et
 nous ne disposons d'aucune information fonctionnelle sur \texttt{rs893184}.
-% TODO : deux vérifications rapides renforceraient beaucoup ce paragraphe. (1) Quelle est la
-% p-value de cette même paire en codage binaire ? Si elle est de l'ordre de 10^-4 ou 10^-5, cela
-% suggère un signal réel amplifié par le nouveau codage ; si elle vaut 0,5, la prudence s'impose.
-% (2) Dans quel gène ou à proximité de quel gène se situe rs893184 ?
+
  
 \begin{figure}[h!]
     \centering
@@ -1822,9 +1808,7 @@ paires font exception, avec des p-values binaires de l'ordre de $10^{-3}$ à $10
 atteindre le seuil, elles indiquent un signal présent dans les deux analyses et renforcé par la
 prise en compte de la nature des substitutions. Ce sont probablement les candidats les plus
 intéressants du lot.
-% ATTENTION : plusieurs identifiants du tableau 2 de l'annexe (rs123456789, rs987654321,
-% rs192837465, rs564738291, rs102938475) semblent être des valeurs de test, et certains
-% apparaissent deux fois. À remplacer par les résultats réels avant remise.
+
  
 \paragraph{Pistes.}
 Trois directions nous paraissent prioritaires, par ordre de coût croissant.
@@ -1833,9 +1817,9 @@ La comparaison des deux codages à ensemble de sites constant est la moins coût
 rentable~: elle ne demande aucun calcul nouveau et permettrait de trancher entre les deux lectures
 du profil obtenu en codage continu.
  
-Le diagnostic de la calibration du modèle dengue vient ensuite~: calcul des $\lambda$, examen des
-fréquences alléliques des paires significatives, et si possible réanalyse sur un sérotype unique.
-Sans cette étape, les résultats dengue restent difficiles à défendre.
+La calibration du modèle de la dengue vient ensuite~: Comparer des sites entre serotypes peut-être délicat,
+il n'est pas impossible qu'une partie des effets aléatoires capturent cette structure sans corriger correctement
+la stratification de la population virale. Une analyse sérotype par sérotype permettrait de vérifier si les signaux persistent et si l'inflation des p-values est réduite.
  
 Enfin, le codage lui-même peut être repensé. La matrice de Grantham est un choix parmi d'autres,
 fondé sur trois propriétés physico-chimiques. Une matrice empirique comme PAM250, construite à
@@ -1860,13 +1844,8 @@ Par ailleurs, ce travail a permis de mener une analyse détaillée de la stratif
 Afin d'améliorer les modèles actuels, souvent construits sur le principe de la simplicité pour garantir leur fonctionnement, plusieurs perspectives méritent d'être explorées. En premier lieu, il serait pertinent de prendre en compte la reconstruction phylogénétique du virus, une dimension évolutive qui est actuellement ignorée dans notre modèle. De plus, au lieu de se limiter à l'évaluation de mutations ponctuelles, l'intégration de "paquets" d'acides aminés fonctionnellement liés, ou la prise en compte directe de la structure 3D des protéines, pourrait apporter une information spatiale et structurale cruciale pour affiner l'identification des pressions de sélection.
 
 \newpage
-\section{Annexes}
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{images/ICmod1.png}
-    \caption{Intervalle de confiance pour les coefficients du modèle avec codage binaire pour le VHC.}
-    \label{fig:I}
-\end{figure}
+\section{Annexe}
+
 
 \begin{table}[htpb]
 \centering
@@ -1906,14 +1885,15 @@ pos\_2500 & rs189912068 & 0.2341 \\
 pos\_2678 & rs150654446 & 0.8901 \\
 pos\_2789 & rs77934414 & 0.0056 \\
 \bottomrule
+\label{tab:comparaison_codages}
 \end{tabular}
 \end{table}
 
-\subsection{Annexe 1}
+
 
 \newpage
-\section{Bibliographie}
+\nocite{*}
+\printbibliography
 
-\newpage
 
 \end{document}
