@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.1)  4 AUG 2026 15:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.1)  11 AUG 2026 15:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -359,12 +359,7 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count322
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count323
-) (C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
-Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 116.
- (C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
-File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) (C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
+) (C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
  (C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
 \pgfutil@everybye=\toks34
@@ -926,31 +921,34 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count493
 \@quotereset=\count494
-(rapport_MARIAC.aux
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 24.
+(C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) (rapport_MARIAC.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 12.
 )
 \openout1 = `rapport_MARIAC.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Info: Redefining \degres on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Info: Redefining \degres on input line 24.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -986,7 +984,7 @@ LaTeX Info: Redefining \degres on input line 31.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 31.
+Package hyperref Info: Link coloring OFF on input line 24.
 (rapport_MARIAC.out) (rapport_MARIAC.out)
 \@outlinefile=\write5
 \openout5 = `rapport_MARIAC.out'.
@@ -1027,28 +1025,28 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'rapport_MARIAC.bbl' found.
  (rapport_MARIAC.bbl)
-Package biblatex Info: Reference section=0 on input line 31.
-Package biblatex Info: Reference segment=0 on input line 31.
+Package biblatex Info: Reference section=0 on input line 24.
+Package biblatex Info: Reference segment=0 on input line 24.
 \c@theoreme=\count502
-<images/Logoum.png, id=210, 194.6472pt x 71.0655pt>
+<images/Logoum.png, id=222, 194.6472pt x 71.0655pt>
 File: images/Logoum.png Graphic file (type png)
 <use images/Logoum.png>
-Package pdftex.def Info: images/Logoum.png  used on input line 52.
+Package pdftex.def Info: images/Logoum.png  used on input line 45.
 (pdftex.def)             Requested size: 194.83382pt x 71.13188pt.
-<images/ssdlogo.png, id=212, 301.125pt x 103.38625pt>
+<images/ssdlogo.png, id=224, 301.125pt x 103.38625pt>
 File: images/ssdlogo.png Graphic file (type png)
 <use images/ssdlogo.png>
-Package pdftex.def Info: images/ssdlogo.png  used on input line 55.
+Package pdftex.def Info: images/ssdlogo.png  used on input line 48.
 (pdftex.def)             Requested size: 207.18373pt x 71.13188pt.
-<images/irdlogo.png, id=213, 602.25pt x 495.8525pt>
+<images/irdlogo.png, id=225, 602.25pt x 495.8525pt>
 File: images/irdlogo.png Graphic file (type png)
 <use images/irdlogo.png>
-Package pdftex.def Info: images/irdlogo.png  used on input line 93.
+Package pdftex.def Info: images/irdlogo.png  used on input line 86.
 (pdftex.def)             Requested size: 103.66768pt x 85.35826pt.
-<images/mivegeclogo.png, id=214, 309.155pt x 203.25937pt>
+<images/mivegeclogo.png, id=226, 309.155pt x 203.25937pt>
 File: images/mivegeclogo.png Graphic file (type png)
 <use images/mivegeclogo.png>
-Package pdftex.def Info: images/mivegeclogo.png  used on input line 94.
+Package pdftex.def Info: images/mivegeclogo.png  used on input line 87.
 (pdftex.def)             Requested size: 129.82533pt x 85.35826pt.
  [1
 
@@ -1090,110 +1088,110 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.101 \newpage
-               [1{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}] [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 188--211
+l.94 \newpage
+              [1{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}] [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 181--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--211
+Underfull \hbox (badness 10000) in paragraph at lines 181--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--211
+Underfull \hbox (badness 10000) in paragraph at lines 181--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--211
+Underfull \hbox (badness 10000) in paragraph at lines 181--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--226
+Underfull \hbox (badness 10000) in paragraph at lines 207--219
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--226
+Underfull \hbox (badness 10000) in paragraph at lines 207--219
 
  []
 
 [4]
-<images/viruscycle.png, id=291, 803.0pt x 451.6875pt>
+<images/viruscycle.png, id=306, 803.0pt x 451.6875pt>
 File: images/viruscycle.png Graphic file (type png)
 <use images/viruscycle.png>
-Package pdftex.def Info: images/viruscycle.png  used on input line 229.
+Package pdftex.def Info: images/viruscycle.png  used on input line 222.
 (pdftex.def)             Requested size: 455.24411pt x 256.07921pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--246
+Underfull \hbox (badness 10000) in paragraph at lines 227--239
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--246
+Underfull \hbox (badness 10000) in paragraph at lines 227--239
 
  []
 
 [5 <./images/viruscycle.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 260--266
+Underfull \hbox (badness 10000) in paragraph at lines 253--259
 
  []
 
-<images/sequencage.png, id=297, 119.65231pt x 44.51067pt>
+<images/sequencage.png, id=312, 119.65231pt x 44.51067pt>
 File: images/sequencage.png Graphic file (type png)
 <use images/sequencage.png>
-Package pdftex.def Info: images/sequencage.png  used on input line 269.
+Package pdftex.def Info: images/sequencage.png  used on input line 262.
 (pdftex.def)             Requested size: 364.19667pt x 135.51143pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--279
+Underfull \hbox (badness 10000) in paragraph at lines 267--272
 
  []
 
 [6 <./images/sequencage.png>]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 303.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 296.
  (C:\Users\damie\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 294--304
+Underfull \hbox (badness 10000) in paragraph at lines 287--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--304
+Underfull \hbox (badness 10000) in paragraph at lines 287--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--304
+Underfull \hbox (badness 10000) in paragraph at lines 287--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--333
+Underfull \hbox (badness 10000) in paragraph at lines 303--326
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--333
+Underfull \hbox (badness 10000) in paragraph at lines 303--326
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--333
+Underfull \hbox (badness 10000) in paragraph at lines 303--326
 
  []
 
 [7{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
-<images/grantham.png, id=311, 537.50812pt x 219.82124pt>
+<images/grantham.png, id=326, 537.50812pt x 219.82124pt>
 File: images/grantham.png Graphic file (type png)
 <use images/grantham.png>
-Package pdftex.def Info: images/grantham.png  used on input line 376.
+Package pdftex.def Info: images/grantham.png  used on input line 369.
 (pdftex.def)             Requested size: 432.48051pt x 176.8702pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 365--380
+Underfull \hbox (badness 10000) in paragraph at lines 358--373
 
  []
 
@@ -1202,348 +1200,441 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [9 <./images/grantham.png>]
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 417.
+LaTeX Warning: Command \^ invalid in math mode on input line 432.
 
-
-LaTeX Warning: Citation 'PCAstratification' on page 10 undefined on input line 426.
-
-<images/ACPvirusall.png, id=325, 526.96875pt x 325.215pt>
-File: images/ACPvirusall.png Graphic file (type png)
-<use images/ACPvirusall.png>
-Package pdftex.def Info: images/ACPvirusall.png  used on input line 435.
-(pdftex.def)             Requested size: 223.07211pt x 137.6662pt.
-<images/ACPhoteall.png, id=326, 526.96875pt x 325.215pt>
-File: images/ACPhoteall.png Graphic file (type png)
-<use images/ACPhoteall.png>
-Package pdftex.def Info: images/ACPhoteall.png  used on input line 442.
-(pdftex.def)             Requested size: 227.62206pt x 140.4749pt.
-
-LaTeX Warning: Command \^ invalid in math mode on input line 458.
-
-[10{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./images/ACPvirusall.png> <./images/ACPhoteall.png>] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 522--537
+[10{C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 495--510
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 522--537
+Underfull \hbox (badness 10000) in paragraph at lines 495--510
 
  []
 
-[12]
-<images/heatmapcorr.png, id=353, 529.98pt x 324.46219pt>
+<images/heatmapcorr.png, id=350, 529.98pt x 324.46219pt>
 File: images/heatmapcorr.png Graphic file (type png)
 <use images/heatmapcorr.png>
-Package pdftex.def Info: images/heatmapcorr.png  used on input line 551.
+Package pdftex.def Info: images/heatmapcorr.png  used on input line 524.
 (pdftex.def)             Requested size: 455.24411pt x 278.71022pt.
- [13 <./images/heatmapcorr.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 651--659
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11] [12 <./images/heatmapcorr.png (PNG copy)>] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 680--695
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 665--670
+Underfull \hbox (badness 10000) in paragraph at lines 680--695
 
  []
 
 
-Overfull \hbox (6.8768pt too wide) in paragraph at lines 665--670
-\T1/lmr/m/n/10.95 Les in-di-vi-dus sont sup-po-sés in-dé-pen-dants condi-tion-nel-le-ment à leur gé-no-type, la log-vraisemblance
- []
-
-[14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 794--809
+Underfull \hbox (badness 10000) in paragraph at lines 680--695
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 794--809
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 738--745
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 794--809
+Underfull \hbox (badness 10000) in paragraph at lines 768--773
 
  []
 
-
-LaTeX Warning: Citation 'Naret2018' on page 16 undefined on input line 819.
-
-
-LaTeX Warning: Citation 'ATOMM' on page 16 undefined on input line 824.
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 865--870
-
- []
-
-<images/rao.png, id=385, 605.26125pt x 398.23781pt>
+<images/rao.png, id=387, 605.26125pt x 398.23781pt>
 File: images/rao.png Graphic file (type png)
 <use images/rao.png>
-Package pdftex.def Info: images/rao.png  used on input line 878.
+Package pdftex.def Info: images/rao.png  used on input line 781.
 (pdftex.def)             Requested size: 455.24411pt x 299.53442pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 884--893
+Underfull \hbox (badness 10000) in paragraph at lines 787--796
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 884--893
+Underfull \hbox (badness 10000) in paragraph at lines 787--796
 
  []
 
-[17]
+[15]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 895.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\beta' on input line 895.
+(hyperref)                removing `math shift' on input line 798.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 895.
+(hyperref)                removing `\beta' on input line 798.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 895.
+(hyperref)                removing `subscript' on input line 798.
 
-[18 <./images/rao.png (PNG copy)>] [19] [20] [21]
-<images/barplothcvtot.png, id=432, 629.35126pt x 232.61906pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 798.
+
+[16 <./images/rao.png (PNG copy)>] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 933--949
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 933--949
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--959
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 965--978
+
+ []
+
+[18] [19]
+<images/barplothcvtot.png, id=430, 629.35126pt x 232.61906pt>
 File: images/barplothcvtot.png Graphic file (type png)
 <use images/barplothcvtot.png>
-Package pdftex.def Info: images/barplothcvtot.png  used on input line 1148.
+Package pdftex.def Info: images/barplothcvtot.png  used on input line 1028.
 (pdftex.def)             Requested size: 409.71692pt x 151.4384pt.
- [22 <./images/barplothcvtot.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1210
+<images/pcahcvethnie.png, id=432, 545.78906pt x 294.34969pt>
+File: images/pcahcvethnie.png Graphic file (type png)
+<use images/pcahcvethnie.png>
+Package pdftex.def Info: images/pcahcvethnie.png  used on input line 1045.
+(pdftex.def)             Requested size: 409.71692pt x 220.96382pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/virusdistrib.png, id=433, 419.31656pt x 305.64188pt>
+File: images/virusdistrib.png Graphic file (type png)
+<use images/virusdistrib.png>
+Package pdftex.def Info: images/virusdistrib.png  used on input line 1054.
+(pdftex.def)             Requested size: 204.85846pt x 149.32277pt.
+<images/vardistribhcv.png, id=434, 419.31656pt x 305.64188pt>
+File: images/vardistribhcv.png Graphic file (type png)
+<use images/vardistribhcv.png>
+Package pdftex.def Info: images/vardistribhcv.png  used on input line 1055.
+(pdftex.def)             Requested size: 204.85846pt x 149.32277pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[20 <./images/barplothcvtot.png>] [21 <./images/pcahcvethnie.png> <./images/virusdistrib.png> <./images/vardistribhcv.png>]
+<images/virusdistribdenv.png, id=453, 419.31656pt x 305.64188pt>
+File: images/virusdistribdenv.png Graphic file (type png)
+<use images/virusdistribdenv.png>
+Package pdftex.def Info: images/virusdistribdenv.png  used on input line 1089.
+(pdftex.def)             Requested size: 204.85846pt x 149.32277pt.
+<images/vardistribdenv.png, id=454, 419.31656pt x 305.64188pt>
+File: images/vardistribdenv.png Graphic file (type png)
+<use images/vardistribdenv.png>
+Package pdftex.def Info: images/vardistribdenv.png  used on input line 1090.
+(pdftex.def)             Requested size: 204.85846pt x 149.32277pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1106--1130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1210
+Underfull \hbox (badness 10000) in paragraph at lines 1106--1130
+
+ []
+
+[22 <./images/virusdistribdenv.png> <./images/vardistribdenv.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1161--1198
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1161--1198
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1161--1198
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1161--1198
 
  []
 
 [23]
-<images/mod1cercle10.png, id=444, 740.9962pt x 754.71835pt>
+<images/mod1cercle10.png, id=467, 740.9962pt x 754.71835pt>
 File: images/mod1cercle10.png Graphic file (type png)
 <use images/mod1cercle10.png>
-Package pdftex.def Info: images/mod1cercle10.png  used on input line 1284.
+Package pdftex.def Info: images/mod1cercle10.png  used on input line 1208.
 (pdftex.def)             Requested size: 327.7763pt x 333.85057pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[24]
-<images/mplot1450.png, id=454, 513.08275pt x 340.45677pt>
+ [24 <./images/mod1cercle10.png>]
+<images/mplot1450.png, id=478, 513.08275pt x 340.45677pt>
 File: images/mplot1450.png Graphic file (type png)
 <use images/mplot1450.png>
-Package pdftex.def Info: images/mplot1450.png  used on input line 1324.
+Package pdftex.def Info: images/mplot1450.png  used on input line 1243.
 (pdftex.def)             Requested size: 409.71692pt x 271.87746pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/qqplot1450.png, id=456, 457.25331pt x 286.3399pt>
+<images/qqplot1450.png, id=480, 457.25331pt x 286.3399pt>
 File: images/qqplot1450.png Graphic file (type png)
 <use images/qqplot1450.png>
-Package pdftex.def Info: images/qqplot1450.png  used on input line 1344.
+Package pdftex.def Info: images/qqplot1450.png  used on input line 1263.
 (pdftex.def)             Requested size: 409.71692pt x 256.5719pt.
 
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[25 <./images/mod1cercle10.png>]
 
-LaTeX Warning: Reference `fig:ICbinaireVHC' on page 26 undefined on input line 1356.
+Underfull \hbox (badness 10000) in paragraph at lines 1268--1277
 
-[26 <./images/mplot1450.png> <./images/qqplot1450.png>]
-<images/mplot1276.png, id=471, 457.25331pt x 286.3399pt>
+ []
+
+[25 <./images/mplot1450.png>]
+<images/coef1450HCV.png, id=491, 343.2825pt x 263.48438pt>
+File: images/coef1450HCV.png Graphic file (type png)
+<use images/coef1450HCV.png>
+Package pdftex.def Info: images/coef1450HCV.png  used on input line 1290.
+(pdftex.def)             Requested size: 409.71692pt x 314.47499pt.
+<images/mplot1276.png, id=492, 457.25331pt x 286.3399pt>
 File: images/mplot1276.png Graphic file (type png)
 <use images/mplot1276.png>
-Package pdftex.def Info: images/mplot1276.png  used on input line 1370.
+Package pdftex.def Info: images/mplot1276.png  used on input line 1301.
 (pdftex.def)             Requested size: 318.66948pt x 199.55397pt.
 
 
-LaTeX Warning: Reference `fig:ICbinaireVHC' on page 27 undefined on input line 1386.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/qqplot1276.png, id=472, 457.25331pt x 286.3399pt>
+<images/qqplot1276.png, id=494, 457.25331pt x 286.3399pt>
 File: images/qqplot1276.png Graphic file (type png)
 <use images/qqplot1276.png>
-Package pdftex.def Info: images/qqplot1276.png  used on input line 1396.
+Package pdftex.def Info: images/qqplot1276.png  used on input line 1322.
 (pdftex.def)             Requested size: 318.66948pt x 199.55397pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/arbredengue.png, id=475, 737.75626pt x 396.7322pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1327--1337
+
+ []
+
+[26 <./images/qqplot1450.png>] [27 <./images/coef1450HCV.png>]
+<images/coef1276HCV.png, id=510, 411.03563pt x 329.73187pt>
+File: images/coef1276HCV.png Graphic file (type png)
+<use images/coef1276HCV.png>
+Package pdftex.def Info: images/coef1276HCV.png  used on input line 1341.
+(pdftex.def)             Requested size: 409.71692pt x 328.67447pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/arbredengue.png, id=512, 737.75626pt x 396.7322pt>
 File: images/arbredengue.png Graphic file (type png)
 <use images/arbredengue.png>
-Package pdftex.def Info: images/arbredengue.png  used on input line 1418.
+Package pdftex.def Info: images/arbredengue.png  used on input line 1360.
 (pdftex.def)             Requested size: 341.43307pt x 183.60683pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[27 <./images/mplot1276.png (PNG copy)>] [28 <./images/qqplot1276.png> <./images/arbredengue.png>]
-<images/circledengue.png, id=492, 752.8125pt x 752.8125pt>
+[28 <./images/mplot1276.png (PNG copy)> <./images/qqplot1276.png>] [29 <./images/coef1276HCV.png> <./images/arbredengue.png>]
+<images/circledengue.png, id=528, 752.8125pt x 752.8125pt>
 File: images/circledengue.png Graphic file (type png)
 <use images/circledengue.png>
-Package pdftex.def Info: images/circledengue.png  used on input line 1454.
+Package pdftex.def Info: images/circledengue.png  used on input line 1396.
 (pdftex.def)             Requested size: 345.98302pt x 345.9878pt.
-<images/mplotD2775.png, id=493, 598.48593pt x 344.78813pt>
+ [30 <./images/circledengue.png>]
+<images/mplotD2775.png, id=536, 598.48593pt x 344.78813pt>
 File: images/mplotD2775.png Graphic file (type png)
 <use images/mplotD2775.png>
-Package pdftex.def Info: images/mplotD2775.png  used on input line 1482.
+Package pdftex.def Info: images/mplotD2775.png  used on input line 1422.
 (pdftex.def)             Requested size: 455.24411pt x 262.27318pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[29 <./images/circledengue.png>]
-<images/qqplotd2775.png, id=504, 419.31656pt x 305.64188pt>
+<images/qqplotd2775.png, id=539, 419.31656pt x 305.64188pt>
 File: images/qqplotd2775.png Graphic file (type png)
 <use images/qqplotd2775.png>
-Package pdftex.def Info: images/qqplotd2775.png  used on input line 1498.
+Package pdftex.def Info: images/qqplotd2775.png  used on input line 1438.
 (pdftex.def)             Requested size: 295.90588pt x 215.68741pt.
-<images/ICDENV2775.png, id=506, 239.39438pt x 112.92188pt>
-File: images/ICDENV2775.png Graphic file (type png)
-<use images/ICDENV2775.png>
-Package pdftex.def Info: images/ICDENV2775.png  used on input line 1512.
-(pdftex.def)             Requested size: 295.90588pt x 139.58917pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[30 <./images/mplotD2775.png> <./images/qqplotd2775.png>]
-<images/mplotD173.png, id=517, 419.31656pt x 305.64188pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1443--1452
+
+ []
+
+<images/ICDENV2775.png, id=542, 239.39438pt x 112.92188pt>
+File: images/ICDENV2775.png Graphic file (type png)
+<use images/ICDENV2775.png>
+Package pdftex.def Info: images/ICDENV2775.png  used on input line 1456.
+(pdftex.def)             Requested size: 295.90588pt x 139.58917pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[31 <./images/mplotD2775.png>]
+<images/mplotD173.png, id=552, 419.31656pt x 305.64188pt>
 File: images/mplotD173.png Graphic file (type png)
 <use images/mplotD173.png>
-Package pdftex.def Info: images/mplotD173.png  used on input line 1543.
+Package pdftex.def Info: images/mplotD173.png  used on input line 1482.
 (pdftex.def)             Requested size: 364.19667pt x 265.46321pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/qqplotD173.png, id=519, 419.31656pt x 305.64188pt>
+[32 <./images/qqplotd2775.png> <./images/ICDENV2775.png>]
+<images/qqplotD173.png, id=563, 419.31656pt x 305.64188pt>
 File: images/qqplotD173.png Graphic file (type png)
 <use images/qqplotD173.png>
-Package pdftex.def Info: images/qqplotD173.png  used on input line 1561.
+Package pdftex.def Info: images/qqplotD173.png  used on input line 1498.
 (pdftex.def)             Requested size: 273.14923pt x 199.09857pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 1503--1511
 
-<images/ICDENV173.png, id=521, 296.60812pt x 169.38281pt>
+ []
+
+<images/ICDENV173.png, id=566, 296.60812pt x 169.38281pt>
 File: images/ICDENV173.png Graphic file (type png)
 <use images/ICDENV173.png>
-Package pdftex.def Info: images/ICDENV173.png  used on input line 1573.
+Package pdftex.def Info: images/ICDENV173.png  used on input line 1514.
 (pdftex.def)             Requested size: 295.90588pt x 168.98952pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1579--1585
+[33 <./images/mplotD173.png (PNG copy)> <./images/qqplotD173.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1520--1526
 
  []
 
-[31 <./images/ICDENV2775.png>] [32 <./images/mplotD173.png (PNG copy)> <./images/qqplotD173.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1610--1620
+[34 <./images/ICDENV173.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1559--1569
 
  []
 
-<images/mod2cercle.png, id=537, 1626.075pt x 1656.1875pt>
+<images/mod2cercle.png, id=580, 1626.075pt x 1656.1875pt>
 File: images/mod2cercle.png Graphic file (type png)
 <use images/mod2cercle.png>
-Package pdftex.def Info: images/mod2cercle.png  used on input line 1623.
+Package pdftex.def Info: images/mod2cercle.png  used on input line 1572.
 (pdftex.def)             Requested size: 345.98302pt x 352.38376pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[33 <./images/ICDENV173.png>]
-<images/ICC0HCV.png, id=545, 324.46219pt x 274.02374pt>
-File: images/ICC0HCV.png Graphic file (type png)
-<use images/ICC0HCV.png>
-Package pdftex.def Info: images/ICC0HCV.png  used on input line 1661.
-(pdftex.def)             Requested size: 345.98302pt x 292.21991pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/mplotC1613.png, id=547, 574.04985pt x 400.73886pt>
+[35 <./images/mod2cercle.png (PNG copy)>]
+<images/mplotC1613.png, id=587, 574.04985pt x 400.73886pt>
 File: images/mplotC1613.png Graphic file (type png)
 <use images/mplotC1613.png>
-Package pdftex.def Info: images/mplotC1613.png  used on input line 1694.
+Package pdftex.def Info: images/mplotC1613.png  used on input line 1622.
 (pdftex.def)             Requested size: 386.96027pt x 270.1385pt.
-[34 <./images/mod2cercle.png (PNG copy)>] [35 <./images/ICC0HCV.png> <./images/mplotC1613.png>]
-<images/qqplotC1613.png, id=562, 513.08275pt x 340.45677pt>
+ [36 <./images/mplotC1613.png>]
+<images/qqplotC1613.png, id=597, 513.08275pt x 340.45677pt>
 File: images/qqplotC1613.png Graphic file (type png)
 <use images/qqplotC1613.png>
-Package pdftex.def Info: images/qqplotC1613.png  used on input line 1720.
+Package pdftex.def Info: images/qqplotC1613.png  used on input line 1644.
 (pdftex.def)             Requested size: 305.01271pt x 202.39507pt.
-<images/mplotC1961.png, id=564, 640.49716pt x 388.75095pt>
-File: images/mplotC1961.png Graphic file (type png)
-<use images/mplotC1961.png>
-Package pdftex.def Info: images/mplotC1961.png  used on input line 1736.
-(pdftex.def)             Requested size: 386.96027pt x 234.87177pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 1649--1658
+
+ []
+
+<images/coef1613HCV.png, id=599, 371.13657pt x 255.95625pt>
+File: images/coef1613HCV.png Graphic file (type png)
+<use images/coef1613HCV.png>
+Package pdftex.def Info: images/coef1613HCV.png  used on input line 1664.
+(pdftex.def)             Requested size: 305.01271pt x 210.35805pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/qqplotC1961.png, id=566, 964.51337pt x 566.5146pt>
+<images/mplotC1961.png, id=601, 640.49716pt x 388.75095pt>
+File: images/mplotC1961.png Graphic file (type png)
+<use images/mplotC1961.png>
+Package pdftex.def Info: images/mplotC1961.png  used on input line 1677.
+(pdftex.def)             Requested size: 386.96027pt x 234.87177pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/qqplotC1961.png, id=603, 964.51337pt x 566.5146pt>
 File: images/qqplotC1961.png Graphic file (type png)
 <use images/qqplotC1961.png>
-Package pdftex.def Info: images/qqplotC1961.png  used on input line 1753.
+Package pdftex.def Info: images/qqplotC1961.png  used on input line 1694.
 (pdftex.def)             Requested size: 386.96027pt x 227.28471pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1699--1708
+
+ []
+
+[37 <./images/qqplotC1613.png>]
+<images/coefHCVc1961.png, id=614, 419.31656pt x 305.64188pt>
+File: images/coefHCVc1961.png Graphic file (type png)
+<use images/coefHCVc1961.png>
+Package pdftex.def Info: images/coefHCVc1961.png  used on input line 1713.
+(pdftex.def)             Requested size: 386.96027pt x 282.0567pt.
+
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[36 <./images/qqplotC1613.png>] [37 <./images/mplotC1961.png> <./images/qqplotC1961.png>] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1838--1845
+[38 <./images/coef1613HCV.png> <./images/mplotC1961.png>] [39 <./images/qqplotC1961.png> <./images/coefHCVc1961.png>] [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1809--1826
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1838--1845
+Underfull \hbox (badness 10000) in paragraph at lines 1809--1826
 
  []
 
-[39] [40] [41] (rapport_MARIAC.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1809--1826
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1809--1826
+
+ []
+
+[41] [42]
+<images/ns3hcvacp.png, id=658, 526.96875pt x 325.215pt>
+File: images/ns3hcvacp.png Graphic file (type png)
+<use images/ns3hcvacp.png>
+Package pdftex.def Info: images/ns3hcvacp.png  used on input line 1898.
+(pdftex.def)             Requested size: 386.96027pt x 238.81924pt.
+<images/ns5aacp.png, id=659, 526.96875pt x 325.215pt>
+File: images/ns5aacp.png Graphic file (type png)
+<use images/ns5aacp.png>
+Package pdftex.def Info: images/ns5aacp.png  used on input line 1905.
+(pdftex.def)             Requested size: 386.96027pt x 238.81924pt.
+<images/ns5bacp.png, id=660, 526.96875pt x 325.215pt>
+File: images/ns5bacp.png Graphic file (type png)
+<use images/ns5bacp.png>
+Package pdftex.def Info: images/ns5bacp.png  used on input line 1912.
+(pdftex.def)             Requested size: 386.96027pt x 238.81924pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[43 <./images/ns3hcvacp.png> <./images/ns5aacp.png>] [44 <./images/ns5bacp.png>] [45] [46] (rapport_MARIAC.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `rapport_MARIAC.out' has not changed.
-(rerunfilecheck)             Checksum: E9770FD5B131DC224F35A83A743A4227;8892.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                rapport_MARIAC
-(biblatex)                and rerun LaTeX afterwards.
-
+(rerunfilecheck)             Checksum: 7834EB03576E155DFBCE372C5B578D24;9474.
 Package logreq Info: Writing requests to 'rapport_MARIAC.run.xml'.
 \openout1 = `rapport_MARIAC.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38790 strings out of 467683
- 785049 string characters out of 5414722
- 1620754 words of memory out of 5000000
- 67142 multiletter control sequences out of 15000+600000
- 695624 words of font info for 84 fonts, out of 8000000 for 9000
+ 38891 strings out of 467683
+ 788030 string characters out of 5414722
+ 1621027 words of memory out of 5000000
+ 67228 multiletter control sequences out of 15000+600000
+ 691992 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,118p,831b,1882s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/damie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rapport_MARIAC.pdf (42 pages, 2610040 bytes).
+Output written on rapport_MARIAC.pdf (47 pages, 2670034 bytes).
 PDF statistics:
- 729 PDF objects out of 1000 (max. 8388607)
- 151 named destinations out of 1000 (max. 500000)
- 648 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 810 PDF objects out of 1000 (max. 8388607)
+ 169 named destinations out of 1000 (max. 500000)
+ 717 words of extra memory for PDF output out of 10000 (max. 10000000)
 
