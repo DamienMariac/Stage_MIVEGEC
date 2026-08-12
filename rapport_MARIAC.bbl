@@ -47,11 +47,15 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Nature Genetics}
-      \field{title}{Genome-to-genome analysis highlights the impact of the human innate and adaptive immune systems on the hepatitis C virus}
+      \field{number}{5}
+      \field{title}{Genome-to-genome analysis highlights the impact of the human innate and adaptive immune systems on the hepatitis {C} virus}
+      \field{volume}{49}
       \field{year}{2017}
+      \field{pages}{666\bibrangedash 673}
+      \range{pages}{8}
     \endentry
     \entry{Pedergnanalme4}{article}{}{}
-      \name{author}{26}{}{%
+      \name{author}{25}{}{%
         {{hash=c70b01d09b65ea220595beae276334bf}{%
            family={Ansari},
            familyi={A\bibinitperiod},
@@ -109,9 +113,6 @@
            familyi={C\bibinitperiod},
            given={Vanessa\bibnamedelima M.},
            giveni={V\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-        {{hash=d163b0cd97d591d9e014ec4df23fefb2}{%
-           family={{STOP-HCV Consortium}},
-           familyi={S\bibinitperiod}}}%
         {{hash=eb01050e088b889125e190a1a4155f02}{%
            family={Hudson},
            familyi={H\bibinitperiod},
@@ -184,23 +185,60 @@
            giveni={V\bibinitperiod}}}%
       }
       \strng{namehash}{777ad9417472e5bfbe9106ad0fb44840}
-      \strng{fullhash}{155bf0522e8de8f22f1ceac595f35731}
-      \strng{fullhashraw}{155bf0522e8de8f22f1ceac595f35731}
+      \strng{fullhash}{5b1b31d3c84e3e72a3ecbc892bdb20a4}
+      \strng{fullhashraw}{5b1b31d3c84e3e72a3ecbc892bdb20a4}
       \strng{bibnamehash}{777ad9417472e5bfbe9106ad0fb44840}
       \strng{authorbibnamehash}{777ad9417472e5bfbe9106ad0fb44840}
       \strng{authornamehash}{777ad9417472e5bfbe9106ad0fb44840}
-      \strng{authorfullhash}{155bf0522e8de8f22f1ceac595f35731}
-      \strng{authorfullhashraw}{155bf0522e8de8f22f1ceac595f35731}
+      \strng{authorfullhash}{5b1b31d3c84e3e72a3ecbc892bdb20a4}
+      \strng{authorfullhashraw}{5b1b31d3c84e3e72a3ecbc892bdb20a4}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Nature Genetics}
-      \field{title}{Interferon lambda 4 impacts the genetic diversity of hepatitis C virus}
-      \field{year}{2006}
+      \field{journaltitle}{eLife}
+      \field{title}{Interferon lambda 4 impacts the genetic diversity of hepatitis {C} virus}
+      \field{volume}{8}
+      \field{year}{2019}
       \true{nocite}
+      \field{pages}{e42463}
+      \range{pages}{-1}
     \endentry
-    \entry{FISTA}{article}{}{}
+    \entry{Teboulle}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=7e285058a4af1ce645d910e3951d7b82}{%
+           family={Beck},
+           familyi={B\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod}}}%
+        {{hash=009141d6de34d70316721834af7f1e0b}{%
+           family={Teboulle},
+           familyi={T\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{c91e0d857797424d21c636688a53c132}
+      \strng{fullhash}{c91e0d857797424d21c636688a53c132}
+      \strng{fullhashraw}{c91e0d857797424d21c636688a53c132}
+      \strng{bibnamehash}{c91e0d857797424d21c636688a53c132}
+      \strng{authorbibnamehash}{c91e0d857797424d21c636688a53c132}
+      \strng{authornamehash}{c91e0d857797424d21c636688a53c132}
+      \strng{authorfullhash}{c91e0d857797424d21c636688a53c132}
+      \strng{authorfullhashraw}{c91e0d857797424d21c636688a53c132}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIAM Journal on Imaging Sciences}
+      \field{number}{1}
+      \field{title}{A Fast Iterative Shrinkage-Thresholding Algorithm for Linear Inverse Problems}
+      \field{volume}{2}
+      \field{year}{2009}
+      \true{nocite}
+      \field{pages}{183\bibrangedash 202}
+      \range{pages}{20}
+    \endentry
+    \entry{FISTA}{online}{}{}
       \name{author}{2}{}{%
         {{hash=680af58d38f3c3c0dd43394b2f898dca}{%
            family={Chambolle},
@@ -225,10 +263,17 @@
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{Preprint, HAL}
       \field{title}{Convergence des itérées de {FISTA}}
       \field{year}{2015}
+      \verb{urlraw}
+      \verb https://hal.science/hal-01060130
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-01060130
+      \endverb
     \endentry
-    \entry{GFLasso2022}{article}{}{}
+    \entry{GFLasso2022}{online}{}{}
       \name{author}{3}{}{%
         {{hash=c0ac530cc93fd2978f8388d535b1d1bc}{%
            family={Chen},
@@ -258,8 +303,12 @@
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
       \field{title}{More Powerful Selective Inference for the Graph Fused Lasso}
       \field{year}{2022}
+      \verb{eprint}
+      \verb 2109.10451
+      \endverb
     \endentry
     \entry{tuto}{article}{}{}
       \name{author}{1}{}{%
@@ -281,8 +330,8 @@
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{STV}
-      \field{title}{Comment lire une étude d’association génétique pangénomique (GWAS) ?}
+      \field{journaltitle}{Sang Thrombose Vaisseaux}
+      \field{title}{Comment lire une étude d'association génétique pangénomique ({GWAS}) ?}
       \field{year}{2012}
     \endentry
     \entry{Naret2018}{article}{}{}
@@ -325,9 +374,12 @@
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Genetics}
+      \field{journaltitle}{Frontiers in Genetics}
       \field{title}{Correcting for Population Stratification Reduces False Positive and False Negative Results in Joint Analyses of Host and Pathogen Genomes}
+      \field{volume}{9}
       \field{year}{2018}
+      \field{pages}{266}
+      \range{pages}{1}
     \endentry
     \entry{PCAstratification}{article}{}{}
       \name{author}{6}{}{%
@@ -375,10 +427,14 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Nature Genetics}
+      \field{number}{8}
       \field{title}{Principal components analysis corrects for stratification in genome-wide association studies}
+      \field{volume}{38}
       \field{year}{2006}
+      \field{pages}{904\bibrangedash 909}
+      \range{pages}{6}
     \endentry
-    \entry{GraphFusedLasso}{article}{}{}
+    \entry{GraphFusedLasso}{online}{}{}
       \name{author}{2}{}{%
         {{hash=11fdab9d3dd2445509156296b3caa442}{%
            family={Tansey},
@@ -403,8 +459,51 @@
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
       \field{title}{A Fast and Flexible Algorithm for the Graph-Fused Lasso}
       \field{year}{2015}
+      \verb{eprint}
+      \verb 1505.06475
+      \endverb
+    \endentry
+    \entry{PCSelect}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=641a3f5d5ce834c4b56fb672c5df0207}{%
+           family={Tucker},
+           familyi={T\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+        {{hash=d7232180657bcd5abc91fabf86e4984f}{%
+           family={Price},
+           familyi={P\bibinitperiod},
+           given={Alkes\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=0993c86ae6cfb70879c8ca025603d0a3}{%
+           family={Berger},
+           familyi={B\bibinitperiod},
+           given={Bonnie},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a0f90437743f1d9090aa6218b8260f6}
+      \strng{fullhash}{0a0f90437743f1d9090aa6218b8260f6}
+      \strng{fullhashraw}{0a0f90437743f1d9090aa6218b8260f6}
+      \strng{bibnamehash}{0a0f90437743f1d9090aa6218b8260f6}
+      \strng{authorbibnamehash}{0a0f90437743f1d9090aa6218b8260f6}
+      \strng{authornamehash}{0a0f90437743f1d9090aa6218b8260f6}
+      \strng{authorfullhash}{0a0f90437743f1d9090aa6218b8260f6}
+      \strng{authorfullhashraw}{0a0f90437743f1d9090aa6218b8260f6}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Genetics}
+      \field{number}{3}
+      \field{title}{Improving the Power of {GWAS} and Avoiding Confounding from Population Stratification with {PC-Select}}
+      \field{volume}{197}
+      \field{year}{2014}
+      \true{nocite}
+      \field{pages}{1045\bibrangedash 1049}
+      \range{pages}{5}
     \endentry
     \entry{ATOMM}{article}{}{}
       \name{author}{9}{}{%
@@ -466,9 +565,13 @@
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Genetics}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{number}{24}
       \field{title}{Two-way mixed-effects methods for joint association analysis using both host and pathogen genomes}
+      \field{volume}{115}
       \field{year}{2018}
+      \field{pages}{E5440\bibrangedash E5449}
+      \range{pages}{-1}
     \endentry
     \entry{GxG_TB}{article}{}{}
       \name{author}{23}{}{%
@@ -601,7 +704,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{BMC Medical Genomics}
-      \field{title}{Genome-to-genome analysis reveals associations between human and mycobacterial genetic variation in tuberculosis patients from Tanzania}
+      \field{title}{Genome-to-genome analysis reveals associations between human and mycobacterial genetic variation in tuberculosis patients from {T}anzania}
       \field{year}{2025}
       \true{nocite}
     \endentry
@@ -725,9 +828,13 @@
       \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Nature Genetics}
+      \field{journaltitle}{European Journal of Human Genetics}
+      \field{number}{7}
       \field{title}{Genomic inflation factors under polygenic inheritance}
-      \field{year}{2010}
+      \field{volume}{19}
+      \field{year}{2011}
+      \field{pages}{807\bibrangedash 812}
+      \range{pages}{6}
     \endentry
   \enddatalist
 \endrefsection

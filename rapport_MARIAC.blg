@@ -1,15 +1,15 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'rapport_MARIAC.blg'
-[184] biber-MSWIN64:342> INFO - === 
-[220] Biber.pm:421> INFO - Reading 'rapport_MARIAC.bcf'
-[330] Biber.pm:999> INFO - Using all citekeys in bib section 0
-[347] Biber.pm:4487> INFO - Processing section 0
-[360] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[425] bibtex.pm:1713> INFO - LaTeX decoding ...
-[449] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[607] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
-[607] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[607] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'fr-FR'
-[608] Biber.pm:4313> INFO - No sort tailoring available for locale 'fr-FR'
-[620] bbl.pm:676> INFO - Writing 'rapport_MARIAC.bbl' with encoding 'UTF-8'
-[639] bbl.pm:779> INFO - Output to rapport_MARIAC.bbl
+[228] biber-MSWIN64:342> INFO - === 
+[313] Biber.pm:421> INFO - Reading 'rapport_MARIAC.bcf'
+[462] Biber.pm:999> INFO - Using all citekeys in bib section 0
+[481] Biber.pm:4487> INFO - Processing section 0
+[512] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[583] bibtex.pm:1713> INFO - LaTeX decoding ...
+[609] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[806] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[806] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[807] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'fr-FR'
+[807] Biber.pm:4313> INFO - No sort tailoring available for locale 'fr-FR'
+[883] bbl.pm:676> INFO - Writing 'rapport_MARIAC.bbl' with encoding 'UTF-8'
+[903] bbl.pm:779> INFO - Output to rapport_MARIAC.bbl

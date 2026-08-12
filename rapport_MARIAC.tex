@@ -14,6 +14,8 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xcolor}
 \usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{booktabs}
 \usepackage[backend=biber]{biblatex}
 \geometry{margin=2.5cm}
 
@@ -737,8 +739,9 @@ Les deux matrices de parenté $K_v$ et $K_h$ appelé GRM sont calculées à part
 K_v = \frac{1}{q}YY^t, \qquad K_h = \frac{1}{p}XX^t
 \]
 \\
-Pour être plus rigoureux, on enlève le site qui correspond à la variable réponse dans le calcul de la GRM afin d'éviter un biais dans l'estimation de l'effet aléatoire.
+Pour être plus rigoureux, on enlève les site qui interviennent en tant que variable réponse et variable explicative dans le calcul des GRM afin d'éviter un biais dans l'estimation de l'effet aléatoire.
 Cette méthode s'appelle LOCO pour Leave One Chromosome Out. Ainsi, pour un site viral $i$ fixé, on calcule la matrice de parenté virale $K_v$ à partir de la matrice $Y_{-i}$ qui correspond à la matrice $Y$ sans la colonne $i$.
+On fait de même avec la matrice de parenté $K_h$ en enlevant la colonne $j$ de la matrice $X$ pour un SNP $j$ fixé.
 \\
 \\
 Par la suite, on va tester un modèle avec un codage continu du côté du virus tout en gardant le codage additif du côté de l'hôte. Ce modèle s'écrit alors :
@@ -958,29 +961,21 @@ Le facteur d'inflation est alors le rapport entre la médiane empirique de ces s
 valeur attendue sous $H_0$~:
 \[
 \lambda_{\text{median}} \;=\;
-\frac{\operatorname{med}\left(\chi^{2}_{1}, \dots, \chi^{2}_{n}\right)}
+\frac{\operatorname{med}\left(T_{1}, \dots, T_{n}\right)}
      {\operatorname{med}\left(\chi^{2}_{1}\right)}
 \;=\;
-\frac{\operatorname{med}\left(\chi^{2}_{i}\right)}{0.4549}\, .
+\frac{\operatorname{med}\left(T_{i}\right)}{0.4549}\, ,
 \]
-La constante au dénominateur est la médiane théorique d'une loi $\chi^{2}$ à un degré de liberté. De plus, les espérances sous
-$H_0$ de la moyenne et de la médiane des $\chi^{2}$ valent respectivement $1.0$
-et~$0.455$. Formellement, $\lambda_{\text{median}} = c \,/\,
-\operatorname{med}(\chi^{2}_{1})$ où $c$ est défini par $Q(c) = 0.5$, $Q$ étant la fonction de
-répartition empirique des statistiques observées.
+où $\operatorname{med}(\chi^{2}_{1}) = 0.4549$ est la médiane théorique d'une loi du khi-deux à un
+degré de liberté. Sous $H_0$, une telle statistique a pour espérance $1$ et pour médiane $0.4549$~;
+un $\lambda_{\text{median}}$ voisin de $1$ indique donc que le corps de la distribution observée se
+comporte comme la loi de référence.
 \\
 \\
 Le recours à la \emph{médiane} plutôt qu'à la moyenne est justifié par les auteurs. Un petit nombre de SNPs
 réellement associés produit des statistiques très grandes qui déplacent la moyenne mais laissent la
 médiane inchangée. $\lambda_{\text{median}}$ mesure donc le comportement du corps de la
-distribution, là où l'hypothèse nulle est censée s'appliquer, plutôt que celui de sa queue. On
-définit symétriquement
-\[
-\lambda_{\text{mean}} \;=\; \frac{1}{n}\sum_{i=1}^{n} \chi^{2}_{i},
-\]
-dont l'espérance sous $H_0$ vaut~$1$, et dont nous verrons que la comparaison avec
-$\lambda_{\text{median}}$ est instructive.
- 
+distribution, là où l'hypothèse nulle est censée s'appliquer, plutôt que celui de sa queue.
 \vspace{1cm}
 
 L'interprétation classique : $\lambda > 1$ signale une structure de population résiduelle a été
@@ -1919,51 +1914,87 @@ est particulièrement intéressante dans notre contexte, où le modèle doit
 
 \subsection{Recoupement des deux codages}
 
-\begin{table}[htpb]
-\centering
-\caption{Signaux significatifs pour le codage continu modélisés par le codage binaire (VHC)}
-\label{tab:comparaison_codages}
-\vspace{0.2cm}
-\begin{tabular}{llc}
-\toprule
-\textbf{Site viral} & \textbf{SNP} & \textbf{Valeur $p$} \\
-\midrule
-pos\_249 & rs12666207 & 0.08455 \\
-pos\_387 & rs112616059 & 0.7273 \\
-pos\_399 & rs61793028 & 0.1769 \\
-pos\_482 & rs76162091 & 0.02274 \\
-pos\_498 & rs150422858 & 0.1619 \\
-pos\_668 & rs143243292 & 0.3541 \\
-pos\_760 & rs77934414 & 0.1256 \\
-pos\_932 & rs150654446 & 0.456 \\
-pos\_963 & rs189912068 & 0.07823 \\
-pos\_1061 & rs114320473 & 0.8912 \\
-pos\_1075 & rs145634567 & 0.0123 \\
-pos\_1200 & rs123456789 & 0.4501 \\
-pos\_1211 & rs987654321 & 0.6789 \\
-pos\_1345 & rs192837465 & 0.00345 \\
-pos\_1402 & rs564738291 & 0.2345 \\
-pos\_1567 & rs102938475 & 0.0987 \\
-pos\_1689 & rs574839201 & 0.5432 \\
-pos\_1720 & rs384756102 & 0.8765 \\
-pos\_1805 & rs293847561 & 0.0456 \\
-pos\_1900 & rs102938475 & 0.3456 \\
-pos\_1999 & rs564738291 & 0.00012 \\
-pos\_2045 & rs192837465 & 0.9876 \\
-pos\_2100 & rs987654321 & 0.1234 \\
-pos\_2234 & rs123456789 & 0.6543 \\
-pos\_2345 & rs145634567 & 0.4321 \\
-pos\_2400 & rs114320473 & 0.0765 \\
-pos\_2500 & rs189912068 & 0.2341 \\
-pos\_2678 & rs150654446 & 0.8901 \\
-pos\_2789 & rs77934414 & 0.0056 \\
-\bottomrule
-\end{tabular}
+\begin{table}[h!]
+  \centering
+  \footnotesize
+  \caption{Paires SNP--site viral retenues ($n = 29$).}
+  \label{tab:snp_site_virus}
+  \begin{tabular}{llrrccrrrrrr}
+    \toprule
+    Site & SNP & CHR & Position & A1 & A2 & $N$ & Manquants & MAF & Stat.~1 & Stat.~2 & $p$ \\
+    \midrule
+    pos\_249  & rs12666207  & 7  & 109901358 & C & T & 470 & 0.0000 & 0.0947 & 7.034  & 16.628 & 0.0845 \\
+    pos\_387  & rs112616059 & 4  & 36675861  & C & T & 470 & 0.0000 & 0.0723 & 1.351  & 15.011 & 0.7273 \\
+    pos\_399  & rs61793028  & 4  & 27822890  & G & A & 470 & 0.0000 & 0.0691 & 5.063  & 14.057 & 0.1769 \\
+    pos\_482  & rs76162091  & 2  & 236427391 & A & G & 469 & 0.0021 & 0.0533 & 7.224  & 10.060 & 0.0227 \\
+    pos\_498  & rs150422858 & 23 & 118307625 & T & C & 150 & 0.3404 & 0.0597 & 2.172  & 2.412  & 0.1619 \\
+    pos\_498  & rs7880087   & 23 & 118866734 & G & A & 150 & 0.3404 & 0.0500 & 4.712  & 2.167  & 0.0014 \\
+    pos\_532  & rs75742804  & 6  & 108753108 & A & G & 469 & 0.0021 & 0.0640 & 1.772  & 13.106 & 0.6245 \\
+    pos\_532  & rs74480278  & 8  & 32906027  & A & T & 469 & 0.0021 & 0.0501 & 3.619  & 10.213 & 0.2574 \\
+    pos\_879  & rs6903926   & 6  & 89737774  & C & T & 469 & 0.0021 & 0.0629 & 3.845  & 10.864 & 0.2434 \\
+    pos\_935  & rs2098159   & 4  & 58072736  & C & T & 470 & 0.0000 & 0.0926 & 10.028 & 16.166 & 0.0126 \\
+    pos\_1099 & rs11901744  & 2  & 192753035 & A & G & 468 & 0.0043 & 0.0524 & 4.624  & 6.745  & 0.0750 \\
+    pos\_1099 & rs10277213  & 7  & 90076713  & A & G & 468 & 0.0043 & 0.0737 & 3.885  & 7.609  & 0.1591 \\
+    pos\_1613 & rs11805012  & 1  & 227221683 & G & A & 468 & 0.0043 & 0.0652 & 4.426  & 11.733 & 0.1963 \\
+    pos\_1613 & rs11802399  & 1  & 227353753 & T & C & 466 & 0.0085 & 0.0655 & 4.682  & 11.721 & 0.1714 \\
+    pos\_1613 & rs74599093  & 1  & 227447282 & G & A & 469 & 0.0021 & 0.0640 & 4.047  & 11.570 & 0.2342 \\
+    pos\_1613 & rs115058698 & 1  & 227483194 & C & T & 468 & 0.0043 & 0.0641 & 4.002  & 11.572 & 0.2394 \\
+    pos\_1961 & rs893184    & 8  & 26485062  & C & T & 469 & 0.0021 & 0.0917 & 8.697  & 10.377 & 0.0069 \\
+    pos\_1968 & rs139343845 & 23 & 16853107  & C & T & 150 & 0.3404 & 0.0468 & 1.313  & 2.294  & 0.3859 \\
+    pos\_1968 & rs55963750  & 23 & 38661139  & C & T & 149 & 0.3436 & 0.0762 & 1.919  & 3.252  & 0.2872 \\
+    pos\_1985 & rs7152082   & 14 & 59610371  & C & T & 469 & 0.0021 & 0.0661 & 10.889 & 10.518 & 0.0008 \\
+    pos\_2309 & rs74154309  & 1  & 248759334 & A & G & 466 & 0.0085 & 0.1062 & 9.531  & 10.958 & 0.0040 \\
+    pos\_2383 & rs73925656  & 2  & 45648877  & A & G & 468 & 0.0043 & 0.0545 & 5.390  & 8.054  & 0.0575 \\
+    pos\_2383 & rs17033779  & 2  & 45745494  & C & G & 466 & 0.0085 & 0.0515 & 4.062  & 7.663  & 0.1423 \\
+    pos\_2386 & rs17328824  & 10 & 3863901   & G & A & 470 & 0.0000 & 0.1021 & 7.310  & 16.916 & 0.0755 \\
+    pos\_2636 & rs7560066   & 2  & 110439031 & A & G & 470 & 0.0000 & 0.0457 & 3.758  & 6.137  & 0.1293 \\
+    pos\_2636 & rs17066125  & 13 & 76910089  & G & A & 466 & 0.0085 & 0.0515 & 6.452  & 6.175  & 0.0094 \\
+    pos\_2804 & rs62122048  & 2  & 20740405  & G & A & 468 & 0.0043 & 0.0684 & 2.742  & 11.489 & 0.4186 \\
+    pos\_2804 & rs28663468  & 10 & 10161515  & C & T & 467 & 0.0064 & 0.0567 & 0.729  & 8.797  & 0.8058 \\
+    pos\_2806 & rs7062509   & 23 & 91225702  & T & C & 150 & 0.3404 & 0.0548 & 2.811  & 2.542  & 0.0779 \\
+    \bottomrule
+  \end{tabular}
 \end{table}
 
+\newpage
+\subsection{Lexique des termes biologiques}
 
+Ce lexique vise à définir simplement les concepts biologiques et génétiques manipulés tout au long de ce rapport, afin de clarifier les objets modélisés statistiquement.
+
+\begin{description}
+
+    \item[Acide aminé :] Molécule constituant la brique de base des protéines. Il en existe 20 différents. Une mutation virale peut entraîner le remplacement d'un acide aminé par un autre, ce qui modifie la séquence de la protéine (recodé via la distance de Grantham dans nos modèles continus).
+    
+    \item[Allèle :] L'une des différentes formes que peut prendre un site génétique donné. Dans nos modèles logistiques, on compte généralement le nombre de copies (0, 1 ou 2) de l'allèle "alternatif" par rapport à un allèle "de référence".
+    
+    \item[ARN (Acide Ribonucléique) :] Support de l'information génétique pour des virus comme le VHC et la dengue. Sa réplication est sujette à de nombreuses erreurs, ce qui explique le fort taux de mutation de ces virus.
+    
+    \item[CMH / HLA (Complexe Majeur d'Histocompatibilité) :] Région très spécifique du génome de l'hôte (située sur le chromosome 6 chez l'humain, appelée HLA). Elle produit les protéines chargées de présenter les fragments du virus au système immunitaire. C'est une zone clé pour les phénomènes d'échappement viral.
+    
+    \item[Déséquilibre de liaison :] Phénomène statistique par lequel des variants génétiques (SNPs) géographiquement proches sur un chromosome sont fortement corrélés entre eux. Cela explique pourquoi un variant causal apparaît souvent entouré d'un "pic" de SNPs voisins également significatifs sur un Manhattan plot.
+    
+    \item[Génotype :] L'ensemble de l'information génétique d'un individu. Dans ce rapport, il correspond à la matrice explicative $X$ contenant le dosage allélique de l'hôte.
+    
+    \item[GxG (Genome-to-Genome) :] Stratégie d'étude d'association (supervisée) consistant à modéliser les variations du génome du pathogène (le virus, variable à expliquer) en fonction des variations du génome de l'hôte (variables explicatives).
+    
+    \item[Nucléotide :] Brique de base (les "lettres") constituant l'ARN ou l'ADN.
+    
+    \item[Phylogénie :] Étude de l'histoire évolutive et des liens de parenté (structure de population) entre différentes souches virales, souvent représentée sous forme d'arbre.
+    
+    \item[Profondeur (de séquençage) :] Le nombre de fragments (reads) lus par la machine qui se superposent exactement à une même position génomique. Une forte profondeur donne une assurance statistique que la mutation lue n'est pas une simple erreur de la machine.
+    
+    \item[Read (ou Lecture) :] Court fragment d'ARN découpé et lu aléatoirement par le séquenceur, qui doit ensuite être réaligné informatiquement par rapport à une séquence de référence.
+    
+    \item[Sérotype :] Sous-groupe d'un virus caractérisé par les antigènes présents à sa surface. Le virus de la dengue possède plusieurs sérotypes dont la divergence évolutive ancienne crée une forte structure de population virale.
+    
+    \item[SNP (Single Nucleotide Polymorphism) :] Variation d'une seule paire de bases (un nucléotide) dans le génome de l'hôte. C'est l'unité de base de la diversité génétique de l'hôte testée dans nos modèles.
+    
+    \item[Substitution :] Remplacement d'un acide aminé par un autre. Elle est qualifiée de "conservative" si les propriétés chimiques restent similaires, ou de "radicale" si les propriétés changent fortement (impactant le virus).
+
+\end{description}
 
 \newpage
+\nocite{*}
 \printbibliography
 \end{document}
 
